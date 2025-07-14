@@ -13,11 +13,8 @@ export const HTML__HOMEPAGE_DESCRIPTION = `I’ve created a website to share <a 
  * @type {Record<string, string>}
  */
 export const MODULE_CODES = {
-  "Program Construction": "CS1040",
-  "Theory of Electricity": "EE2094",
-  "Methods of Mathematics": "MA1024",
-  "Computer Organization and Digital Design": "CS1050",
-  "Data Structures and Algorithms": "CS2023",
+  "Artificial Intelligence": "CS3613",
+  "Computer Architecture": "CS2053",
 };
 
 export const BOOK_CONFIG = {
@@ -44,6 +41,18 @@ if (process.env.NODE_ENV === "production") {
  * @type {Parameters<typeof starlight>[0]["sidebar"]}
  */
 export const STARLIGHT_SIDEBAR_CONFIG = [
+  {
+    label: "AI",
+    autogenerate: {
+      directory: "ai",
+    }
+  },
+  {
+    label: "Computer Architecture",
+    autogenerate: {
+      directory: "computer-architecture",
+    }
+  },
   {
     label: "License",
     link: "/license",
