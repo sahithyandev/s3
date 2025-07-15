@@ -15,6 +15,7 @@ export const HTML__HOMEPAGE_DESCRIPTION = `I’ve created a website to share <a 
 export const MODULE_CODES = {
   "Artificial Intelligence": "CS3613",
   "Computer Architecture": "CS2053",
+  "Thermodynamics": "ME1823"
 };
 
 export const BOOK_CONFIG = {
@@ -51,6 +52,12 @@ export const STARLIGHT_SIDEBAR_CONFIG = [
     label: "Computer Architecture",
     autogenerate: {
       directory: "computer-architecture",
+    }
+  },
+  {
+    label: "Thermodynamics",
+    autogenerate: {
+      directory: "thermodynamics",
     }
   },
   {
