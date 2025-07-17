@@ -2,6 +2,9 @@
 title: System
 sidebar:
   order: 2
+slug: thermodynamics/system
+prev: true
+next: true
 ---
 
 Region of space, enclosed by a boundary.

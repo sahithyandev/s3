@@ -2,6 +2,9 @@
 title: Energy
 sidebar:
   order: 3
+slug: thermodynamics/energy
+prev: true
+next: false
 ---
 
 
