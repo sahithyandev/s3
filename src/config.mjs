@@ -14,8 +14,13 @@ export const HTML__HOMEPAGE_DESCRIPTION = `I’ve created a website to share <a 
  */
 export const MODULE_CODES = {
   "Artificial Intelligence": "CS3613",
+  "Applied Statistics": "MA3014",
   "Computer Architecture": "CS2053",
-  "Thermodynamics": "ME1823"
+  "Data Communication and Networking": "CS2033",
+  "Database Systems": "CS3043",
+  "Differential Equations": "MA2014",
+  "Operating Systems": "CS2043",
+  "Thermodynamics": "ME1823",
 };
 
 export const BOOK_CONFIG = {
@@ -49,9 +54,39 @@ export const STARLIGHT_SIDEBAR_CONFIG = [
     }
   },
   {
+    label: "Applied Statistics",
+    autogenerate: {
+      directory: "applied-statistics",
+    }
+  },
+  {
     label: "Computer Architecture",
     autogenerate: {
       directory: "computer-architecture",
+    }
+  },
+  {
+    label: "Data Communication and Networking",
+    autogenerate: {
+      directory: "data-communication-and-networking",
+    }
+  },
+  {
+    label: "Database Systems",
+    autogenerate: {
+      directory: "database-systems",
+    }
+  },
+  {
+    label: "Differential Equations",
+    autogenerate: {
+      directory: "differential-equations",
+    }
+  },
+  {
+    label: "Operating Systems",
+    autogenerate: {
+      directory: "operating-systems",
     }
   },
   {
