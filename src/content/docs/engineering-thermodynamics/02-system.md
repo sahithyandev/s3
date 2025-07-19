@@ -89,3 +89,7 @@ A thermodynamic process that can be reversed without any trace on the surroundin
 ### Irreversible process
 
 A thermodynamic process that cannot be reversed without any trace on the surrounding.
+
+### Steady flow process
+
+A thermodynamic process in which, at any fixed point, they remain the same during the entire process.

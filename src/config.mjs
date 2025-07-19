@@ -19,8 +19,8 @@ export const MODULE_CODES = {
   "Data Communication and Networking": "CS2033",
   "Database Systems": "CS3043",
   "Differential Equations": "MA2014",
+  "Engineering Thermodynamics": "ME1823",
   "Operating Systems": "CS2043",
-  "Thermodynamics": "ME1823",
 };
 
 export const BOOK_CONFIG = {
@@ -84,15 +84,15 @@ export const STARLIGHT_SIDEBAR_CONFIG = [
     }
   },
   {
-    label: "Operating Systems",
+    label: "Engineering Thermodynamics",
     autogenerate: {
-      directory: "operating-systems",
+      directory: "engineering-thermodynamics",
     }
   },
   {
-    label: "Thermodynamics",
+    label: "Operating Systems",
     autogenerate: {
-      directory: "thermodynamics",
+      directory: "operating-systems",
     }
   },
   {
