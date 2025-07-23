@@ -66,11 +66,7 @@ An entity that perceives the environment and acts accordingly. Expected to opera
 
 All skills required to pass the Turing test allows the agent to act rationally.
 
-#### Rational agent
-
-An agent that acts as to achieve the best outcome when there is uncertainty. Built to do the _right_ think. The _right_ think is the objective that is provided to the agent.
-
-Perfect rationality is not feasible in complex environments because of the computational demands. Limited rationality is aimed in that case.
+More on agents is explained on [its own page](/ai/agents).
 
 ## Foundations
 
