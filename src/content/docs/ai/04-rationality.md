@@ -2,6 +2,9 @@
 title: Rationality
 sidebar:
   order: 4
+slug: ai/rationality
+prev: true
+next: true
 ---
 
 ### Perfect rationality

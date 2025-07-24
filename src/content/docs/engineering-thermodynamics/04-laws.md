@@ -2,6 +2,9 @@
 title: Laws of Thermodynamics
 sidebar:
   order: 4
+slug: engineering-thermodynamics/laws
+prev: true
+next: true
 ---
 
 Empirical laws that explain the behavior of thermodynamic systems.

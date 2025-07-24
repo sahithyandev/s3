@@ -3,7 +3,7 @@ title: Introduction to Thermodynamics
 sidebar:
   order: 1
   label: Introduction
-slug: thermodynamics/introduction
+slug: engineering-thermodynamics/introduction
 prev: false
 next: true
 ---

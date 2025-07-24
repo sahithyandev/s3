@@ -2,6 +2,9 @@
 title: Performance Measure
 sidebar:
   order: 3
+slug: ai/performance-measure
+prev: true
+next: true
 ---
 
 A measure of the effectiveness of the agent function.

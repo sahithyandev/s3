@@ -2,7 +2,7 @@
 title: System
 sidebar:
   order: 2
-slug: thermodynamics/system
+slug: engineering-thermodynamics/system
 prev: true
 next: true
 ---

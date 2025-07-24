@@ -2,9 +2,9 @@
 title: Energy
 sidebar:
   order: 3
-slug: thermodynamics/energy
+slug: engineering-thermodynamics/energy
 prev: true
-next: false
+next: true
 ---
 
 

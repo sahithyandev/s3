@@ -5,7 +5,7 @@ sidebar:
   label: Introduction
 slug: ai/introduction
 prev: false
-next: false
+next: true
 ---
 
 ## Definitions

@@ -2,6 +2,9 @@
 title: Agents
 sidebar:
   order: 2
+slug: ai/agents
+prev: true
+next: true
 ---
 
 Anything that can perceive the environment using sensors and act upon it using actuators.

@@ -2,6 +2,9 @@
 title: Task Environment
 sidebar:
   order: 5
+slug: ai/task-environment
+prev: true
+next: false
 ---
 
 The problems to which an agent attempts to provide solutions for. Must be specified as fully as possible before implementing an agent.
