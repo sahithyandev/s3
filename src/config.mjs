@@ -49,48 +49,56 @@ if (process.env.NODE_ENV === "production") {
 export const STARLIGHT_SIDEBAR_CONFIG = [
   {
     label: "AI",
+    collapsed: true,
     autogenerate: {
       directory: "ai",
-    }
+    },
   },
   {
     label: "Applied Statistics",
+    collapsed: true,
     autogenerate: {
       directory: "applied-statistics",
     }
   },
   {
     label: "Computer Architecture",
+    collapsed: true,
     autogenerate: {
       directory: "computer-architecture",
     }
   },
   {
     label: "Data Communication and Networking",
+    collapsed: true,
     autogenerate: {
-      directory: "data-communication-and-networking",
+      directory: "data-communication-networking",
     }
   },
   {
     label: "Database Systems",
+    collapsed: true,
     autogenerate: {
       directory: "database-systems",
     }
   },
   {
     label: "Differential Equations",
+    collapsed: true,
     autogenerate: {
       directory: "differential-equations",
     }
   },
   {
     label: "Engineering Thermodynamics",
+    collapsed: true,
     autogenerate: {
       directory: "engineering-thermodynamics",
     }
   },
   {
     label: "Operating Systems",
+    collapsed: true,
     autogenerate: {
       directory: "operating-systems",
     }
