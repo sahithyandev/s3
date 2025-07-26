@@ -66,7 +66,7 @@ All instructions are 32 bits wide. All the instructions are encoded in different
 
 ### Instruction Types
 
-![Instruction types](/images/computer-architecture/risc-v-instruction-types.jpg)
+![Instruction types](./images/risc-v-instruction-types.jpg)
 
 ### R-type
 
