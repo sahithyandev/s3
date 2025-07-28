@@ -4,7 +4,7 @@ sidebar:
   order: 3
 slug: computer-architecture/risc-v-architecture
 prev: true
-next: false
+next: true
 ---
 
 An open-standard ISA based on established RISC principles. Open source. Modular by design. Denoted as <b>RV32I</b> or <b>RV64I</b>, where the numbers represent the bit width of the registers and the address bus. Here only 32-bit instructions are explained.

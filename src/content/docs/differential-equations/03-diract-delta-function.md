@@ -2,6 +2,9 @@
 title: Diract Delta Function
 sidebar:
   order: 3
+slug: differential-equations/diract-delta-function
+prev: true
+next: false
 ---
 
 Consider the sequence of functions $\delta_n$ defined as:

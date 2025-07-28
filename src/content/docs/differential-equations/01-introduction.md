@@ -3,7 +3,7 @@ title: Introduction to Differential Equations
 sidebar:
   order: 1
   label: Introduction
-slug: data-communication-networking/introduction
+slug: differential-equations/introduction
 prev: false
 next: true
 ---

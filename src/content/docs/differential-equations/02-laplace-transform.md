@@ -2,6 +2,9 @@
 title: Laplace Transform
 sidebar:
   order: 2
+slug: differential-equations/laplace-transform
+prev: true
+next: true
 ---
 
 The process of converting a function of real variable $t$ into a complex variable $s$.
