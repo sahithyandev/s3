@@ -118,10 +118,50 @@ As both the instruction size and the address bus size are 32 bits wide, the targ
 
 Conditional branch operations. Similar to jumps, but for temporary jumps.
 
+Memory is byte-addressable. Instructions can only start from addresses that are multiples of 4 (otherwise it would be complex and slower). As branch targets must point to instructions, the target memory address must be aligned to a multiple of 4, which means the 2 LSBs are always 0. When compressed instructions are used, the target memory address must be aligned to a multiple of 2.
+
+To improve the branch range, the LSB, which is always 0, is not stored in the instruction. When actually executing the instruction, the target address is multiplied by 2.
+
 ### U-type
 
 Upper immediate operations.
 
+The instruction format:
+
+| Section     | Width (bits) | Description                |
+| ----------- | ------------ | -------------------------- |
+| `imm[31:12]`| 20 [31:12]   | 20-bit immediate value     |
+| `rd`        | 5 [11:7]     | Destination register       |
+| `opcode`    | 7 [6:0]      | Operation code             |
+
+Handle large immediate values (20 bits). Used for `LUI` (Load Upper Immediate) to set the upper 20 bits of a register and `AUIPC` (Add Upper Immediate to PC) for PC-relative addressing. These instructions enable efficient address calculation and large constant loading.
+
 ### J-type
 
-Jump operations. Similar to branch operations, but used for long jumps.
+Used for unconditional jump operations. Similar to branch operations, but used for long range. Has an unintuitive instruction format for better performance.
+
+The instruction format:
+
+| Section     | Width (bits) | Description                      |
+| ----------- | ------------ | -------------------------------- |
+| `imm[20]`   | 1 [31]       | MSB of offset (sign bit) |
+| `imm[10:1]` | 10 [30:21]   | Midle bits of offset            |
+| `imm[11]`   | 1 [20]       | Another bit of offset            |
+| `imm[19:12]`| 8 [19:12]    | Upper bits of offset             |
+| `rd`        | 5 [11:7]     | Destination register             |
+| `opcode`    | 7 [6:0]      | Operation code                   |
+
+Enables 20-bit signed offsets (multiplied by 2), allowing jumps to targets further away than B-type branches. The immediate bits are arranged in a non-sequential order to simplify hardware implementation. The most significant bit is placed at bit 31 for efficient sign extension, and the remaining bits are organized to maximize compatibility with other instruction formats.
+
+Like B-type instructions, the least significant bit of the target address is omitted as it must be 0 (instructions are aligned on even byte boundaries when using compressed instructions, or 4-byte boundaries otherwise). The jump offset is sign-extended and added to the PC to form the jump target address.
+
+## Important Design Decisions
+
+### Instruction format
+
+Instructions of RISC-V are designed to follow maximum commanility.
+- Opcode is always last 7 bits.
+- When required, `rd` is always last 5 bits.
+- If `rd` is not required, a subset of `imm` is stored there.
+- When `imm` is required, its MSB is stored in the instruction's MSB.   
+  Reason: to improve performance in sign extension
