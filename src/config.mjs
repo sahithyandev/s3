@@ -48,10 +48,10 @@ if (process.env.NODE_ENV === "production") {
  */
 export const STARLIGHT_SIDEBAR_CONFIG = [
   {
-    label: "AI",
+    label: "Artificial Intelligence",
     collapsed: true,
     autogenerate: {
-      directory: "ai",
+      directory: "artificial-intelligence",
     },
   },
   {

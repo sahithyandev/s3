@@ -1,5 +1,5 @@
 ---
-title: Introduction to AI
+title: Introduction to Artificial Intelligence
 sidebar:
   order: 1
   label: Introduction
