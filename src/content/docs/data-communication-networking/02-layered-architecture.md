@@ -4,7 +4,7 @@ sidebar:
   order: 2
 slug: data-communication-networking/layered-architecture
 prev: true
-next: false
+next: true
 ---
 
 Functionality of communication through the network is split into separate layers.
