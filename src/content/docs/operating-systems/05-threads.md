@@ -2,6 +2,9 @@
 title: Threads
 sidebar:
   order: 5
+slug: operating-systems/threads
+prev: true
+next: true
 ---
 
 A thread is the basic unit of CPU utilization, consisting of a program counter, a stack, and a set of registers. Threads are sometimes called lightweight processes because they have some of the properties of processes but are more efficient to create and manage.

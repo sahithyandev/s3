@@ -2,6 +2,9 @@
 title: Kernel
 sidebar:
   order: 2
+slug: operating-systems/kernel
+prev: true
+next: true
 ---
 
 The one program running at all times on the computer. Core of an OS.

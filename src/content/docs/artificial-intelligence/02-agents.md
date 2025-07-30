@@ -2,7 +2,7 @@
 title: Agents
 sidebar:
   order: 2
-slug: ai/agents
+slug: artificial-intelligence/agents
 prev: true
 next: true
 ---

@@ -2,6 +2,9 @@
 title: Process Scheduling
 sidebar:
   order: 4
+slug: operating-systems/process-scheduling
+prev: true
+next: true
 ---
 
 The process of selecting the suitable core from the available. To maximize CPU utilization. Handled by process scheduler. Maintains 2 queues:

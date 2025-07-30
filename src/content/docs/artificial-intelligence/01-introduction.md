@@ -3,7 +3,7 @@ title: Introduction to Artificial Intelligence
 sidebar:
   order: 1
   label: Introduction
-slug: ai/introduction
+slug: artificial-intelligence/introduction
 prev: false
 next: true
 ---

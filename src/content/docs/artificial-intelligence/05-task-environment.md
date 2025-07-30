@@ -2,7 +2,7 @@
 title: Task Environment
 sidebar:
   order: 5
-slug: ai/task-environment
+slug: artificial-intelligence/task-environment
 prev: true
 next: false
 ---

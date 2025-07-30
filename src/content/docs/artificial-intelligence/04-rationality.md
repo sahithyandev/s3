@@ -2,7 +2,7 @@
 title: Rationality
 sidebar:
   order: 4
-slug: ai/rationality
+slug: artificial-intelligence/rationality
 prev: true
 next: true
 ---

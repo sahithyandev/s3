@@ -5,7 +5,7 @@ sidebar:
   label: Introduction
 slug: operating-systems/introduction
 prev: false
-next: false
+next: true
 ---
 
 A program that acts as an intermediary between a user of a

@@ -2,7 +2,7 @@
 title: Performance Measure
 sidebar:
   order: 3
-slug: ai/performance-measure
+slug: artificial-intelligence/performance-measure
 prev: true
 next: true
 ---
