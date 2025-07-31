@@ -1,10 +1,10 @@
 ---
 title: Energy Balance
 sidebar:
-  order: 5
+  order: 6
 slug: engineering-thermodynamics/energy-balance
 prev: true
-next: false
+next: true
 ---
 
 Based on [the 1st law](/engineering-thermodynamics/laws/1st-law), more specific equations are derived on a case by case basis.
