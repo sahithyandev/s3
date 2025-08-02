@@ -23,11 +23,17 @@ function safeParseInt(value, defaultValue = undefined) {
     @param {Array<string>} mdFilePaths
 */
 export async function autoSlug(mdFilePaths) {
+  // remove images and summary from the file
+  // do it in-place so that it is more performant
+  mdFilePaths = mdFilePaths.filter((filePath) => {
+    if (!filePath.endsWith(".md") || filePath.includes("/summary/") || filePath.includes("/images/")) {
+      return false;
+    }
+    return true;
+  });
+  
 	for (let i = 0; i < mdFilePaths.length; i++) {
 		const filePath = mdFilePaths[i];
-		if (!filePath.endsWith(".md") || filePath.includes("/summary/")) {
-			continue;
-		}
 		const file = matter.read(filePath);
 		const { data: currentFrontMatter } = file;
 
