@@ -16,9 +16,13 @@ The complete history of everything an agent has perceived.
 Maps an agent's percept sequence to an action.
 
 ### Agent program
-An implementation of agent function.
+An implementation of agent function. Maps percepts to actions. Can be considered as the _brain_ of the agent. Dicussed more in depth in [the coming section](/artificial-intelligence/agent-program).
 
-An agent program's effectiveness is measured through a [performance measure](/ai/performance-measure).
+### Agent architecture
+
+The computing device with physical sensors and actuators on which the agent program runs.
+
+An agent program's effectiveness is measured through a [performance measure](/ai/performance-measure). An agent is the combination of the agent program and the agent architecture.
 
 ### Autonomous
 

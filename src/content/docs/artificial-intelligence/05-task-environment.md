@@ -4,7 +4,7 @@ sidebar:
   order: 5
 slug: artificial-intelligence/task-environment
 prev: true
-next: false
+next: true
 ---
 
 The problems to which an agent attempts to provide solutions for. Must be specified as fully as possible before implementing an agent.
