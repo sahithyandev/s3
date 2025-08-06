@@ -4,12 +4,12 @@ sidebar:
   order: 7
 slug: artificial-intelligence/learning-agent
 prev: true
-next: false
+next: true
 ---
 
 ### Performance element
 
-Takes in percepts and decides on actions. What is meant by "agent" now.
+Takes in percepts and decides on actions. What is meant by "agent" until now.
 
 ### Critic
 
