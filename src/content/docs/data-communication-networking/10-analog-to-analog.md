@@ -4,7 +4,7 @@ sidebar:
   order: 10
 slug: data-communication-networking/analog-to-analog
 prev: true
-next: false
+next: true
 ---
 
 Analog signals are modulated because:
