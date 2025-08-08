@@ -4,7 +4,7 @@ sidebar:
   order: 8
 slug: engineering-thermodynamics/heat-engine-cycle
 prev: true
-next: false
+next: true
 ---
 
 ### Efficiency
