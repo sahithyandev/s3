@@ -1,7 +1,7 @@
 ---
 title: Hypergeometric Distribution
 sidebar:
-  order: 2
+  order: 4
 slug: applied-statistics/hypergeometric-distribution
 prev: true
 next: true

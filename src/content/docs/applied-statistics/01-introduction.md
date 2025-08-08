@@ -10,58 +10,63 @@ next: true
 
 A continuation of [2nd semester's Statistics section](https://s2.sahithyan.dev/methods-of-mathematics/statistics/introduction/). Revise uniform, binomial, poisson distributions.
 
-## Pascal distribution
+## Moment
 
-Aka. negative binomial distribution. Consists of independent bernoulli trials. The experiment is continued until $r$ successes are achieved. Observed variable is the number of total trials ($X$). Denoted by $b^*(x;r,p)$. $ $
+Numerical measures of the shape of a distribution. Denoted by $\mathbb{E}[X^k]$.
 
-```math
-P(x) = \binom{x-1}{r-1} p^r (1-p)^{x-r}
-```
+For a variable $X$ with the mean $\mu$:
 
-Here:
-- $p$ - probability of success in a single trial
-- $r$ - number of successes required
-
-### Mean
+$k$-th moment about the origin:
 
 ```math
-\mu_X = \frac{r}{p}
+\mu'_k = \mathbb{E}[X^k]
 ```
 
-:::note
-
-Suppose $R$ is the number of successes before the experiment results in $k$ failures.
-```math
-\mu_R = \frac{kp}{1-p}
-```
-
-:::
-
-### Variance
+$k$-th central moment (about the mean):
 
 ```math
-V_x = \frac{r(1-p)}{p^2}
+\mu_k = \mathbb{E}[(X - \mu)^k]
 ```
 
-## Geometric distribution
+### Commonly used ones
 
-A special case of the negative binomial distribution, where $r=1$. Denoted by $g^*(x;p)$.
+- 1st moment about origin - Mean
+- 2nd central moment - Variance
+- 3rd central moment - Skewness
+- 4th central moment - Kurtosis
+
+### Moment Generating Function
+
+A mathematical function which encapsulates all moments of a random variable, into a single function. Defined as:
 
 ```math
-P(x) = p(1-p)^{x-1}
+M_X(t) = \mathbb{E}[e^{tX}]
 ```
 
-Here:
-- $p$ - probability of success in a single trial
+Here
 
-### Mean
+- $X$ is the random variable
+- $t$ is the parameter, close to 0 where MGF usually exists
+- $e^{tX}$ is the exponential function applied to $tX$
+- $\mathbb{E}(e^{tX})$ is the expected value of the transformed distribution
+- $M_X(t)$ is the moment generating function
+
+Here exponential function is applied to $tX$, because of its [Taylor series expansion](https://s1.sahithyan.dev/mathematics/real-analysis/taylor-series/#ex). By differentiating the Taylor series expansion, the moments can be obtained.
 
 ```math
-\mu_X = \frac{1}{p}
+\mathbb{E}[X^k] = \frac{d^k}{dt^k}M_X(t)\bigg|_{t=0}
 ```
 
-### Variance
+## Probability Distribution
+
+### Memorylessness
+
+A property of probability distributions. Describes situations where previous failures or elapsed time does not affect future trials or further wait time.
+
+A random variable $X$ is said to be memoryless **if** for all $s, t \geq 0$:
 
 ```math
-V_x = \frac{1-p}{p^2}
+P(X > s + t \mid X > s) = P(X > t)
 ```
+
+Only the [geometric](/applied-statistics/geometric-distribution/) and [exponential distribution](/applied-statistics/07-exponential-distribution/) are memoryless.

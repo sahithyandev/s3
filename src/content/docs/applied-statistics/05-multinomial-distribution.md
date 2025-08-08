@@ -1,10 +1,10 @@
 ---
 title: Multinomial Distribution
 sidebar:
-  order: 3
+  order: 5
 slug: applied-statistics/multinomial-distribution
 prev: true
-next: false
+next: true
 ---
 
 Suppose the random variables $X_1, X_2, \ldots, X_k$ represent the number of times each outcome $\theta_1, \theta_2, \ldots, \theta_k$ occurs in $n$ independent trials.
