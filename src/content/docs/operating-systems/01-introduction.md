@@ -8,12 +8,15 @@ prev: false
 next: true
 ---
 
-A program that acts as an intermediary between a user of a
-computer and the computer hardware. Works as a resource allocator.
+A program that acts as an intermediary between a user of a computer and the computer hardware. Works as a resource allocator. Provides an interface for application software to work. Manages processes, memory, files, and devices.
 
 ### System programs
 
 Ships with an OS, but not part of the kernal.
+
+### Dual-mode
+
+The operating system runs on either kernal or user mode. Can be switched programmatically. Mode bit provided by the hardware is used to store the mode.
 
 ### System call
 
@@ -36,60 +39,22 @@ When a user program performs a system call, it places the system call arguments 
 - Make the computer system convenient to use
 - Use the computer hardware in an efficient manner
 
-## Program
+### Bootstrap program
 
-A passive entity stored on disk. Aka. executable file.
+Simple code to initialize the system, load the kernel.
 
-## Process
+### System daemon
 
-A program in execution. An active entity. Program becomes active when it is loaded into memory. Instructions of a process are executed in sequence. Has multiple parts:
+A background process that is launched during system startup or after the kernel is loaded. Runs independently of user sessions. Provide essential services required for the operating system to function smoothly.
 
-- text section: the program code
-- program counter
-- stack: containing temporary information i.e. function parameters, return addresses, local variables
-- heap: containing dynamically allocated memory
-- data section: containing global variables
-  
-### Context
+Examples are processes that handle logging, scheduling tasks, managing network connections, and responding to hardware events.
 
-The information about a process that is used to track and manage its execution. This includes the process's Program Counter (PC), stack pointer, register contents, and other critical data. The OS saves the context when switching between processes (context switch) and restores it when the process resumes execution. Context switching is a computationally expensive operation that affects system performance.
+Names of system daemons are usually suffixed by "d", such as `sshd`, `cron`, or `systemd`.
 
-### State
+### Multiprogramming
 
-![Process State Diagram](./images/process-states.png)
+A subset of total jobs in system is kept in memory. One job selected and run via job scheduling. When job has to wait (for I/O for example), OS switches to another job.
 
-- New: The process is being created
-- Running: Instructions are being executed
-- Waiting: The process is waiting for some event to occur
-- Ready: The process is waiting to be assigned to a processor
-- Terminated: The process has finished execution
+### Multitasking
 
-### Process Control Block
-
-Aka. PCB, task control block. Information about a process. Contains:
-
-- State
-- Program counter
-- CPU registers - contents of all process-centric registers
-- Scheduler information such as priority, queue pointers
-- Memory Address Space
-- Accounting information such as CPU time used, memory usage, I/O operations
-- I/O Devices
-- Signal Handlers
-- Process ID
-- Parent Process ID
-- File Descriptors
-
-#### Representation in Linux
-
-```c
-struct task_struct {
-    pid t_pid; /* process identifier */
-    long state; /* state of the process */
-    unsigned int time_slice; /* scheduling information */
-    struct task_struct *parent;/* this process’s parent */
-    struct list_head children; /* this process’s children */
-    struct files_struct *files;/* list of open files */
-    struct mm_struct *mm; /* address space of this process */
-}
-```
+Aka. time sharing. A logical extension of Batch systems. the CPU switches jobs very frequently that users can interact with each job while it is running. Response time should be less than a second. Each user has at least one process running. If several jobs ready to run at the same time, they must be scheduled. If processes don’t fit in memory, they must be swapped to and from memory. Virtual memory allows execution of processes not completely in memory.

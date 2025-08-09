@@ -11,8 +11,6 @@ The one program running at all times on the computer. Core of an OS.
 
 ## Different architectures
 
-
-
 ### Monolithic
 
 The entire operating system runs in kernel space. All system services, device drivers, file systems, and memory management operate at the privileged kernel level.
