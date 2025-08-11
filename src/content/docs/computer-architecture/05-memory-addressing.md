@@ -4,7 +4,7 @@ sidebar:
   order: 5
 slug: computer-architecture/memory-addressing
 prev: true
-next: false
+next: true
 ---
 
 There are 3 memory addressing modes in assembly language.
