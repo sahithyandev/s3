@@ -54,10 +54,18 @@ The solution with the lowest path cost.
 
 ## Measuring performance
 
-- Completeness: Is the algorithm guaranteed to find a solution when there is one, and to correctly report failure when there is not?
-- Cost optimality: Does it find a solution with the lowest path cost of all
-solutions? Also referred to as admissibility or optimality.
-- Time complexity: How long does it take to find a solution? Can be measured in seconds, or more abstractly by the number of states and
-actions considered.
-- Space complexity: How much memory is needed to perform the
-search?
+### Completeness
+
+Whether the algorithm is guaranteed to find a solution if one exists, and to correctly report failure if none exists.
+
+### Cost Optimality
+
+Aka. optimality or admissibility. Whether the algorithm finds a solution with the lowest possible path cost among all solutions.
+
+### Time Complexity
+
+How long the algorithm takes to find a solution. Can be quantified in actual time (seconds) or more abstractly by the number of states and actions considered during the search.
+
+### Space Complexity
+
+How much memory is required to perform the search.

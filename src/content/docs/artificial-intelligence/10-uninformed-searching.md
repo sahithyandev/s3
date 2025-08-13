@@ -23,7 +23,7 @@ Not complete, but complete for finite state space. Not optimal, returns the firs
 
 ### Iterative deepening depth-first search
 
-Calls DFS with increasing depth limits, until a solution is found. Complete when full cycle checking is done. Optimal for unit action costs. Time complexity comparable to BFS. Space complexity is linear.
+Calls DFS with increasing depth limits, until a solution is found. Complete if finite and acyclic. Optimal for unit action costs. Time complexity comparable to BFS. Space complexity is linear.
 
 ### Depth-limited DFS
 

@@ -22,7 +22,7 @@ Examples:
 
 #### Admissible
 
-When a heuristic function never overestimates the true cost to reach the goal
+When a heuristic function never overestimates the true cost to reach the goal.
 
 #### Consistent/Monotonic
 
@@ -64,8 +64,9 @@ Uses the heuristic function $h(n)$ as the evaluation function. $f(n) = h(n)$. $ 
 
 Most widely known form of best-first search that uses an evaluation function $f(n) = g(n) + h(n)$ where:
 
-- $g(n)$ = cost so far to reach node $n$ from the start state
-- $h(n)$ = estimated cost from $n$ to the goal
+- $f(n)$ - evaluation function
+- $g(n)$ - cost so far to reach node $n$ from the start state
+- $h(n)$ - estimated cost from $n$ to the goal
 
 Combines the benefits of Dijkstra's algorithm (which considers path cost) and greedy best-first search (which uses a heuristic). It expands nodes in order of their $f(n)$ values, maintaining completeness while being more efficient than uniform-cost search.
 
@@ -74,6 +75,44 @@ Optimal when $h(n)$ is admissible. If $h(n)$ is also consistent (satisfies trian
 Combines $h(n)$ with the actual cost $g(n)$ to reach node $n$. Explores the node that appears to be closest to the goal while considering the actual cost.
 
 Complete and optimal given an admissible heuristic $h(n)$. $ $
+
+```python
+import heapq
+
+def a_star_search(start, goal_test, successors, heuristic):
+    """
+    Generic A* search algorithm.
+
+    Args:
+        start: The initial state.
+        goal_test: Function(state) -> bool, returns True if state is a goal.
+        successors: Function(state) -> list of (action, next_state, cost).
+        heuristic: Function(state) -> estimated cost to goal.
+
+    Returns:
+        path: List of (action, state) from start to goal, or None if no path found.
+    """
+    frontier = []
+    heapq.heappush(frontier, (heuristic(start), 0, start, []))
+    explored = {}
+
+    while frontier:
+        f, g, state, path = heapq.heappop(frontier)
+
+        if goal_test(state):
+            return path + [(None, state)]
+
+        if state in explored and explored[state] <= g:
+            continue
+        explored[state] = g
+
+        for action, next_state, cost in successors(state):
+            new_g = g + cost
+            new_f = new_g + heuristic(next_state)
+            heapq.heappush(frontier, (new_f, new_g, next_state, path + [(action, state)]))
+
+    return None
+```
 
 ### Bidirectional A\* Search
 
