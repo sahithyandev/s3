@@ -4,7 +4,7 @@ sidebar:
   order: 8
 slug: operating-systems/amdahls-law
 prev: true
-next: false
+next: true
 ---
 
 the overall performance improvement gained by optimizing a single part of a system is limited by the fraction of time that the improved part is actually used.
