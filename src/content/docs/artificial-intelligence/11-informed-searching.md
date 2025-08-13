@@ -4,7 +4,7 @@ sidebar:
   order: 11
 slug: artificial-intelligence/informed-searching
 prev: true
-next: false
+next: true
 ---
 
 Uses domain-specific hints about the location of goals. The hint comes in a heuristic function.
