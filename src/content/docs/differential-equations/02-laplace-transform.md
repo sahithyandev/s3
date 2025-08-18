@@ -105,7 +105,7 @@ Suppose $F(s)$ is the Laplace transform of $f(t)$.
 ### Integral
 
 ```math
-\mathcal{L} \left{ \int_0^t f(x) \,\text{d}x \right} = \frac{1}{s} F(s)
+\mathcal{L} \left\{ \int_0^t f(x) \,\text{d}x \right\} = \frac{1}{s} F(s)
 ```
 
 Provided that $s \neq 0$. $ $

@@ -1,10 +1,10 @@
 ---
-title: Diract Delta Function
+title: Dirac Delta Function
 sidebar:
   order: 3
-slug: differential-equations/diract-delta-function
+slug: differential-equations/dirac-delta-function
 prev: true
-next: false
+next: true
 ---
 
 Consider the sequence of functions $\delta_n$ defined as:
