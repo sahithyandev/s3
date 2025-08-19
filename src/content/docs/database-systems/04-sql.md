@@ -32,217 +32,49 @@ SQL has several implementations with varying features and syntax:
 
 Each SQL flavor implements the ANSI SQL standard but adds proprietary extensions and features, which can affect portability of SQL code between systems.
 
+## Things
+
+A relational database has a set of relations, views, indexes, and constraints.
+
+### Relation
+
+Aka. table. A set of tuples with a fixed number of attributes and a fixed domain for each attribute.
+
+### View
+
+Aka. virtual relation. Any relation that is not of the conceptual model but is made visible to a user.
+
 ## Data Types
 
 SQL supports several data types that can be used to define the type of data that can be stored in a database table column:
 
-- **Numeric Types**:
+- Numeric Types:
   - `INTEGER` / `INT`: Whole numbers without decimal places
   - `DECIMAL(p,s)` / `NUMERIC(p,s)`: Exact numeric values with specified precision
   - `FLOAT` / `REAL`: Approximate numeric values
   - `SMALLINT` / `BIGINT`: Smaller and larger integer values
 
-- **String Types**:
+- String Types:
   - `CHAR(n)`: Fixed-length character strings
   - `VARCHAR(n)`: Variable-length character strings
   - `TEXT`: Large variable-length character strings
 
-- **Date and Time Types**:
+- Date and Time Types:
   - `DATE`: Stores date values (YYYY-MM-DD)
   - `TIME`: Stores time values (HH:MM:SS)
   - `TIMESTAMP`: Stores date and time values
   - `DATETIME`: Similar to TIMESTAMP
 
-- **Boolean Type**:
+- Boolean Type:
   - `BOOLEAN`: Stores TRUE, FALSE, or NULL values
 
-- **Binary Types**:
+- Binary Types:
   - `BLOB`: Binary Large Object for storing binary data
   - `BINARY` / `VARBINARY`: Fixed and variable-length binary data
 
-## SQL Commands
-
-Conventionally, used in capitalized forms.
-
-### CREATE
-
-The `CREATE` statement is used to create database objects like tables. Feature of DDL.
-
-```sql
-CREATE TABLE employees (
-  employee_id INT PRIMARY KEY,
-  first_name VARCHAR(50) NOT NULL,
-  last_name VARCHAR(50) NOT NULL,
-  hire_date DATE,
-  salary DECIMAL(10,2),
-  department_id INT,
-  manager_id INT,
-  FOREIGN KEY (department_id) REFERENCES departments(department_id),
-  FOREIGN KEY (manager_id) REFERENCES employees(employee_id)
-);
-```
-
-### DROP
-
-The `DROP` statement removes database objects. Feature of DDL.
-
-```sql
-DROP TABLE employees;
-```
-
-### ALTER
-
-The `ALTER` statement modifies existing database objects. Feature of DDL.
-
-```sql
-ALTER TABLE employees ADD email VARCHAR(100);
-```
-
-### SELECT
-
-The `SELECT` statement retrieves data from one or more tables. Feature of DML.
-
-```sql
-SELECT first_name, last_name 
-FROM employees 
-WHERE salary > 50000
-ORDER BY last_name;
-```
-
-"*" will fetch all the columns. But have performance impacts on large tables. Post-processing can be done on the selected fields as well, although generally not recommended.
-
-### AS
-
-Allows renaming a relation or a attribute name.
-
-### ORDER BY
-
-Specifies the order in which to sort the result set. Feature of DML. Ascending by default. Can have multiple attributes.
-
-### LIMIT
-
-Specifies the maximum number of rows to return. Feature of DML. No limits by default.
-
-### HAVING
-
-Specifies a condition for a group of rows. Feature of DML. `HAVING` is used with `GROUP BY` to filter groups based on aggregate functions.
-
-Examples:
-
-```sql
--- Find departments with an average salary greater than $60,000
-SELECT department_id, AVG(salary)
-FROM employees
-GROUP BY department_id
-HAVING AVG(salary) > 60000;
-```
-
-### FROM
-
-Specifies the table(s) from which to retrieve data. Feature of DML.
-
-```sql
-SELECT *
-FROM employees
-```
-
-If multiple tables are specified, considers the cartesian product of the tables.
-
-### INSERT
-
-The `INSERT` statement adds new records. Feature of DML.
-
-```sql
-INSERT INTO employees (employee_id, first_name, last_name, hire_date, salary)
-VALUES (1, 'John', 'Doe', '2023-01-15', 65000);
-```
-
-### UPDATE
-
-The `UPDATE` statement modifies existing records. Feature of DML.
-
-```sql
-UPDATE employees
-SET salary = 70000
-WHERE employee_id = 1;
-```
-
-### DELETE
-
-The `DELETE` statement removes records. Feature of DML.
-
-```sql
-DELETE FROM employees
-WHERE employee_id = 1;
-```
-
-:::note
-
-All results of SQL DML features are also relations.
-
-:::
-
-### WHERE
-
-Specifies the condition for any type of queries. Can have many conditions separated by logical operators `AND`, `OR`, `NOT`.
-
-```sql
-SELECT *
-FROM employees
-WHERE salary > 70000;
-```
-
-## WHERE Predicates
-
-### LIKE
-
-Specifies a pattern for pattern matching with wildcard characters. Feature of DML.
-
-- `%` represents zero, one, or multiple characters
-- `_` represents a single character
-
-Examples:
-
-```sql
--- Find all employees whose last name starts with 'S'
-SELECT * FROM employees WHERE last_name LIKE 'S%';
-
--- Find all employees whose first name ends with 'a'
-SELECT * FROM employees WHERE first_name LIKE '%a';
-
--- Find all employees with 'th' anywhere in their last name
-SELECT * FROM employees WHERE last_name LIKE '%th%';
-
--- Find all products with exactly 5 characters in the product code
-SELECT * FROM products WHERE product_code LIKE '_____';
-
--- Find all employees with 'e' as the second letter in their first name
-SELECT * FROM employees WHERE first_name LIKE '_e%';
-```
-
-Some database systems also support escape characters and additional options like ILIKE (case-insensitive LIKE in PostgreSQL).
-
-### BETWEEN
-
-Specifies a range for numeric or date values. Feature of DML.
-
-- `BETWEEN` includes the boundary values
-- `NOT BETWEEN` excludes the boundary values
-
-Examples:
-
-```sql
--- Find all employees with salaries between $50,000 and $70,000
-SELECT * FROM employees WHERE salary BETWEEN 50000 AND 70000;
-
--- Find all employees with salaries not between $50,000 and $70,000
-SELECT * FROM employees WHERE salary NOT BETWEEN 50000 AND 70000;
-```
-
-
 ## Joins
 
-Joins allow you to combine rows from two or more tables based on related columns:
+To combine rows from two or more relations based on related columns.
 
 ### INNER JOIN
 
@@ -284,6 +116,8 @@ FROM employees
 FULL JOIN departments ON employees.department_id = departments.department_id;
 ```
 
+Not supported in all SQL dialects, especially MySQL. In that case, `UNION` should be used to combine the results of  `LEFT JOIN` and `RIGHT JOIN` to achieve the same result.
+
 ### CROSS JOIN
 
 Returns the Cartesian product of two tables:
@@ -294,61 +128,46 @@ FROM employees
 CROSS JOIN departments;
 ```
 
-## Aggregate Functions
-
-Aggregate functions perform calculations on a set of values and return a single value. They are often used with `GROUP BY` to summarize data.
-
-### COUNT
-
-Counts the number of rows in a table:
-
-```sql
-SELECT COUNT(*) AS total_employees
-FROM employees;
-```
-
-### SUM
-
-Calculates the sum of a numeric column:
-
-```sql
-SELECT SUM(salary) AS total_salary
-FROM employees;
-```
-
-### AVG
-
-Calculates the average of a numeric column:
-
-```sql
-SELECT AVG(salary) AS avg_salary
-FROM employees;
-```
-
-### MIN
-
-Finds the minimum value in a column:
-
-```sql
-SELECT MIN(salary) AS min_salary
-FROM employees;
-```
-
-### MAX
-
-Finds the maximum value in a column:
-
-```sql
-SELECT MAX(salary) AS max_salary
-FROM employees;
-```
-
-:::note
-
-All aggregate operations except `COUNT(*)` ignore tuples with `NULL` values on the aggregated field. When all values in the aggregated field are `NULL`, the result is `NULL`.
-
-:::
 
 ## SQL Queries
 
 Can be nested, but have performance implications.
+
+## Views
+
+A named, virtual table defined by a SQL query. It does not store data itself, but presents data from one or more base tables (or other views) according to its definition. Views encapsulate complex queries, provide abstraction, and can restrict access to sensitive data.
+
+### View Dependencies
+
+Views depend on the underlying base tables (and possibly other views) referenced in their definition. If a base table or dependent view is altered or dropped, the view may become invalid or fail to resolve. Most SQL systems track these dependencies and may prevent destructive changes to base tables if dependent views exist, or mark views as invalid until redefined.
+
+### Processing Algorithms
+
+When a view is referenced in a query, the database must decide how to process it. There are two main algorithms:
+
+- View Expansion (Query Rewriting): The view's definition is substituted into the referencing query, and the resulting query is optimized and executed as if the view did not exist. This is the default for most systems and is called a *virtual view*.
+- Materialized View: The view's result set is computed and stored physically, like a table. Subsequent queries read from this stored data, improving performance for expensive aggregations or joins. Materialized views require explicit support and are not standard SQL views.
+
+### Refresh Mechanisms
+
+- Virtual Views: Always reflect the current state of the underlying tables. No refresh is needed; every query recomputes the view.
+- Materialized Views: Must be refreshed to stay up-to-date. Refresh can be:
+  - Immediate (On Commit): The view is updated whenever the base tables change.
+  - Manual (On Demand): The view is refreshed only when explicitly requested.
+  - Scheduled: The view is refreshed at regular intervals.
+
+The choice affects consistency and performance. Some systems support *incremental refresh*, updating only changed rows, while others recompute the entire view.
+
+### Materialization
+
+Refers to storing the result of a view physically. Standard SQL views are not materialized; they are recomputed on each access. Materialized views, supported in systems like Oracle, PostgreSQL, and SQL Server, store the result set and can be indexed for fast access. Materialization trades storage and refresh overhead for query performance.
+
+### Summary Table
+
+| Feature                | Standard View      | Materialized View      |
+|------------------------|-------------------|------------------------|
+| Storage                | None (virtual)    | Physical (table-like)  |
+| Data Freshness         | Always current    | May be stale           |
+| Performance            | Query-time cost   | Fast reads, slow refresh|
+| Dependencies           | On base tables    | On base tables         |
+| Refresh Mechanism      | Not needed        | Manual/auto/scheduled  |

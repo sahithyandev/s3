@@ -1,7 +1,7 @@
 ---
 title: Crows Foot Notation
 sidebar:
-  order: 6
+  order: 7
 slug: database-systems/crows-foot-notation
 prev: true
 next: false

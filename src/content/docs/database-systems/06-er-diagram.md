@@ -1,7 +1,7 @@
 ---
 title: ER Diagram
 sidebar:
-  order: 5
+  order: 6
 slug: database-systems/er-diagram
 prev: true
 next: true
