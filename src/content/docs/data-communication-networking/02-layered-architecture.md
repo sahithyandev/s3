@@ -111,11 +111,11 @@ Examples:
 
 ### Data Link Layer
 
-Provides reliable, error-free transmission across a single link (single medium), in the same network.
+Provides reliable, error-free transmission across a single link (single medium), in the same network. Unit of data is called a _frame_ with header, control and address information.
 
 Handles:
 
-- data framing: dividing a data stream into manageable chunks (_frames_)
+- data framing: dividing a data stream into manageable chunks
 - error detection and correction
 - flow control   
   Manages frame flow rate to prevent overflow

@@ -4,7 +4,7 @@ sidebar:
   order: 13
 slug: data-communication-networking/transmission-standards
 prev: true
-next: false
+next: true
 ---
 
 Defines how data is transmitted between devices, from the physical perspective.
