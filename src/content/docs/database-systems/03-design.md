@@ -20,9 +20,9 @@ Deciding on the physical layout of the database.
 
 [Entity-Relationship Model](/database-systems/data-models/#entity-relationship-model) is used widely.
 
-### Normalization theory
 
-Normalization is a systematic approach to decomposing tables to eliminate data redundancy and undesirable characteristics like Insertion, Update and Deletion anomalies. The process of normalization involves organizing data to minimize redundancy by dividing larger tables into smaller ones and defining relationships between them.
+### Normalization
+A systematic approach to decide whether a particular relation is in good form. And it is also used to decompose tables to eliminate data redundancy and undesirable characteristics like Insertion, Update and Deletion anomalies. The process of normalization involves organizing data to minimize redundancy by dividing larger tables into smaller ones and defining relationships between them.
 
 The theory was introduced by Edgar F. Codd in 1970 and involves several normal forms:
 
@@ -40,6 +40,12 @@ Properly normalized databases reduce data redundancy, improve data integrity, an
 Edgar F. Codd is called "the father of relational databases".
 
 :::
+
+#### First Normal Form (1NF)
+
+A domain is said to be atomic if its elements are considered to be indivisible.
+
+A relation schema $R$ is in 1NF if the domains of all attributes of $R$ are atomic. Non-atomic values cause data redundancy. All relations are assumed to be in 1NF.
 
 ## Database Engine
 
@@ -70,3 +76,15 @@ Examples:
 - Client-server
 - Parallel
 - Distributed
+
+## Decomposition
+
+The process of breaking down a large table into smaller, more manageable tables based on functional dependencies. Helps reduce redundancy and improve data integrity. But not always good or required.
+
+### Lossy Decomposition
+
+Occurs when a table is decomposed into smaller tables, but some information is lost in the process. This can happen if the decomposition does not preserve all functional dependencies.
+
+### Lossless Decomposition
+
+Ensures that all functional dependencies are preserved during the decomposition process. This is achieved by ensuring that each functional dependency is preserved in at least one of the resulting tables. Preferred type.

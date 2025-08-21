@@ -116,7 +116,7 @@ FROM employees
 FULL JOIN departments ON employees.department_id = departments.department_id;
 ```
 
-Not supported in all SQL dialects, especially MySQL. In that case, `UNION` should be used to combine the results of  `LEFT JOIN` and `RIGHT JOIN` to achieve the same result.
+Not supported in all SQL dialects, especially MySQL. In that case, `UNION` should be used to combine the results of `LEFT JOIN` and `RIGHT JOIN` to achieve the same result.
 
 ### CROSS JOIN
 
@@ -127,7 +127,6 @@ SELECT employees.first_name, departments.department_name
 FROM employees
 CROSS JOIN departments;
 ```
-
 
 ## SQL Queries
 
@@ -145,7 +144,7 @@ Views depend on the underlying base tables (and possibly other views) referenced
 
 When a view is referenced in a query, the database must decide how to process it. There are two main algorithms:
 
-- View Expansion (Query Rewriting): The view's definition is substituted into the referencing query, and the resulting query is optimized and executed as if the view did not exist. This is the default for most systems and is called a *virtual view*.
+- View Expansion (Query Rewriting): The view's definition is substituted into the referencing query, and the resulting query is optimized and executed as if the view did not exist. This is the default for most systems and is called a _virtual view_.
 - Materialized View: The view's result set is computed and stored physically, like a table. Subsequent queries read from this stored data, improving performance for expensive aggregations or joins. Materialized views require explicit support and are not standard SQL views.
 
 ### Refresh Mechanisms
@@ -156,7 +155,7 @@ When a view is referenced in a query, the database must decide how to process it
   - Manual (On Demand): The view is refreshed only when explicitly requested.
   - Scheduled: The view is refreshed at regular intervals.
 
-The choice affects consistency and performance. Some systems support *incremental refresh*, updating only changed rows, while others recompute the entire view.
+The choice affects consistency and performance. Some systems support _incremental refresh_, updating only changed rows, while others recompute the entire view.
 
 ### Materialization
 
@@ -164,10 +163,10 @@ Refers to storing the result of a view physically. Standard SQL views are not ma
 
 ### Summary Table
 
-| Feature                | Standard View      | Materialized View      |
-|------------------------|-------------------|------------------------|
-| Storage                | None (virtual)    | Physical (table-like)  |
-| Data Freshness         | Always current    | May be stale           |
-| Performance            | Query-time cost   | Fast reads, slow refresh|
-| Dependencies           | On base tables    | On base tables         |
-| Refresh Mechanism      | Not needed        | Manual/auto/scheduled  |
+| Feature           | Standard View   | Materialized View        |
+| ----------------- | --------------- | ------------------------ |
+| Storage           | None (virtual)  | Physical (table-like)    |
+| Data Freshness    | Always current  | May be stale             |
+| Performance       | Query-time cost | Fast reads, slow refresh |
+| Dependencies      | On base tables  | On base tables           |
+| Refresh Mechanism | Not needed      | Manual/auto/scheduled    |

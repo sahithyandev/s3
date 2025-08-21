@@ -4,7 +4,7 @@ sidebar:
   order: 7
 slug: database-systems/crows-foot-notation
 prev: true
-next: false
+next: true
 ---
 
 One of the ER diagram notations.
