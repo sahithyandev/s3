@@ -15,13 +15,18 @@ Hypergeometric distribution has no relation to the geometric distribution.
 
 ### Hypergeometric Experiment
 
-From a population of size $N$ containing $k$ successes, a sample of size $n$ without replacement. Number of successes in the sample is observed and denoted by $X$.
+From a population of size $N$ containing $k$ successes, a sample of size $n$ is retrieved without replacement. Number of successes in the sample is observed and denoted by $X$.
 
-The hypergeometric distribution describes the probability of obtaining $k$ successes in a hypergeometric experiment. Denoted by $h(x;N,n,k)$.
+The hypergeometric distribution describes the probability of obtaining $x$ successes in a hypergeometric experiment. Denoted by $h(x;N,n,k)$.
 
 ```math
 P(x) = \frac{^kC_x \times\; ^{N-k}C_{n-x}}{^NC_n}
 ```
+
+Here:
+- $^kC_x$ - Number of ways to choose $x$ successes from $k$ successes.
+- $^{N-k}C_{n-x}$ - Number of ways to choose $n-x$ failures from $N-k$ failures.
+- $^NC_n$ - Total number of ways to choose $n$ items from $N$ items.
 
 ## Mean
 ```math
@@ -45,7 +50,7 @@ Suppose a population of size $N$, having $k$ different types of items. Each type
 \sum_{i=1}^{k} N_i = N
 ```
 
-Multivariate Hypergeometric Distribution describes the probability of obtaining $x_1, x_2, \ldots, x_k$ items from the above population. Denoted by $h(\mathbf{x};N,n,\mathbf{N})$.
+Multivariate Hypergeometric Distribution describes the probability of obtaining $x_1, x_2, \ldots, x_k$ items of each type from the above population. Denoted by $h(\mathbf{x};N,n,\mathbf{N})$.
 
 ```math
 P(x_1, x_2, \dots, x_k) = \frac{\binom{N_1}{x_1} \cdot \binom{N_2}{x_2} \cdot \ldots \cdot \binom{N_k}{x_k}}{\binom{N}{n}}
