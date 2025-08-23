@@ -4,7 +4,7 @@ sidebar:
   order: 15
 slug: data-communication-networking/information-redundancy
 prev: true
-next: false
+next: true
 ---
 
 

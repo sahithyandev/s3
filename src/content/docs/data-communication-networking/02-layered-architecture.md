@@ -75,7 +75,7 @@ Examples:
 
 ### Transport Layer
 
-Provide end-to-end delivery between 2 hosts.
+Transmits semgents between 2 hosts.
 
 Handles:
 - Connection establishment and termination
@@ -95,7 +95,7 @@ Examples:
 
 ### Network Layer
 
-Delivers packets (aka. datagrams) across different networks from source to destination.
+Transmits packets (aka. datagrams) across different networks from source to destination.
 
 Handles:
 
@@ -111,7 +111,7 @@ Examples:
 
 ### Data Link Layer
 
-Provides reliable, error-free transmission across a single link (single medium), in the same network. Unit of data is called a _frame_ with header, control and address information.
+Transmits _frames_ with headers, control and addres information. Provides reliable, error-free transmission across a single link (single medium), in the same network.
 
 Handles:
 
