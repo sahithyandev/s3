@@ -19,5 +19,11 @@ These random variables are said to follow a multinomial distribution with parame
 ```
 
 ```math
-P(X_1 = x_1, X_2 = x_2, \ldots, X_k = x_k) = \frac{n!}{x_1! \, x_2! \, \cdots \, x_k!} \, p_1^{x_1} \, p_2^{x_2} \, \cdots \, p_k^{x_k}
+P(X_1 = x_1, X_2 = x_2, \ldots, X_k = x_k) =
+\frac{n!}{x_1! \, x_2! \, \cdots \, x_k!} \, p_1^{x_1} \, p_2^{x_2} \, \cdots \, p_k^{x_k}
+```
+
+```math
+\binom{n}{x_1, x_2, \ldots, x_k}=
+\frac{n!}{x_1! \, x_2! \, \cdots \, x_k!}
 ```

@@ -59,6 +59,17 @@ Here exponential function is applied to $tX$, because of its [Taylor series expa
 
 ## Probability Distribution
 
+### Poisson point process
+
+A mathematical model used to describe random points scattered in space or time, where the points occur independently of each other.
+
+Key properties:
+
+- Independence: The number of points in disjoint regions are independent random variables.
+- Homogeneity: $\lambda$ is a known constant throughout the space or time interval.
+
+Poisson point processes are fundamental in modeling random arrivals (such as phone calls, radioactive decay events, or raindrops falling) and serve as the basis for more complex stochastic processes.
+
 ### Memorylessness
 
 A property of probability distributions. Describes situations where previous failures or elapsed time does not affect future trials or further wait time.

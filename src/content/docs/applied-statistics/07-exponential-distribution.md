@@ -10,12 +10,12 @@ next: true
 Denoted as $\text{Exp}(\lambda)$.
 
 ```math
-P(x) = \lambda \exp(-\lambda x)
+P(x) = \lambda \exp(-\lambda x)\;\;\text{where }x \ge 0,\; \lambda \gt 0
 ```
 
-Here $\lambda$ is the rate parameter, which represents the mean number of events per unit time. Similar to the rate of failures or a rate of arrivals in [Poisson distribution](https://s2.sahtihyan.dev/methods-of-mathematics/probability/discrete-probablity-distribution/#poisson-distribution).
+Here $\lambda$ is the rate parameter, which represents the mean number of events per unit time. Similar to the rate of failures or a rate of arrivals in [Poisson distribution](https://s2.sahithyan.dev/methods-of-mathematics/probability/discrete-probablity-distribution/#poisson-distribution).
 
-Can be thought of as an continuous analogue of the [geometric distribution](/applied-statistics/geometric-distribution/). [Memoryless](/applied-statistics/introduction/#memorylessness).
+Can be thought of as an continuous analogue of the [geometric distribution](/applied-statistics/geometric-distribution/). Often used to model the length of time until an event occurs. [Memoryless](/applied-statistics/introduction/#memorylessness).
 
 Events must be occurring continuously and independently. Used to model inter-arrival times between completely random events (arrivals/hour), service times (services/minute), lifetime of a product which fails catastrophically (failure rate).
 
@@ -23,7 +23,7 @@ Events must be occurring continuously and independently. Used to model inter-arr
 
 ### Relation to Poisson Distribution
 
-**If** $X\sim\text{Exp}(\lambda)$ **then** $N \sim \text{Poisson}(\lambda)$. Here $N$ is the number of events that occur in a fixed interval of time. The parameter is same because they describe the same underlying process.
+**If** $X\sim\text{Exp}(\lambda)$ **then** $N \sim \text{Poisson}(\lambda)$. Here $X$ is the time until the next event, and $N$ is the number of events that occur in a fixed interval of time. The parameter is same because they describe the same underlying process.
 
 ### CDF
 

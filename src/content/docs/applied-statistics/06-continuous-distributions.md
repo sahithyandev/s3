@@ -17,7 +17,7 @@ P(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\righ
 
 ## Standard Normal Distribution
 
-Normal distribution with $\mu=0$ and $\sigma=1$. Denoted by $N(\mu, \sigma^2)$. $z$ is used to denote that it is a standard normal distribution.
+Denoted by $N(0, 1)$. $z$ is used to denote that it is a standard normal distribution.
 
 ```math
 P(z) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{z^2}{2}\right)

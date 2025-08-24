@@ -4,37 +4,27 @@ sidebar:
   order: 8
 slug: applied-statistics/gamma-distribution
 prev: true
-next: false
+next: true
 ---
 
-Denoted by $\text{Gamma}(\alpha, \beta)$, where $\alpha > 0$, $\beta > 0$. Has the probably density function:
+Used to model the total waiting time until multiple events occur. Denoted by $\text{Gamma}(\alpha, \beta)$, where $\alpha > 0$, $\beta > 0$. Has the probably density function:
 
 ```math
 f(x;\alpha,\beta) = \begin{cases}
-kx^{\alpha - 1} \exp\left( \frac{-x}{\beta} \right) & \text{for } x > 0 \\
-0 & \text{otherwise}
+\displaystyle \frac{x^{\alpha - 1}}{\beta^\alpha \Gamma(\alpha)} \exp\left( \frac{-x}{\beta} \right) &;\; \text{for } x > 0 \\
+\displaystyle 0 &;\; \text{otherwise}
 \end{cases}
 ```
 
-Here $\alpha > 0$, $\beta > 0$ and:
+Here $\Gamma$ is the [gamma function](https://s1.sahithyan.dev/mathematics/riemann-integration/gamma-function). A short revision on gamma function is included below.
+
+### Gamma function
 
 ```math
-k = \frac{1}{\beta^\alpha \tau(\alpha)}
+\tau(x) = \int_0^\infty y^{x - 1} e^{-y} \, \text{d}y \;\;\; \text{for } x > 0
 ```
 
-Here $\tau$ is the gamma function.
-
-Used to model the total waiting time until multiple events occur.
-
-## Gamma function
-
-Resulted in when evaluating $k$ for the above distribution.
-
-```math
-\tau(x) = \int_0^\infty y^{x - 1} e^{-y} \, \text{d}y \;\; \text{For } x > 0
-```
-
-Gamma function is recursive. Relates to the factorial function, for integer values.
+Recursive. Relates to the factorial function, for integer values.
 
 ```math
 \tau(x) = (x - 1)!
@@ -57,8 +47,20 @@ $\tau(1) = 1$ and $\tau(0.5) = \sqrt{\pi}$.
 
 ### Relation with Exponential Distribution
 
-When $\alpha = 1$ and $\beta=\frac{1}{\lambda}$, the gamma distribution reduces to the exponential distribution.
-
 ```math
 \text{Gamma}(1, \frac{1}{\lambda}) \equiv \text{Exp}(\lambda)
+```
+
+### Relation with Chi-Squared Distribution
+
+```math
+\text{Gamma}\left(\frac{k}{2}, \frac{1}{2}\right) \equiv \chi^2(k)
+```
+
+### Relation with Normal Distribution
+
+**If** $X \sim N(\mu, \sigma^2)$ **then**: $ $
+
+```math
+\frac{Z^2}{2} \sim \text{Gamma}\left(\frac{1}{2}\right)
 ```
