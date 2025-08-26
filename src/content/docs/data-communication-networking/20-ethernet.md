@@ -4,7 +4,7 @@ sidebar:
   order: 20
 slug: data-communication-networking/ethernet
 prev: true
-next: false
+next: true
 ---
 
 Introduced in 1973 by Robert Metcalfe in his PhD thesis. Named after _ether_ the imaginary substance. Became IEEE 802.3 Standard.
