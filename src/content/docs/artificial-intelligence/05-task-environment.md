@@ -12,19 +12,17 @@ The problems to which an agent attempts to provide solutions for. Must be specif
 Consists of PEAS:
 - [Performance Measure](/ai/performance-measure)
 - Environment
-- Actuators
-- Sensors
+- Actuators - how the model can interact with the environment
+- Sensors - how the model can perceive the environment
 
 ## Properties
 
 ### Obervability   
 
 - Fully Observable   
-  Agent's sensors give access to the complete state of the environment at each point in time.  
+  Agent's sensors give access to the complete state of the environment at each point in time. When the sensors detect all the information relevant to the choice of action.
 - Partially Observable   
   Agent's sensors give access to a subset of the complete state of the environment at each point in time. Can be caused by noise, uncertainty, or incomplete information.
-  
-If the sensors detect all the information relevant to the choice of action, the environment is said to be fully observable.
 
 ### Single or More 
 

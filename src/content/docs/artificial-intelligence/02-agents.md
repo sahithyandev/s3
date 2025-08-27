@@ -7,7 +7,9 @@ prev: true
 next: true
 ---
 
-Anything that can perceive the environment using sensors and act upon it using actuators.
+An entity that perceives the environment and acts accordingly. Expected to operate autonomously and adapt to change.
+
+All skills required to pass the Turing test allows the agent to act rationally.
 
 ### Percept sequence
 The complete history of everything an agent has perceived.
@@ -16,7 +18,7 @@ The complete history of everything an agent has perceived.
 Maps an agent's percept sequence to an action.
 
 ### Agent program
-An implementation of agent function. Maps percepts to actions. Can be considered as the _brain_ of the agent. Dicussed more in depth in [the coming section](/artificial-intelligence/agent-program).
+An implementation of agent function. Maps percepts to actions. Can be considered as the _brain_ of the agent. Dicussed more in depth in [its own page](/artificial-intelligence/agent-program/).
 
 ### Agent architecture
 
@@ -30,7 +32,7 @@ When an agent's actions depend more on its experience compared to the built-in k
 
 ## Rational agent
 
-An agent that acts as to achieve the best outcome when there is uncertainty. Built to do the _right_ think. The _right_ think is the objective that is provided to the agent.
+An agent that acts as to achieve the best outcome when there is uncertainty. Built to do the _right_ thing. The _right_ thing is the objective that is provided to the agent.
 
 Perfect rationality is not feasible in complex environments because of the computational demands. Limited rationality is aimed in that case.
 

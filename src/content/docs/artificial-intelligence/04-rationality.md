@@ -32,5 +32,3 @@ Real AI systems cannot achieve omniscience due to:
 - Inherent uncertainty in complex environments
 - Computational limitations
 - Incomplete information
-
-Omniscience serves as a useful theoretical benchmark against which to compare rational agents operating under uncertainty.

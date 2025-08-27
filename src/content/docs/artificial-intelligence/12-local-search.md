@@ -4,7 +4,7 @@ sidebar:
   order: 12
 slug: artificial-intelligence/local-search
 prev: true
-next: false
+next: true
 ---
 
 A type of searching that focuses only on the final configuration and not the track. Uses a single state, to store the current configuration, and moves to neighboring states until a goal state is reached. Not systemetic, might never search the portion where the goal is. Uses less space. Can work for large search spaces.

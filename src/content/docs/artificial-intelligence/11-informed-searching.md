@@ -60,6 +60,39 @@ Denoted by $f(n)$. Used to determine which nodes to expand next. Assigns a numer
 
 Uses the heuristic function $h(n)$ as the evaluation function. $f(n) = h(n)$. $ $ Not complete, can lead to dead ends or infinite loops. Not optimal. Efficient.
 
+```python
+def greedy_best_first_search(start, goal_test, successors, heuristic):
+    """
+    Args:
+        start: The initial state.
+        goal_test: Function(state) -> bool, returns True if state is a goal.
+        successors: Function(state) -> list of (action, next_state).
+        heuristic: Function(state) -> estimated cost to goal.
+
+    Returns:
+        path: List of (action, state) from start to goal, or None if no path found.
+    """
+    frontier = PriorityQueue()
+    frontier.put((heuristic(start), start, []))
+    explored = set()
+
+    while not frontier.empty():
+        h, state, path = frontier.get()
+
+        if goal_test(state):
+            return path + [(None, state)]
+
+        if state in explored:
+            continue
+        explored.add(state)
+
+        for action, next_state in successors(state):
+            if next_state not in explored:
+                frontier.put((heuristic(next_state), next_state, path + [(action, state)]))
+
+    return None
+```
+
 ### A\* Search
 
 Most widely known form of best-first search that uses an evaluation function $f(n) = g(n) + h(n)$ where:

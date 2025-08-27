@@ -21,4 +21,4 @@ Takes feedback from the critic and modifies the performance element to do better
 
 ### Problem generator
 
-Suggests exploratory actions leading to new and informative experiences. These actions may be suboptimal, but will lead to the discovery of better actions. Learn thorough mistakes.
+Suggests exploratory actions leading to new and informative experiences. These actions may be suboptimal, but will lead to the discovery of better actions. Learn through mistakes.

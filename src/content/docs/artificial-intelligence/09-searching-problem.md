@@ -15,9 +15,7 @@ The state that the agent starts in.
 
 ### Actions
 
-Possible actions of the agent. Given a state $𝑠$,
-$\text{Action}(𝑠)$ returns a finite set of actions that can be executed in
-𝑠. We say that each of these actions is applicable in 𝑠.
+Given a state $𝑠$, finite set of actions that can be executed in $𝑠$. Denoted by $\text{Action}(𝑠)$. Each of these actions is said to be _applicable_ in 𝑠.
 
 ### Transition model
 
@@ -30,7 +28,7 @@ Combination of initial state, actions, and transitions model. Usually denoted by
 
 ### Action cost function
 
-Numeric cost of applying action A in state S to reach state S'. Denoted by $\text{ActionCost}(S, A, S')$.
+Numeric cost of applying action $a$ in state $s$ to reach state $s'$. Denoted by $\text{ActionCost}(s, a, s')$.
 
 ### Path
 
