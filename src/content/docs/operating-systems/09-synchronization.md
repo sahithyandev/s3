@@ -55,7 +55,8 @@ A common method. A lock makes sure only one thread can use a resource at a time.
 
 ### Semaphore
 
-Can allow a certain number of threads to access a resource. They are useful when you want to limit access, but not block all other threads.
+A variable used to control access to a resource. Can allow a certain number of threads to access a resource. More on this in [semaphores](/operating-systems/semaphores).
+
 
 ### Mutex
 
