@@ -128,11 +128,11 @@ Upper immediate operations.
 
 The instruction format:
 
-| Section     | Width (bits) | Description                |
-| ----------- | ------------ | -------------------------- |
-| `imm[31:12]`| 20 [31:12]   | 20-bit immediate value     |
-| `rd`        | 5 [11:7]     | Destination register       |
-| `opcode`    | 7 [6:0]      | Operation code             |
+| Section      | Width (bits) | Description            |
+| ------------ | ------------ | ---------------------- |
+| `imm[31:12]` | 20 [31:12]   | 20-bit immediate value |
+| `rd`         | 5 [11:7]     | Destination register   |
+| `opcode`     | 7 [6:0]      | Operation code         |
 
 Handle large immediate values (20 bits). Used for `LUI` (Load Upper Immediate) to set the upper 20 bits of a register and `AUIPC` (Add Upper Immediate to PC) for PC-relative addressing. These instructions enable efficient address calculation and large constant loading.
 
@@ -142,14 +142,14 @@ Used for unconditional jump operations. Similar to branch operations, but used f
 
 The instruction format:
 
-| Section     | Width (bits) | Description                      |
-| ----------- | ------------ | -------------------------------- |
-| `imm[20]`   | 1 [31]       | MSB of offset (sign bit) |
-| `imm[10:1]` | 10 [30:21]   | Midle bits of offset            |
-| `imm[11]`   | 1 [20]       | Another bit of offset            |
-| `imm[19:12]`| 8 [19:12]    | Upper bits of offset             |
-| `rd`        | 5 [11:7]     | Destination register             |
-| `opcode`    | 7 [6:0]      | Operation code                   |
+| Section      | Width (bits) | Description              |
+| ------------ | ------------ | ------------------------ |
+| `imm[20]`    | 1 [31]       | MSB of offset (sign bit) |
+| `imm[10:1]`  | 10 [30:21]   | Midle bits of offset     |
+| `imm[11]`    | 1 [20]       | Another bit of offset    |
+| `imm[19:12]` | 8 [19:12]    | Upper bits of offset     |
+| `rd`         | 5 [11:7]     | Destination register     |
+| `opcode`     | 7 [6:0]      | Operation code           |
 
 Enables 20-bit signed offsets (multiplied by 2), allowing jumps to targets further away than B-type branches. The immediate bits are arranged in a non-sequential order to simplify hardware implementation. The most significant bit is placed at bit 31 for efficient sign extension, and the remaining bits are organized to maximize compatibility with other instruction formats.
 
@@ -160,8 +160,68 @@ Like B-type instructions, the least significant bit of the target address is omi
 ### Instruction format
 
 Instructions of RISC-V are designed to follow maximum commanility.
+
 - Opcode is always last 7 bits.
 - When required, `rd` is always last 5 bits.
 - If `rd` is not required, a subset of `imm` is stored there.
-- When `imm` is required, its MSB is stored in the instruction's MSB.   
+- When `imm` is required, its MSB is stored in the instruction's MSB.  
   Reason: to improve performance in sign extension
+
+## Instruction Execution
+
+RISC-V instructions can be executed in at most 5 clock cycles.
+
+### Instruction Fetch (IF)
+
+Send the program counter (PC) to memory and fetch the current instruction from memory. Update the PC to the next sequential instruction by adding 4 (because each instruction is 4 bytes) to the PC.
+
+| Instruction Type | Required CC |
+| ---------------- | ----------- |
+| Branch           | 3           |
+| Store            | 4           |
+| Other            | 5           |
+
+### Instruction Decode (ID)
+
+Both of the operations are performed in parallel:
+
+- Decode the instruction
+- Read the specified registers  
+  Equality test on registers are done as they are read. The register might be unused, but it doesn’t hurt performance. Power is wasted though. Power-sensitive designs might avoid this.
+- Offset is sign-extended  
+  The immediate field is always in the same place, so sign-extension is straightforward. Possible branch target is computed by adding the sign-extended offset to the incremented PC.
+
+Decoding is done in parallel with reading registers. It's possible because
+the register specifiers are at a fixed location in a RISC architecture. This tech-
+nique is known as fixed-field decoding.
+
+### Execution/effective address cycle (EX)
+
+In this step, only one of the following tasks is performed:
+
+- Effective address is calculated (base register + offset) OR
+- Other ALU operation is performed based on the instruction type
+  - For Register-Register ALU instruction  
+    The ALU performs the operation specified by the ALU opcode on the values read from the register file.
+  - For Register-Immediate ALU instruction  
+    The ALU performs the operation specified by the ALU opcode on the first value read from the register file and the sign-extended immediate.
+  - For Conditional branch instruction  
+    Determine whether the condition is true.
+
+The reason is RISC-V is load-store architecture. No instruction needs to simultaneously calculate a data address and perform an operation on the data.
+
+### Memory access (MEM)
+
+Skipped unless the instruction is either a load or a store.
+
+- For a load: the memory does a read using the effective address computed in the previous cycle
+- For a store: the memory writes the data from the second register
+
+### Write-back cycle (WB)
+
+Write result back to destination register. Skipped for store and branch/jump instruction.
+
+- For an ALU instruction
+  The ALU’s output is written.
+- For a load instruction
+  The data fetched from memory in MEM stage is written.

@@ -4,16 +4,14 @@ sidebar:
   order: 6
 slug: computer-architecture/memory-organization
 prev: true
-next: false
+next: true
 ---
 
 Memory is very slow compared to CPU. To bridge the performance gap between the 2, a memory hierarchy which includes, different levels of memory is used.
 
-## Memory Technologies
-
 ## Cache
 
-Small amount of memory, ranging from a few KBs to MBs. Built using SRAM. Slower than registers but faster than main memory. Used to store frequently accessed data.
+Small amount of memory, ranging from a few KBs to MBs. Built using SRAM. Slower than registers but faster than main memory. Used to store frequently accessed data. A transparent speedup mechanism; performance increases even though the program instructions remain unchanged.
 
 ### Cache block
 
