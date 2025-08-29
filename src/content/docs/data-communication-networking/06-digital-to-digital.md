@@ -1,5 +1,5 @@
 ---
-title: Digital To Digital
+title: Digital to Digital
 sidebar:
   order: 6
 slug: data-communication-networking/digital-to-digital
@@ -102,9 +102,9 @@ Used by IEEE 802.5 which is used to build local area networks.
 
 [Bipolar](/data-communication-networking/encoding-decoding#bipolar-encoding) with 8-zero substitution. Based on [Bipolar-AMI](/data-communication-networking/digital-to-digital#bipolar-ami). Used to prevent long sequence of zeros in bipolar-AMI signals. Replaces 8 consecutive zeros with a special that intentionally includes 2 bipolar violations.
 
-If the octet is full of zeros and:
-- Last voltage pulse preceding was positive encode as 000+-0-+
-- Last voltage pulse preceding was negative encode as 000-+0+-
+**If** the octet is full of zeros and:
+- Last voltage pulse preceding was +ve **then** encode as 000+-0-+
+- Last voltage pulse preceding was -ve **then** encode as 000-+0+-
 
 The intentional violations are placed to make sure the replacement is detected correctly. They don't mess up error detection because the specific 2 violations couple doesn't occur because of noise.
 

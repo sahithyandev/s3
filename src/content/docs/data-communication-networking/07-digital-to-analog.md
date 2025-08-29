@@ -1,5 +1,5 @@
 ---
-title: Digital To Analog
+title: Digital to Analog
 sidebar:
   order: 7
 slug: data-communication-networking/digital-to-analog
@@ -100,7 +100,7 @@ than some reference signal
 
 ### Quadrature PSK
 
-Each signal element represents more than 1 bit.
+Each signal element represents more than 1 bit. Shifts phase by 90 degrees. Can use even more phase shifts.
 
 :::note
 

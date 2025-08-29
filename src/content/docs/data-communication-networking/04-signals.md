@@ -28,7 +28,7 @@ Discrete. Can take any number of discrete values, not to be confused with binary
 
 For analog signals, the range of frequencies that a medium is capable of handling.
 
-For digital signals, the maximum number of bits that can be transmitted over a medium.
+For digital signals, the maximum number of bits that can be transmitted over a medium in a given period of time.
 
 ### Baud rate
 Number of signal changes per second.
@@ -43,6 +43,8 @@ Number of bits tranmitted per second. Measured in bits per second.
 
 Data rate can be increased by increasing the number of signal components, to some extent.
 
+As the number of signal variations increases, the difference between each symbol becomes smaller and makes it hard to distinguish them at the receiver, especially in noisy environments.
+
 ### Sampling
 
 Converting an analog signal to digital by observing the signal at regular intervals.
@@ -53,10 +55,10 @@ Number of samples taken per second. Must be equal to or higher than baud rate.
 
 ### Signal to Noise Ratio
 
-Aka. SNR. Ratio between signal power and the noise power. Measured in dB.
+Aka. SNR. Ratio between signal power and the noise power. Measured in decibels ($\text{dB}$). $ $
 
 ```math
-\text{SNR} = 10 \log_{10} \left(\frac{S}{N}\right)
+\text{SNR} = 10 \log_{10} \left(\frac{P_\text{signal}}{P_\text{noise}}\right)
 ```
 
 High SNR is desirable.
@@ -65,6 +67,10 @@ High SNR is desirable.
 ### Nyquist theorem
 
 **If** the highest frequency a medium can transmit is $f$, **then** a receiver is able to completely reconstruct the signal by sampling it at $2f$, assuming the channel is noiseless.
+
+#### Aliasing
+
+Occurs when the sampling rate is less than $2f$. High-frequency components of a signal are misinterpreted as lower frequencies, leading to distortion.
 
 ### Shanon's theorem
 

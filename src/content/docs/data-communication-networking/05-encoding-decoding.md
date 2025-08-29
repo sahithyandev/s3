@@ -23,17 +23,17 @@ All signal elements have the same sign.
 
 ### Length of a bit
 
-Aka. duration of a bit. Time taken for transmittert to emit a bit. Larger the bit length, lesser the data rate but convenient for the devices. If the bit length is too short, it might be difficult for the receiver to detect the signal elements accurately.
+Aka. duration of a bit. Time taken for transmitter to emit a bit. Larger the bit length, lesser the data rate but convenient for the devices. If the bit length is too short, it might be difficult for the receiver to detect the signal elements accurately.
 
 ### Baseband
 
-For digital signals: entire medium carries only one data signal at a time (e.g. Ethernet)
+For digital signals: entire medium carries only one data signal at a time. Example: ethernet.
 
-For analog signals: original frequency range of an analog signal before it is modulated
+For analog signals: original frequency range of an analog signal before it is modulated.
 
 ### Broadband
 
-Any type of signal transmission technique that carries two or more different data in separate channels. (Like a multi-lane highway)
+Any type of signal transmission technique that carries two or more different data in separate channels.
 
 ## Encoding Types
 
@@ -62,7 +62,7 @@ A violation of the bipolar encoding. Where 2 pulses of the same polarity occur w
 
 ### Biphase encoding
 
-Uses signal transmissions to represent bits. Combines clock and data. Fixes synchronization issues due to prolonged constant voltages.
+Uses transitions in the middle of bit period to represent bits. Combines clock and data. Fixes synchronization issues due to prolonged constant voltages.
 
 Pros:
 - Self-clocking
@@ -71,7 +71,7 @@ Pros:
 
 Cons:
 - At least 1 transition per bit (possibly 2)
-- Requires more bandwidt
+- Requires more bandwidth
 - Maximum modulation is 2 times of NRZ
 
 Examples:
