@@ -4,7 +4,7 @@ sidebar:
   order: 9
 slug: engineering-thermodynamics/entropy
 prev: true
-next: false
+next: true
 ---
 
 Emerged from 2nd law of thermodynamics. Denoted by $S$. Not a conserved property.
