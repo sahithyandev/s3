@@ -31,6 +31,18 @@ The IP address 0.0.0.0 is a special number used in different ways:
 In simple terms, 0.0.0.0 means "no specific address" when used by a device, and "all addresses" or "default" when used in server settings or routing.
 :::
 
+### Web Interfaces to Database
+
+Limitations of Static HTML:
+  - Cannot customize documents for individual users.
+  - Difficult to update when many pages have replicated data.
+
+Solution: Dynamic Generation:
+  - Web pages are generated on-the-fly from database data.
+  - Enables personalized content based on user data, like tailored ads or local news.
+  - Ensures displayed information is always current, for example, live stock market updates.
+
+This dynamic approach improves user experience and makes maintaining web content much easier.
 
 ## Web Servers
 
@@ -43,12 +55,12 @@ CGI scripts run on the web server when a user requests a dynamic page. The serve
 
 Mechanisms used by web applications to maintain state and track user interactions across multiple requests. HTTP is not session aware by default.
 
-- Cookies   
+- Cookies
   small pieces of data stored on the user's browser. The server sends cookies to the client, which are then included in subsequent requests. Cookies can be used for authentication, storing preferences, or tracking user activity. Have attributes such as expiration, domain, and path, which control their scope and lifetime. Visible to and managed by the client.
 
-- Sessions   
+- Sessions
   server-side storage of user data. When a user logs in or interacts with the application, the server creates a session and assigns a unique session ID, which is typically stored in a cookie on the client. The session ID allows the server to retrieve user-specific data for each request. Sessions are commonly used for authentication and storing temporary data. Managed securely on the server.
- 
+
 When cookies and sessions are used together, persistence is enabled which then enables personalized experiences.
 
 
@@ -66,7 +78,7 @@ Servlets run inside application servers such as Apache Tomcat, Glassfish, JBoss 
 
   - Loading and managing servlets
   - Handling network communications
-  - Session management 
+  - Session management
   - Security and authentication
   - Deployment and monitoring
 
@@ -93,9 +105,9 @@ Various server-side scripting languages are used today, including:
 
 ### Client-Side Scripting
 
-It refers to scripts or small programs that are sent from the web server along with the HTML document and executed directly within the user's web browser (the client). 
+It refers to scripts or small programs that are sent from the web server along with the HTML document and executed directly within the user's web browser (the client).
 
-Allows web pages to be interactive, fast, and responsive by running scripts inside the browser, reducing server load and enhancing user experience. These scripts make web pages interactive by doing tasks like animations, input validation, and changing page content without needing to reload the whole page. 
+Allows web pages to be interactive, fast, and responsive by running scripts inside the browser, reducing server load and enhancing user experience. These scripts make web pages interactive by doing tasks like animations, input validation, and changing page content without needing to reload the whole page.
 
 Client-side scripts help make web pages "active" by executing programs on the client-side, speeding up user interaction by avoiding many round trips to the server.
 
@@ -111,18 +123,18 @@ There are 3 layers in the architecture
 
 ### Presentation Layer (User Interface)
   - This layer interacts directly with users. It includes forms, graphical interfaces, and web-based front ends that display data and capture user input.
-  - It uses technologies like HTML, CSS, JavaScript, and sometimes Flash or Java applets to create interactive, user-friendly interfaces. 
+  - It uses technologies like HTML, CSS, JavaScript, and sometimes Flash or Java applets to create interactive, user-friendly interfaces.
   - It handles how information is displayed and collects user actions, then sends that input to the next layers for processing.
 
 ### Business Logic Layer
-  - This middle layer encapsulates the core functionality and business rules. 
+  - This middle layer encapsulates the core functionality and business rules.
   - It helps to keep the application organized by separating the core processing logic from the user interface and data storage, making the system easier to maintain, modify, and scale.
   - Key roles of the Business Logic Layer include:
     - **Validating Inputs** - Checks the data meets the required rules before processing.
     - **Enforcing Business Rules** - Applies policies like "a student can enroll only if prerequisites are met" or payment conditions.
     - **Managing Workflows** - Handles processes that involve multiple steps or participants.
     - **Processing Data** - Performs calculations, data transformations, and decision-making.
-    - **Security** - Controls access and ensures data integrity 
+    - **Security** - Controls access and ensures data integrity
 
 ### Data Access Layer
   - This layer interacts with the database, managing storage and retrieval of data. It provides a clean interface so the business layer does not need to know database schema details directly.
@@ -141,14 +153,14 @@ Advantages of using ORM:
   - **Security** - Reduces the risk of SQL injection attacks.
   - **Performance** - Implement caching to improve application performance.
 
-:::note[Special-ORM's]
-**Hibernate ORM**: Java ORM framework that simplifies database interactions. Offers features like caching and automatic schema generation. 
+:::note[]
+**Hibernate ORM**: Java ORM framework that simplifies database interactions. Offers features like caching and automatic schema generation.
 **Microsoft's Entity Data Model**: Uses a special query language called Entity SQL, which simplifies querying by working directly with the entity model instead of raw database tables.
 :::
 
 ## Web Services
 
-Software systems that allow different applications to communicate and exchange data over the internet using standardized protocols like HTTP or HTTPS. 
+Software systems that allow different applications to communicate and exchange data over the internet using standardized protocols like HTTP or HTTPS.
 
 Use formats like XML or JSON to send and receive information, allowing programs written in different languages on different platforms to work together seamlessly.
 
@@ -167,7 +179,7 @@ It's critical for providing smooth and reliable user experiences.
 
 Busy web servers serving millions of users use methods like caching to reduce the cost of serving pages, such as connection pooling, caching database query results, and caching generated HTML pages to improve speed and efficiency.
 
-Performance monitoring involves tracking metrics like response time, error rates, resource utilization, and uptime to ensure applications meet user expectations and service-level agreements. 
+Performance monitoring involves tracking metrics like response time, error rates, resource utilization, and uptime to ensure applications meet user expectations and service-level agreements.
 
 Caching at both the server and client side helps boost responsiveness.
 
@@ -178,7 +190,7 @@ Caching at both the server and client side helps boost responsiveness.
 It's a security vulnerability where attackers insert malicious SQL code into input fields, tricking the database into executing harmful commands like data theft or deletion.
 Happens when user inputs are directly concatenated into SQL queries without proper handling.
 
-To avoid SQL injection, prepared statements (also called parameterized queries) are used. Prepared statements separate SQL code from user inputs by using placeholders 
+To avoid SQL injection, prepared statements (also called parameterized queries) are used. Prepared statements separate SQL code from user inputs by using placeholders
 ```sql
 -- wrong way ❌
 SELECT * FROM users WHERE username = ' " + userInput + " ';
@@ -194,7 +206,7 @@ SELECT * FROM users WHERE username = ?;
 aka **Cross-Site Request Forgery (XSRF or CSRF)**
 
 A security vulnerability in web applications where attackers inject malicious scripts, usually JavaScript, into trusted websites.
-When users visit these compromised sites or pages, the malicious scripts execute in their browsers without their knowledge. 
+When users visit these compromised sites or pages, the malicious scripts execute in their browsers without their knowledge.
 This can lead to attackers stealing sensitive data, such as cookies and session tokens, hijacking user accounts, or carrying out unauthorized actions on behalf of the victim.
 
 There are different types of XSS attacks:
@@ -245,10 +257,91 @@ An authentication method that allows users to log in once with a single set of c
 
 ### Application-Level Authorization
 
+The process of controlling user access and permissions within an application based on roles or attributes. After a user is authenticated, authorization determines what actions or resources they are allowed to access.
+Common approaches include:
+  - Role-Based Authorization
+  - Attribute-Based Authorization
+
+Proper authorization ensures data security by preventing unauthorized access and restricting users to actions allowed by their roles or attributes.
+
+### Audit Trails
+
+It's a detailed, chronological record of user activities and system transactions, capturing who did what, when, and where. Provides accountability, transparency, and help detect unauthorized or fraudulent activities.
+Audit trails includes:
+  - Source and destination of the transaction
+  - Date and time of the event
+  - User identification
+  - Specific details of the transaction
 
 
-## Encyption
 
+## Encryption
 
-## Digital Certificates
+Data encryption is used when database authorization is not enough for protection.
+Properties of good encryption technique:
+- Be easy for authorized users to encrypt and decrypt data.
+- Rely on the secrecy of the encryption key, not the algorithm.
+- Make it extremely hard for attackers to find the key.
 
+1. **Symmetric-key encryption**: Uses the same key for both encryption and decryption.
+2. **Public-key encryption (asymmetric)**: Uses different keys; the encryption key is public, and the decryption key is kept secret.
+
+### Encryption Algorithms
+
+1. **Data Encryption Standard (DES)**: A symmetric-key encryption that substitutes and rearranges characters based on a secret key shared securely with authorized users. DES uses 64-bit blocks and a 56-bit key across 16 rounds of encryption but is less secure today due to key size limitations.
+
+2. **Advanced Encryption Standard (AES)**: The modern replacement for DES, based on the Rijndael algorithm. AES uses shared secret keys and offers stronger security and efficiency.
+
+3. **Public-Key Encryption**: Each user has a public key for encryption and a private key for decryption. Public keys are openly shared, while private keys remain secret. The encryption is designed such that decrypting with only the public key is practically impossible.
+
+4. **RSA Encryption**: A widely used public-key scheme whose security is based on the difficulty of factoring large numbers.
+
+5. **Hybrid Encryption**: Combines public and private key methods to efficiently encrypt large amounts of data.
+
+6. **Encryption Vulnerabilities**: Small values like identifiers may be vulnerable to dictionary attacks; adding random "salt bits" before encryption ensures different encrypted outputs for the same input, preventing such attacks.
+
+:::note[Dictionary attack]
+A type of cyberattack where attackers systematically try likely passwords by using a predefined list of common words, phrases, and known passwords (called a dictionary).
+Instead of trying every possible character combination like brute force, dictionary attacks focus on common, easy-to-guess passwords, exploiting human tendencies to choose simple or predictable passwords.
+:::
+
+### Encryption in Databases
+
+Databases widely support encryption to protect data.
+Encryption can be applied at different levels:
+  - **Disk block**: Each disk block encrypted with a key managed by database software; protects data even if disk is accessed.
+  - **Relations or attributes**: Only sensitive relations or attributes are encrypted; primary/foreign key attributes cannot be encrypted.
+
+Usually, single master key used to protect multiple encryption/decryption keys stored in database.
+
+Alternatively, encryption/decryption can be done in the application layer before data reaches the database.
+
+### Encryption and Authentication
+
+- Password-based authentication is common but vulnerable to network sniffing.
+
+- **Challenge-response systems** enhance security by avoiding password transmission:
+  - Database sends a random challenge.
+  - User encrypts and returns it.
+  - Database verifies by decrypting the response.
+  - Can use public-key encryption where DB encrypts with user’s public key, and user decrypts and returns it.
+
+- **Digital signatures** verify data authenticity:
+  - Created by encrypting data with a private key.
+  - Verified by decrypting with the corresponding public key.
+  - Ensure nonrepudiation, preventing the sender from denying the data creation.
+
+These methods strengthen authentication and data integrity .
+
+## Digital Certificates (CAs)
+
+Digital Certificates are essential for verifying the authenticity of public keys in secure communications.
+
+When communicating with a website, it is important to ensure that the site is genuine and not an imposter.
+Digital certificates provides a signed document that verifies the website’s identity.
+Browsers trust root-level Certification Authorities (CAs) whose public keys are pre-installed.
+Websites get their public key and identity signed by a CA, creating a certificate.
+The client verifies the certificate using the CA’s public key.
+Certificates can be signed through multiple CA levels, forming a trust hierarchy.
+
+This model ensures secure and trusted web communication.
