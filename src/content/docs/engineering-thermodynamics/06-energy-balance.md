@@ -33,9 +33,9 @@ Total specific energy of a flow system:
 
 Here:
 - $\theta$ - total specific energy
-- $h = u + P\neu$ - enthalpy
+- $h = u + P\nu$ - enthalpy
 - $u$ - specific internal energy
-- $P\neu$ - specific flow work 
+- $P\nu$ - specific flow work 
 - $C$ - velocity of the flow
 - $g$ - gravatitaional acceleration
 - $z$ - elevation of the flow system

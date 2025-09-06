@@ -74,13 +74,29 @@ A change in the state of a system.
 
 A thermodynamic cycle is series of thermodynamic processes that returns the system to its initial state.
 
-Common thermodynamic processes:
-- Isothermal process: system temperature remains constant
-- Adiabatic process: no heat transfer
-- Isobaric process: system pressure remains constant
-- Isochoric process: system volume remains constant
-- Polytropic process: system pressure and volume are related by a power law
-- Quasi-equilibrium process: system is in equilibrium throughout the process
+### Isothermal process
+
+System temperature remains constant.
+
+### Adiabatic process
+
+No heat transfer. 
+
+### Isobaric process
+
+System pressure remains constant.
+
+###  Isochoric process
+
+System volume remains constant.
+
+### Polytropic process
+
+System pressure and volume are related by a power law.
+
+### Quasi-equilibrium process
+
+System is in equilibrium throughout the process.
 
 ### Reversible process
 
