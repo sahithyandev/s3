@@ -1,10 +1,10 @@
 ---
 title: Dekker's Algorithm
 sidebar:
-  order: 11
+  order: 10
 slug: operating-systems/dekkers-algorithm
 prev: true
-next: false
+next: true
 ---
 
 A classical solution to the mutual exclusion problem, specifically designed for two processes. One of the first algorithms to allow two processes to share a single-use resource without conflict, using only shared memory and without relying on special atomic instructions.

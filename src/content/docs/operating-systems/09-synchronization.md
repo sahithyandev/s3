@@ -1,7 +1,7 @@
 ---
 title: Synchronization
 sidebar:
-  order: 10
+  order: 9
 slug: operating-systems/synchronization
 prev: true
 next: true

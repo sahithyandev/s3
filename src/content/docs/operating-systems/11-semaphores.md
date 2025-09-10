@@ -1,7 +1,10 @@
 ---
 title: Semaphores
 sidebar:
-  order: 12
+  order: 11
+slug: operating-systems/semaphores
+prev: true
+next: true
 ---
 
 A variable used to control access to a resource. Can allow a certain number of threads to access a resource. More on this in [semaphores](/operating-systems/semaphores).
