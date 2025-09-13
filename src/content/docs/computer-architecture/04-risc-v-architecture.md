@@ -1,7 +1,7 @@
 ---
 title: RISC-V Architecture
 sidebar:
-  order: 3
+  order: 4
 slug: computer-architecture/risc-v-architecture
 prev: true
 next: true
@@ -225,3 +225,9 @@ Write result back to destination register. Skipped for store and branch/jump ins
   The ALU’s output is written.
 - For a load instruction
   The data fetched from memory in MEM stage is written.
+
+:::note
+
+I have created a [short note on Addressing Modes in RISC-V](/notes/Addressing%20Modes%20RISC-V.pdf) for quick reference.
+
+:::

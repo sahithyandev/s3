@@ -1,7 +1,7 @@
 ---
 title: Memory Organization
 sidebar:
-  order: 6
+  order: 7
 slug: computer-architecture/memory-organization
 prev: true
 next: true

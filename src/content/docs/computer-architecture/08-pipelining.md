@@ -1,10 +1,10 @@
 ---
 title: Pipelining
 sidebar:
-  order: 7
+  order: 8
 slug: computer-architecture/pipelining
 prev: true
-next: false
+next: true
 ---
 
 A technique used in CPU architecture to improve performance. The technique of overlapping the execution of multiple instructions, instead of processing each instruction sequentially from start to finish.
@@ -104,11 +104,17 @@ When next instruction depends on the result of the current instruction during ov
 3 types:
 
 - Read after write (RAW)   
-  `j` reads before `i` writes
+  `j` must read only after `i` writes. Stall is required to resolve.
 - Write after read (WAR)   
-  `i` reads after `j` writes. Impossible in 5-stage pipeline. Occurs when instructions are reordered.
+  `j` writes only after `i` reads. Impossible in 5-stage pipeline. Occurs when instructions are reordered. Can be solved by renaming registers.
 - Write after write (WAW)   
-  `i` writes after `j` writes. Impossible in 5-stage pipeline. Occurs when instructions are reordered.
+  `j` writes only after `i` writes. Impossible in 5-stage pipeline. Occurs when instructions are reordered.
+  
+:::note
+
+Read after read (RAR) is not a hazard because read operation is idempotent.
+
+:::
   
 #### Forwarding
 

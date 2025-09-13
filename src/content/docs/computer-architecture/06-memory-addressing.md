@@ -1,7 +1,7 @@
 ---
 title: Memory Addressing
 sidebar:
-  order: 5
+  order: 6
 slug: computer-architecture/memory-addressing
 prev: true
 next: true

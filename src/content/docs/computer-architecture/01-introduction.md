@@ -10,59 +10,32 @@ next: true
 
 Computer architecture is the design and organization of a computer system. It involves the conceptual structure and functional behavior of a computer system at a level that can be used to understand how the computer works.
 
-## Instruction Set Architecture (ISA)
+## CPU
 
-The interface between a computer's hardware and its software. It defines the set of instructions that a processor can execute, along with the formats of those instructions, the supported data types, registers, memory addressing modes, and how the processor's resources are accessed and controlled.
+Can be categorized into 2 based on cycles per instructions (CPI).
 
-The instruction set serves as a contract between hardware and software, allowing software developers to write programs without needing to understand the intricate details of the underlying hardware implementation.
+### Single Cycle CPU
 
-### RISC vs. CISC
+Each instruction executes completely in one clock cycle. Slowest instruction defines the clock cycle's duration. Simpler instructions causes waste of time, as they finish earlier. Not scalable as introducing more or complex instructions causes longer clock cycles.
 
-Instruction set architectures are commonly categorized into two main types based on the number of supported instructions.
+### Multi Cycle CPU
 
-#### RISC (Reduced Instruction Set Computer)
+Different instructions take different number of clock cycles to execute. Instructions are split into multiple stages, each stage taking one clock cycle.
 
-Features:
-- A small set of simple, fixed-length instructions
-- Load-store architecture (only load and store instructions access memory)
-- More general-purpose registers
-- Emphasis on optimization for pipelining
-- Simpler decoding logic
+Slowest step of all the instructions defines the clock cycle's duration. Wasted time due to simple instruction waiting is less compared to single cycle CPU. 
 
-Examples:
-- ARM (used in most smartphones and tablets)
-- MIPS (used in embedded systems and older gaming consoles)
-- [RISC-V](/computer-architecture/risc-v-architecture) (an open-source ISA gaining popularity)
-- PowerPC (used in older Macs and game consoles)
+Allows for more complex instructions to be executed in parallel.
 
-:::note
+## Microprocessor vs Microcontroller
 
-RISC-V is gaining popularity for several reasons:
+A microprocessor is a CPU on a single chip. Has a larger instruction set. Has more registers.
 
-1. Open source & free
-2. Modularity and extensibility   
-  RISC-V has a small base ISA with optional standard extensions, enabling customization for specific applications while maintaining compatibility.
-3. Academic and industry support   
-  It originated at UC Berkeley and now has broad backing from companies like Western Digital, NVIDIA, Google, and Alibaba.
+A microcontroller is a small _computer_ on a single chip. Includes a CPU, ROM, SRAM and other peripherals. Self-contained. Consumes less power. Has small memory.
 
-4. Suitability for modern needs   
-  Its clean-slate design avoids legacy constraints and is well-suited for everything from tiny IoT devices to high-performance computing.
+## Assembling
 
-5. Security and transparency   
-  The open specification allows for community-reviewed security implementations and avoids proprietary "black box" concerns.
+Transforms a single source code file into machine code. Leaves placeholders for external symbols. Produces an object file.
 
-:::
+## Linking
 
-#### CISC (Complex Instruction Set Computer)
-
-Features:
-- Many specialized, variable-length instructions
-- Instructions that can perform complex operations in a single step
-- Memory-to-memory operations
-- Fewer registers but more addressing modes
-- More complex decoding logic
-
-Examples of CISC architectures:
-- x86 and x86-64 (used in most desktop and laptop computers)
-- VAX (historically important)
-- Motorola 68000 series (used in early Macs and Amigas)
+Transforms multiple object files into a single executable file. Resolves external symbols.
