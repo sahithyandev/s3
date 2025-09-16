@@ -51,3 +51,31 @@ Time to bring a block from memory plus deliver it to processor.
 ```
 
 :::
+
+## Cache Organization
+
+Memory is divided into _blocks_ (aka. _lines_) to be stored in cache.
+
+### Memory address split
+
+A memory address is split into tag, index, and offset.
+- Offset   
+  Selects the word within a block. If block size is 64 bytes, least significant 6 bits are used to address each word. 
+- Index  
+  Index of the set. If the total number of sets are $2^n$, then $n$ bits are used here.
+- Tag   
+  Identifies which memory block is stored in the that set's line. Remaining bits are index and offset.
+  
+### Cache Entry Table
+
+A small table is used to record cache entries. The table stores:
+- tag
+- index
+- valid bit (1 bit)
+
+### Associativity
+
+Defines where blocks can be placed in a cache.
+- Fully associative: no sets, blocks can be placed anywhere
+- N-way set associative: blocks are placed in sets, each set has multiple blocks
+- Direct mapped: each block is placed in a unique set (special case of N-way set associative where $N=1$)

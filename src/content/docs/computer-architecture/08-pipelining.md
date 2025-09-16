@@ -73,6 +73,10 @@ For a balanced pipeline:
 
 When an instruction need delaying during a hazard. One stalled instruction causes all instructions after it to stall. Instructions issued earlier than the stalled one must continue to clear the stall. No new instructions fetched during stall. Causes performance degradation.
 
+### Pipeline register
+
+A register placed between two stages of a CPU pipeline.
+
 ## Issues
 
 - One instruction can be dependent on the result of another instruction(s).
@@ -99,7 +103,7 @@ divide or other complex long running instructions). Not a major performance fact
 
 ### Data hazard
 
-When next instruction depends on the result of the current instruction during overlap. Suppose when unpipelined, instruction $i$ runs before $j$ and both use the same register.
+When next instruction depends on the result of the current instruction during overlap. Suppose when unpipelined, instruction `i` runs before `j` and both use the same register.
 
 3 types:
 
@@ -118,7 +122,7 @@ Read after read (RAR) is not a hazard because read operation is idempotent.
   
 #### Forwarding
 
-Aka. bypassing or short-circuiting. An alternate solution to stalling. The result is forwarded directly from the stage where it becomes available (mostly EX or MEM) to the stage that needs it.
+Aka. bypassing or short-circuiting. An alternate solution to stalling for data hazards. The result is forwarded directly from the stage where it becomes available (mostly EX or MEM) to the stage that needs it.
 
 Cannot handle all data hazards. For load instruction, forwarding alone isn't enough and causes 1-cycle stall.
 
@@ -128,7 +132,7 @@ To preserve the correct execution pattern. Detects a hazard and stalls the pipel
 
 ### Control hazard
 
-When the outcome of a branch/jump instruction is unknown yet. Causes more performance loss compared to data hazards. 4 solutions are commonly used.
+Aka. branch hazard. When the outcome of a branch/jump instruction is unknown yet. Causes more performance loss compared to data hazards. 4 solutions are commonly used.
 
 #### Taken branch
 
@@ -136,7 +140,7 @@ When a branch changes the PC to its target address. Otherwise _untaken branch_.
 
 #### Freeze
 
-Simplest scheme to handle branches. The process of holding execution in the pipeline until the branch destination is known. Waits for 2 cycles per branch.
+Simplest scheme to handle branch hazards. The process of holding execution in the pipeline until the branch destination is known. Waits for 2 cycles per branch.
 
 Implementation is simple in terms of hardware and software. Branch penalty is constant, cannot be lessened with software optimization.
 
@@ -144,7 +148,7 @@ Used when no predictions.
 
 #### Flush
 
-Similar to freeze. The process of removing instructions in the pipeline until the branch destination is known.
+Speculatively fetches next instruction as it normally would. Discards the fetched instructions if they are not needed. Kind of similar to freeze.
 
 Branch penalty is constant, cannot be lessened with software optimization.
 
