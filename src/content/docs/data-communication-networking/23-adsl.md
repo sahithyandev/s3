@@ -4,7 +4,7 @@ sidebar:
   order: 23
 slug: data-communication-networking/adsl
 prev: true
-next: false
+next: true
 ---
 
 Short for Asymmetric Digital Subscriber Line. An example for implementation. Makes use of existing voice telephone network to create a digital subscriber line link between the network and subscriber. Uses traditional copper telephone lines. Uses FDM.
