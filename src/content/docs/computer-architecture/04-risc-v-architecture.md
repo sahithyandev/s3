@@ -222,7 +222,7 @@ Skipped unless the instruction is either a load or a store.
 Write result back to destination register. Skipped for store and branch/jump instruction.
 
 - For an ALU instruction
-  The ALU’s output is written.
+  The ALU’s output is written27.3%.
 - For a load instruction
   The data fetched from memory in MEM stage is written.
 
