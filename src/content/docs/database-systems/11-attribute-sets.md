@@ -4,7 +4,7 @@ sidebar:
   order: 11
 slug: database-systems/attribute-sets
 prev: true
-next: false
+next: true
 ---
 
 ## Closure

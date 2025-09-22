@@ -2,6 +2,9 @@
 title: Application Development
 sidebar:
   order: 12
+slug: database-systems/application-development
+prev: true
+next: true
 ---
 
 Applications, as the intermediary between the user and database is discussed here. Can be split into 3:
