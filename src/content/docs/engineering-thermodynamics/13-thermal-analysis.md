@@ -4,7 +4,7 @@ sidebar:
   order: 13
 slug: engineering-thermodynamics/thermal-analysis
 prev: true
-next: false
+next: true
 ---
 
 ## Terminology
