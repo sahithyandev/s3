@@ -1,5 +1,5 @@
 ---
-title: Analog To Analog
+title: Analog to Analog Encoding
 sidebar:
   order: 10
 slug: data-communication-networking/analog-to-analog
@@ -8,6 +8,7 @@ next: true
 ---
 
 Analog signals are modulated because:
+
 - Higher frequency gives more efficient transmission.
 - Permits frequency division multiplexing.
 
@@ -22,6 +23,7 @@ s(t) = A_c (1 + km(t)) \cos(\omega_c t)
 ```
 
 Here:
+
 - $A_c$: Amplitude of the carrier signal
 - $k$: Modulation index
 - $m(t)$: Modulation signal
@@ -40,6 +42,7 @@ s(t) = A_c\cos(\omega_c t + \theta(t))
 ```
 
 Here:
+
 ```math
 \theta(t) = 2\pi \Delta_f \int_{-\infty}^t m(\tau) \text{d}\tau
 ```
@@ -58,6 +61,7 @@ s(t) = A_c\cos(\omega_c t + \theta(t))
 ```
 
 Here:
+
 ```math
 \theta(t) = \Delta_p m(t)
 ```

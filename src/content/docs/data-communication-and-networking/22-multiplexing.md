@@ -21,18 +21,18 @@ Multiplexing is used because:
 
 ## Frequency Division Multiplexing
 
-Aka. FDM. Bandwidth is divided into multiple frequency ranges. Each frequency range is assigned to a signal. Minor gaps are left in between to avoid interference. Idle signals cause a frequency range to be blank, which is wasted.
+Aka. FDM. Bandwidth is divided into multiple frequency ranges. Each frequency range is assigned to a signal. Minor gaps (aka. guard bands) are left in between to avoid interference. Idle signals cause a frequency range to be blank, which is wasted.
 
 Issues in FDM:
 - Crosstalk - interference between signals
-- Intermodulation noise: amplifiers' nonlinear effects could interference.
+- Intermodulation noise: amplifiers' nonlinear effects could cause interference.
 - Limited number of signals that can be multiplexed
 
 ### FDM Process
 
-A link's bandwidth is divided into multiple frequency ranges. Each frequency range is assigned to a signal. Minor gaps are left in between to avoid interference.
+A link's bandwidth is divided into multiple frequency ranges. Each frequency range is assigned to a signal. Guard bands are left in between to avoid interference.
 
-Each different signal is modulated onto a carrier, sent through band-limiting filters. Composite signals is sent through the link. At the receiver's side band pass filters are used to separate the signals. Demodulation is done and appropriate signals are sent to the appropriate destinations.
+Each different signal is modulated onto a carrier, sent through band-limiting filters. Composite signal is sent through the link. At the receiver's side band-pass filters are used to separate the signals. Demodulation is done and appropriate signals are sent to the appropriate destinations.
 
 ## Wavelength Division Multiplexing
 
@@ -50,19 +50,19 @@ Possible only when achievable data rate of the medium is higher than the signals
 
 :::note
 
-Named _synchronous_ not because it is related to synchronous transmission, but because the time slots are preassigned to sources and fixed.
+Named _synchronous_ not because it is related to synchronous transmission, but because the time slots are preassigned to sources and are fixed.
 
 :::
 
 ### TDM Process
 
-Data from each source is temporarily stored in a buffer (typically one bit or one character). The buffers are scanned sequentially. Bits/characters from each buffer are combined to form a composite digital data stream, which is sent through the medium.
+Data from each source is temporarily stored in source-specific buffers (typically one bit or one character). The buffers are scanned sequentially. Bits/characters from each buffer are combined to form a composite digital data stream, which is sent through the medium.
 
 At the receiver, the stream is demultiplexed by separating the bits/characters according to their time slots and delivered to the appropriate destination signals.
 
 ### TDM Link Control
 
-When an output device cannot accept data, TDM does not stop transmitting. Instead, the affected channel's time slots becomes empty. Other channels are not affected. Error handling is done each channel separately. Protocols like High-Level Data Link Control (HDLC) are used to handle flow and error control.
+When an output device cannot accept data, TDM does not stop transmitting. Instead, the affected channel's time slots becomes empty. Other channels are not affected. Error handling is done on each channel separately. Protocols like High-Level Data Link Control (HDLC) are used to handle flow and error control.
 
 ### TDM Framing
 

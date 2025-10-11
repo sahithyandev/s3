@@ -29,7 +29,7 @@ Unwanted coupling between two different signal paths. Relatively constant and ca
 
 ### Echo
 
-A delayed repetition of the original signal. The reflective feedback of a transmitted signal as the signal moves through a medium. Most often occurs on coaxial cable. If echo bad enough, it could interfere with original signal. Relatively constant. Can be significantly reduced.
+A delayed repetition of the original signal. The reflective feedback of a transmitted signal as the signal moves through a medium. Most often occurs on coaxial cable. If bad enough, it could interfere with original signal. Relatively constant. Can be significantly reduced.
 
 ### Jitter
 

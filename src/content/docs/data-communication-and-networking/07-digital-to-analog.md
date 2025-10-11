@@ -1,5 +1,5 @@
 ---
-title: Digital to Analog
+title: Digital to Analog Encoding
 sidebar:
   order: 7
 slug: data-communication-networking/digital-to-analog
@@ -7,11 +7,7 @@ prev: true
 next: true
 ---
 
-## Techniques
-
-Different methods are used to convert digital signals into analog signals.
-
-### Amplitude Shift Keying
+## Amplitude Shift Keying
 
 Aka. ASK. Values are represented by amplitudes of the carrier signal. Usually 1 amplitude is 0. Easy to implement. Requires relatively low bandwidth.
 
@@ -25,21 +21,22 @@ ASK is relatively inefficient for several reasons:
 
 Used over optical fiber.
 
-### Frequency Shift Keying
+## Frequency Shift Keying
 
 Aka. FSK. The frequency of the carrier signal is varied to represent binary data. In FSK, different digital values are represented by discrete frequency changes:
 
 - Binary 1: Carrier signal transmitted at one frequency (f₁)
 - Binary 0: Carrier signal transmitted at another frequency (f₀)
 
-#### Key Characteristics
+Characteristics:
 
-1. Noise Resistance: FSK offers better noise immunity than ASK since noise typically affects amplitude more than frequency
-2. Reliability: More reliable in noisy environments
-3. Bandwidth Requirements: Requires more bandwidth than ASK
-4. Applications: Widely used in modems, radio teletype, caller ID, and amateur radio
+- Noise Resistance   
+  FSK offers better noise immunity than ASK since noise typically affects amplitude more than frequency
+- More reliable in noisy environments
+- Requires more bandwidth than ASK
 
-FSK is commonly used in applications where reliability is more important than bandwidth efficiency.
+Commonly used in applications where reliability is more important than bandwidth efficiency.
+Widely used in modems, radio teletype, caller ID, and amateur radio.
 
 ### BFSK
 
@@ -54,23 +51,17 @@ Props:
 
 More than 2 frequencies are used. More bandwidth-efficient. More prone to errors. Each signal element represents more than 1 bit.
 
-### Phase Shift Keying
+## Phase Shift Keying
 
 Aka. PSK or PK. The phase of the carrier signal is varied to represent binary data. In its basic form, PSK uses different phase angles to represent different digital values:
 
-#### Key Characteristics
+Characteristics:
 
-1. Error Performance: Better error performance than ASK in noisy environments
-2. Constant Envelope: Maintains constant amplitude, making it suitable for nonlinear channels
-3. Bandwidth Efficiency: More bandwidth-efficient than FSK
-4. Applications: Widely used in wireless communications, satellite communications, and digital cellular systems
+- Error Performance: Better error performance than ASK in noisy environments
+- Constant Envelope: Maintains constant amplitude, making it suitable for nonlinear channels
+- More bandwidth-efficient than FSK
 
-#### Types of PSK
-
-- Binary PSK (BPSK): Uses two phases (typically 0° and 180°)
-- Quadrature PSK (QPSK): 
-- 8-PSK, 16-PSK: Higher-order PSK schemes using more phase angles to represent more bits per symbol
-- Differential PSK (DPSK): Encodes information in phase changes rather than absolute phases
+Widely used in wireless communications, satellite communications, and digital cellular systems.
 
 ### Mathematical Representation
 
@@ -91,23 +82,23 @@ PSK forms the basis for many advanced modulation schemes used in modern digital 
 
 ### Binary PSK
 
-Two phases represent two binary digits
+Two phases represent two binary digits. Typically 0° and 180° are used.
 
 ### Differential PSK
 
-Phase shifted relative to previous transmission rather
-than some reference signal
+Phase shifted relative to previous transmission rather than some reference signal.
 
 ### Quadrature PSK
 
-Each signal element represents more than 1 bit. Shifts phase by 90 degrees. Can use even more phase shifts.
+Each signal element represents more than 1 bit. Shifts phase by 90 degrees. Can use even more phase shifts. Named as 8-PSK, 16-PSK, etc based on the number of phase shifts.
 
-:::note
 
-For ASK and PSK bandwidth is directly related to bit rate.
+## Comparison
+
+For ASK and PSK, bandwidth is directly related to bit rate.
 
 FSK bandwidth related to data rate for lower frequencies, but to offset of modulated frequency from carrier at high frequencies.
 
-In the presence of noise, bit error rate of PSK and QPSK are about 3dB superior to ASK and FSK.
+### Noise performance
 
-:::
+In the presence of noise, bit error rate of PSK and QPSK are about 3dB superior to ASK and FSK.

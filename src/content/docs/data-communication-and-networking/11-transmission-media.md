@@ -80,14 +80,14 @@ Highly directional.
 
 2 types:
 - Terrestial    
-  Used for long haul telecommunications and short point-to-point links. requires fewer repeaters but line of sight. uses a parabolic dish to focus a narrow beam onto a receiver antenna. higher frequencies give higher data rates. main source of loss is attenuation
+  Used for long haul telecommunications and short point-to-point links. requires fewer repeaters but line of sight. uses a parabolic dish to focus a narrow beam onto a receiver antenna. higher frequencies give higher data rates. main source of loss is attenuation.
 
 - Satellite   
   A relay station. receives on one frequency, amplifies or repeats signal and transmits on another frequency. typically requires geo-stationary orbit. Used in television, long distance telephone, private business networks, global positioning.
 
 ### Radio waves
 
-Omnidirectional. Line of sight is required. Suffers from multipath interference.
+Can be omnidirectional if the antenna supports it. Line of sight is required. Suffers from multipath interference.
 
 ### Infrared waves
 
@@ -117,7 +117,7 @@ Measure of directionality. Measured in decibels (dB).
 
 ### Ground wave
 
-Propogated by waves which follow earth's curvature. Used for low and medium frequency waves.
+Propagated by waves which follow earth's curvature. Used for low and medium frequency waves.
 
 Propogate despite obstacles due to:
 - Diffraction

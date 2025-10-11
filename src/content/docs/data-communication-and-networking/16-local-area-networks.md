@@ -21,13 +21,13 @@ Devices (or stations) can be connected in different ways to form a network. Each
 
 ### Bus Topology
 
-All devices are connected to a single cable, known as bus. The bus acts as a shared communication channel. Supports full duplex communication. Simple and easy to implement. Can be difficult to troubleshoot and maintain.
+All devices are connected to a single cable aka. a _bus_. The bus acts as a shared communication channel. Supports full duplex communication. Simple and easy to implement. Can be difficult to troubleshoot and maintain.
 
-Stations _tap_ into the bus. Terminators absorb reflections and prevent signal degradation.
+Stations _tap_ into the bus. Terminators are placed at either ends to absorb reflections and prevent signal degradation.
 
 ### Tree Topology
 
-An extension to the bus topology. Devices are connected to a bus. There will be multiple buses, each with its own terminator. All buses will connect to the headend.
+An extension to the bus topology. Devices are connected to a bus. There will be multiple buses, each with its own terminator. All buses will connect to the _headend_.
 
 :::note
 

@@ -69,7 +69,7 @@ Provides a uniform interface to the Network Layer regardless of the medium.
 Data transmitted in the MAC layer. A frame includes:
 - MAC header
 - LLC protocol data unit
-- MAC traile
+- MAC trailer
 
 ### LLC Protocol Data Unit (PDU)
 

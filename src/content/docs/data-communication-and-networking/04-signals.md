@@ -77,5 +77,5 @@ Occurs when the sampling rate is less than $2f$. High-frequency components of a 
 Maximum data rate of a medium is related to both the maximum frequency the medium can handle and SNR.
 
 ```math
-\text{data rate} = \text{bandwidth} \times \log_2 \left( 1 + \frac{S}{N} \right)
+\text{data rate} = \text{bandwidth} \times \log_2 \left( 1 + SNR \right)
 ```

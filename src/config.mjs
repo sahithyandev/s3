@@ -72,7 +72,7 @@ export const STARLIGHT_SIDEBAR_CONFIG = [
     label: "Data Communication and Networking",
     collapsed: true,
     autogenerate: {
-      directory: "data-communication-networking",
+      directory: "data-communication-and-networking",
     }
   },
   {

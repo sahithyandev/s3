@@ -9,7 +9,7 @@ next: true
 
 ## ISP
 
-Short for Internet Service Provider. Provides access to the internet through cable networks.
+Short for Internet Service Provider. Provides internet access to the users through cable networks.
 
 ## CMTS
 

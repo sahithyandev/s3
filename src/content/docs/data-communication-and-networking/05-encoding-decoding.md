@@ -7,9 +7,9 @@ prev: true
 next: true
 ---
 
-Data can either be analog or digital. Signals can either be analog or digital. Encoding must be done between the 2 types, thus 4 variations. For this module, [digital data to digital signals](/data-communication-networking/digital-to-digital) is focused most.
-
 Encoding is the process of taking a signal and converting it into a form that can be transmitted over a communication medium.
+
+Data can either be analog or digital. Signals can either be analog or digital. Encoding must be done between the 2 types, thus 4 variations. For this module, [digital data to digital signals](/data-communication-networking/digital-to-digital) is focused most.
 
 ## Terms
 
@@ -62,7 +62,7 @@ A violation of the bipolar encoding. Where 2 pulses of the same polarity occur w
 
 ### Biphase encoding
 
-Uses transitions in the middle of bit period to represent bits. Combines clock and data. Fixes synchronization issues due to prolonged constant voltages.
+Uses transitions to represent bits. Combines clock and data. Fixes synchronization issues due to prolonged constant voltages.
 
 Pros:
 - Self-clocking

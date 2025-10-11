@@ -7,7 +7,7 @@ prev: true
 next: true
 ---
 
-Introduced in 1973 by Robert Metcalfe in his PhD thesis. Named after _ether_ the imaginary substance. Became IEEE 802.3 Standard.
+Introduced in 1973 by Robert Metcalfe in his PhD thesis. Named after _ether_ the imaginary substance. Became the IEEE 802.3 Standard.
 
 Dominant in the industry because:
 - cheap

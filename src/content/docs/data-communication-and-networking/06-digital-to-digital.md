@@ -1,5 +1,5 @@
 ---
-title: Digital to Digital
+title: Digital to Digital Encoding
 sidebar:
   order: 6
 slug: data-communication-networking/digital-to-digital
@@ -13,11 +13,11 @@ Encoding more than 1 bit per 1 symbol. Achieved through having more than 2 volta
 
 ### Scrambling
 
-The process of replacing the constant voltage levels with a filling sequence. This is done to prevent the receiver from detecting the signal incorrectly.
+The process of replacing the constant voltage levels with a filling sequence. To prevent the receiver from detecting the signal incorrectly.
 
 #### Filling sequence
 
-Must produce enough transitions to sync. Must be recognized by the receiver, and replaced with original. Has same length as original.
+A bit sequence to replace a sequence of constant voltage level. Must produce enough transitions to sync. Must be recognized by the receiver, and replaced with original. Has same length as original.
 
 ## Schemes
 
@@ -36,7 +36,7 @@ Short for Non-Return to Zero-Level. Two different voltage levels: 1 and 0. Eithe
 
 ### NRZ-I
 
-Short for Non-Return to Zero-Inverted. Constant voltage during bit interval, similar to NRZ-L. Transition denotes a binary 1. No transition denotes a binary 0. A differential encoding scheme.
+Short for Non-Return to Zero-Inverted. A differential encoding scheme. Constant voltage during bit interval, similar to NRZ-L. Transition at start of a bit denotes a binary 1. No transition denotes a binary 0.
 
 :::note[Pros & Cons of NRZ]
 
@@ -100,7 +100,7 @@ Used by IEEE 802.5 which is used to build local area networks.
 
 ### B8ZS
 
-[Bipolar](/data-communication-networking/encoding-decoding#bipolar-encoding) with 8-zero substitution. Based on [Bipolar-AMI](/data-communication-networking/digital-to-digital#bipolar-ami). Used to prevent long sequence of zeros in bipolar-AMI signals. Replaces 8 consecutive zeros with a special that intentionally includes 2 bipolar violations.
+[Bipolar](/data-communication-networking/encoding-decoding#bipolar-encoding) with 8-zero substitution. Based on [Bipolar-AMI](/data-communication-networking/digital-to-digital#bipolar-ami). Used to prevent long sequence of zeros in bipolar-AMI signals. Replaces 8 consecutive zeros with a special sequence that intentionally includes 2 bipolar violations.
 
 **If** the octet is full of zeros and:
 - Last voltage pulse preceding was +ve **then** encode as 000+-0-+
