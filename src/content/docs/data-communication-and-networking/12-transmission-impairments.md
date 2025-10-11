@@ -2,7 +2,7 @@
 title: Transmission Impairments
 sidebar:
   order: 12
-slug: data-communication-networking/transmission-impairments
+slug: data-communication-and-networking/transmission-impairments
 prev: true
 next: true
 ---

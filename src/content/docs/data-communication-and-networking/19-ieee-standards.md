@@ -2,7 +2,7 @@
 title: IEEE Standards
 sidebar:
   order: 19
-slug: data-communication-networking/ieee-standards
+slug: data-communication-and-networking/ieee-standards
 prev: true
 next: true
 ---

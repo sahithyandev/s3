@@ -2,7 +2,7 @@
 title: Modulation
 sidebar:
   order: 8
-slug: data-communication-networking/modulation
+slug: data-communication-and-networking/modulation
 prev: true
 next: true
 ---

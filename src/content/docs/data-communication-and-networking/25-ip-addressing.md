@@ -1,8 +1,8 @@
 ---
 title: IP Addressing
 sidebar:
-  order: 24
-slug: data-communication-networking/ip-addressing
+  order: 25
+slug: data-communication-and-networking/ip-addressing
 prev: true
 next: false
 ---

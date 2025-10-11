@@ -2,7 +2,7 @@
 title: Signals
 sidebar:
   order: 4
-slug: data-communication-networking/signals
+slug: data-communication-and-networking/signals
 prev: true
 next: true
 ---

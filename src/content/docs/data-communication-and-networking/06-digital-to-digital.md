@@ -2,7 +2,7 @@
 title: Digital to Digital Encoding
 sidebar:
   order: 6
-slug: data-communication-networking/digital-to-digital
+slug: data-communication-and-networking/digital-to-digital
 prev: true
 next: true
 ---

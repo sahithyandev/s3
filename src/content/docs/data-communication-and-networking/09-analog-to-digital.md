@@ -2,7 +2,7 @@
 title: Analog to Digital Encoding
 sidebar:
   order: 9
-slug: data-communication-networking/analog-to-digital
+slug: data-communication-and-networking/analog-to-digital
 prev: true
 next: true
 ---

@@ -2,7 +2,7 @@
 title: Analog to Analog Encoding
 sidebar:
   order: 10
-slug: data-communication-networking/analog-to-analog
+slug: data-communication-and-networking/analog-to-analog
 prev: true
 next: true
 ---

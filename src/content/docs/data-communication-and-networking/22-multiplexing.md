@@ -2,7 +2,7 @@
 title: Multiplexing
 sidebar:
   order: 22
-slug: data-communication-networking/multiplexing
+slug: data-communication-and-networking/multiplexing
 prev: true
 next: true
 ---

@@ -2,7 +2,7 @@
 title: Digital to Analog Encoding
 sidebar:
   order: 7
-slug: data-communication-networking/digital-to-analog
+slug: data-communication-and-networking/digital-to-analog
 prev: true
 next: true
 ---

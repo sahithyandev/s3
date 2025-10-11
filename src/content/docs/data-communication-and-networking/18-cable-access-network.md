@@ -2,7 +2,7 @@
 title: Cable Access Network
 sidebar:
   order: 18
-slug: data-communication-networking/cable-access-network
+slug: data-communication-and-networking/cable-access-network
 prev: true
 next: true
 ---

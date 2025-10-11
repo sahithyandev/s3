@@ -2,7 +2,7 @@
 title: Data Transmission
 sidebar:
   order: 21
-slug: data-communication-networking/data-transmission
+slug: data-communication-and-networking/data-transmission
 prev: true
 next: true
 ---

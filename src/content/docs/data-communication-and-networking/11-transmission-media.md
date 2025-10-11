@@ -2,7 +2,7 @@
 title: Transmission Media
 sidebar:
   order: 11
-slug: data-communication-networking/transmission-media
+slug: data-communication-and-networking/transmission-media
 prev: true
 next: true
 ---

@@ -2,7 +2,7 @@
 title: Layered Architecture
 sidebar:
   order: 2
-slug: data-communication-networking/layered-architecture
+slug: data-communication-and-networking/layered-architecture
 prev: true
 next: true
 ---

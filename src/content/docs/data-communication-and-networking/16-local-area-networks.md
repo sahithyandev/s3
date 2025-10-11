@@ -2,7 +2,7 @@
 title: Local Area Networks
 sidebar:
   order: 16
-slug: data-communication-networking/local-area-networks
+slug: data-communication-and-networking/local-area-networks
 prev: true
 next: true
 ---

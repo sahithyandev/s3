@@ -2,7 +2,7 @@
 title: Encoding & Decoding
 sidebar:
   order: 5
-slug: data-communication-networking/encoding-decoding
+slug: data-communication-and-networking/encoding-decoding
 prev: true
 next: true
 ---

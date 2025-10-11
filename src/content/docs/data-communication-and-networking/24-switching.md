@@ -1,7 +1,10 @@
 ---
 title: Switching
 sidebar:
-  order: 26
+  order: 24
+slug: data-communication-and-networking/switching
+prev: true
+next: true
 ---
 
 A method used in networks to connect a sender to a receiver so that data can travel from source to destination.

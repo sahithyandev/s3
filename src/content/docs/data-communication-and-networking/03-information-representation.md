@@ -2,7 +2,7 @@
 title: Information Representation
 sidebar:
   order: 3
-slug: data-communication-networking/information-representation
+slug: data-communication-and-networking/information-representation
 prev: true
 next: true
 ---

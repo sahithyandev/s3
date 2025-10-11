@@ -2,7 +2,7 @@
 title: Transmission Standards
 sidebar:
   order: 13
-slug: data-communication-networking/transmission-standards
+slug: data-communication-and-networking/transmission-standards
 prev: true
 next: true
 ---

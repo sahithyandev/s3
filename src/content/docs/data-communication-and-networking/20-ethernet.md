@@ -2,7 +2,7 @@
 title: Ethernet
 sidebar:
   order: 20
-slug: data-communication-networking/ethernet
+slug: data-communication-and-networking/ethernet
 prev: true
 next: true
 ---

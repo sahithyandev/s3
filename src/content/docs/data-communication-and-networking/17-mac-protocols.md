@@ -2,7 +2,7 @@
 title: MAC Protocols
 sidebar:
   order: 17
-slug: data-communication-networking/mac-protocols
+slug: data-communication-and-networking/mac-protocols
 prev: true
 next: true
 ---

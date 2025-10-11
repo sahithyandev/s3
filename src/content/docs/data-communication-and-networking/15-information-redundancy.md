@@ -2,7 +2,7 @@
 title: Information Redundancy
 sidebar:
   order: 15
-slug: data-communication-networking/information-redundancy
+slug: data-communication-and-networking/information-redundancy
 prev: true
 next: true
 ---

@@ -2,7 +2,7 @@
 title: Transmission Errors
 sidebar:
   order: 14
-slug: data-communication-networking/transmission-errors
+slug: data-communication-and-networking/transmission-errors
 prev: true
 next: true
 ---

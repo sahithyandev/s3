@@ -2,7 +2,7 @@
 title: ADSL
 sidebar:
   order: 23
-slug: data-communication-networking/adsl
+slug: data-communication-and-networking/adsl
 prev: true
 next: true
 ---
