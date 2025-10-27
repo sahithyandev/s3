@@ -48,20 +48,7 @@ signal(mutex)
 
 If multiple threads attempt to enter the critical section simultaneously, only one will succeed; the others will wait until the semaphore is signaled. This mechanism provides mutual exclusion.
 
-## Related Problems
 
-### Producer-Consumer Problem
-
-Models two types of processes:
-- producers - generate data and place it into a buffer
-- consumers - take data from the buffer.
-
-The challenge is to ensure that:
-- Producers do not add data when the buffer is full.
-- Consumers do not remove data when the buffer is empty.
-- Access to the buffer is synchronized so that producers and consumers do not interfere with each other.
-
-Semaphores are used to track the number of filled and empty slots in the buffer, and to ensure mutual exclusion when accessing the buffer.
 
 ### Dining Philosophers Problem
 

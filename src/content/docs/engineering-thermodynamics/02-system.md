@@ -102,6 +102,13 @@ System is in equilibrium throughout the process.
 
 A thermodynamic process that can be reversed without any trace on the surrounding. Ideal case.
 
+Impossible in the environment because of:
+- Turbulance
+- Friction
+- Heat losses
+- Resistance
+- Finite temperature difference
+
 ### Irreversible process
 
 A thermodynamic process that cannot be reversed without any trace on the surrounding.

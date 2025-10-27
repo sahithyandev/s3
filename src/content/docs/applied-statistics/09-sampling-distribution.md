@@ -7,10 +7,15 @@ prev: true
 next: true
 ---
 
-A probability distribution of a statistic obtained from a large number of samples drawn from a specific population. A distribution that results when the following process is repeated:
-1. A random sample of size n from a population
+A probability distribution of a statistic. Obtained from a large number of samples drawn from a specific population. A distribution that results when the following process is repeated:
+1. A random sample of size $n$ is fetched from a population of size $N$
 2. A statistic (i.e. mean or some portion or variance) is calculated for that sample
-3. THe frequency distribution of the statistic is plotted
+3. The frequency distribution of the statistic is plotted
+
+Depends on:
+- Size of the population $N$
+- Size of a sample $n$
+- Sampling method
 
 ### Variability
 

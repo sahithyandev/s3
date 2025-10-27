@@ -77,10 +77,22 @@ export const STARLIGHT_SIDEBAR_CONFIG = [
   },
   {
     label: "Database Systems",
-    collapsed: true,
-    autogenerate: {
-      directory: "database-systems",
-    }
+    items: [
+      {
+        label: "Basics",
+        collapsed: true,
+        autogenerate: {
+          directory: "database-systems/basics",
+        },
+      },
+      {
+        label: "SQL",
+        collapsed: true,
+        autogenerate: {
+          directory: "database-systems/sql",
+        },
+      }
+    ]
   },
   {
     label: "Differential Equations",

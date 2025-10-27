@@ -76,3 +76,24 @@ Cons:
 
 Example:
 - Windows (NT kernel is technically a hybrid but leans heavily monolithic)
+
+### Layered
+
+Operating system is split into $N$ layers. Bottom layer (layer 0) is the hardware. Top layer (layer $N-1$) is the user interface. Each layer is designed to use only the layer below it.
+
+## Loadable Kernel Module
+
+A piece of code that can be loaded into the kernel at runtime, rather than being compiled into the kernel binary itself. LKMs allow the operating system to extend or modify kernel functionality without rebooting or recompiling the entire kernel. This modular approach makes it easier to add support for new hardware, filesystems, or other features as needed.
+
+LKMs are commonly used for:
+- Device drivers: Adding support for new hardware devices (e.g., network cards, USB devices) without changing the core kernel.
+- Filesystem modules: Supporting new or experimental filesystems (e.g., ext4, NTFS, XFS) by loading the appropriate module.
+- Network protocols: Adding new networking capabilities or protocols.
+- Security modules: Implementing additional security features, such as SELinux or AppArmor.
+
+Examples:
+- On Linux, device drivers for graphics cards (such as NVIDIA or AMD) are often distributed as LKMs, allowing users to install or update drivers without recompiling the kernel.
+- The `aufs` and `overlayfs` filesystems are provided as LKMs to enable advanced container storage features.
+- The `ip_tables` module in Linux provides firewall functionality and can be loaded or unloaded as needed.
+- On FreeBSD, filesystems like ZFS are implemented as loadable kernel modules.
+- In Windows, many drivers (such as those for printers, USB devices, or network adapters) are loaded as kernel modules (called "kernel-mode drivers") at runtime.

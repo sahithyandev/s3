@@ -4,7 +4,7 @@ sidebar:
   order: 11
 slug: computer-architecture/micro-architecture
 prev: true
-next: false
+next: true
 ---
 
 Describes how an ISA is actually implemented in hardware.

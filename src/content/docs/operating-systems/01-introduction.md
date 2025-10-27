@@ -33,6 +33,31 @@ Common categories of system calls include:
 
 When a user program performs a system call, it places the system call arguments in predefined registers (or sometimes the user stack), then executes a special instruction (like syscall or int 0x80) to switch to kernel mode. The kernel then copies the arguments to the kernel stack as needed.
 
+As system calls are different between different operating systems, they are not interchangeable. That's why application programs are platform-specific.
+
+### Application Binary Interface
+
+Aka. ABI. Defines the low-level interface between an application program and the operating system or hardware. Specifies details such as data type sizes, memory layout, calling conventions, and system call mechanisms. The ABI ensures that compiled programs can run correctly on a given system, regardless of the compiler used, as long as they target the same ABI.
+
+An ABI includes:
+
+- How functions are called (calling conventions)
+- How arguments are passed (registers or stack)
+- How return values are delivered
+- Binary format of executable files
+- System call numbers and invocation methods
+- Alignment and padding of data structures
+
+A stable ABI allows software compiled at different times, with different tools to work together on the same platform.
+
+:::note[ABI vs ISA]
+
+ISA: Defines the set of machine instructions that a processor can execute, along with the hardware-level details such as registers, instruction formats, and addressing modes. A specification for the CPU itself, describing how software can control the hardware.
+
+ABI: Builds on top of the ISA. Defines how compiled programs interact with the operating system and hardware at the binary level. It includes calling conventions, system call mechanisms, data type sizes, and binary formats. The ABI ensures that binaries produced by different compilers or languages can run on the same system and interact correctly.
+
+:::
+
 ## Goals
 
 - Execute user programs and make solving user problems easier
