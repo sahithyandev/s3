@@ -1,8 +1,8 @@
 ---
 title: Functional Dependencies
 sidebar:
-  order: 9
-slug: database-systems/functional-dependencies
+  order: 7
+slug: database-systems/basics/functional-dependencies
 prev: true
 next: true
 ---

@@ -2,7 +2,7 @@
 title: Crows Foot Notation
 sidebar:
   order: 5
-slug: database-systems/crows-foot-notation
+slug: database-systems/basics/crows-foot-notation
 prev: true
 next: true
 ---

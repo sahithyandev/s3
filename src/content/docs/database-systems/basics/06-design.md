@@ -2,7 +2,7 @@
 title: Design
 sidebar:
   order: 6
-slug: database-systems/design
+slug: database-systems/basics/design
 prev: true
 next: true
 ---

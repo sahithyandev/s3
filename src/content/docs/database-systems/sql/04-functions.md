@@ -1,8 +1,8 @@
 ---
 title: Functions
 sidebar:
-  order: 17
-slug: database-systems/functions
+  order: 4
+slug: database-systems/sql/functions
 prev: true
 next: true
 ---

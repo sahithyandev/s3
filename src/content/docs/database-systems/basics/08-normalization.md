@@ -1,8 +1,8 @@
 ---
 title: Normalization
 sidebar:
-  order: 10
-slug: database-systems/normalization
+  order: 8
+slug: database-systems/basics/normalization
 prev: true
 next: true
 ---

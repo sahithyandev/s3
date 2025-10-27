@@ -1,8 +1,8 @@
 ---
 title: Boyce-Codd Normal Form
 sidebar:
-  order: 11
-slug: database-systems/boyce-codd-normal-form
+  order: 9
+slug: database-systems/basics/boyce-codd-normal-form
 prev: true
 next: true
 ---

@@ -1,8 +1,8 @@
 ---
 title: Attribute Sets
 sidebar:
-  order: 13
-slug: database-systems/attribute-sets
+  order: 11
+slug: database-systems/basics/attribute-sets
 prev: true
 next: true
 ---

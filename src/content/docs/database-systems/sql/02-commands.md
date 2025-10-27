@@ -1,8 +1,8 @@
 ---
-title: SQL Commands
+title: Commands
 sidebar:
-  order: 8
-slug: database-systems/sql-commands
+  order: 2
+slug: database-systems/sql/commands
 prev: true
 next: true
 ---
@@ -10,25 +10,46 @@ next: true
 
 Conventionally, used in capitalized forms.
 
-### CREATE
+## CREATE
 
-The `CREATE` statement is used to create database objects like tables. Feature of DDL.
+The `CREATE` statement is used to create database objects like tables, views, functions, procedures, user-defined types, and triggers. Feature of DDL.
+
+### CREATE TABLE
 
 ```sql
 CREATE TABLE employees (
-  employee_id INT PRIMARY KEY,
+  employee_id INT,
   first_name VARCHAR(50) NOT NULL,
   last_name VARCHAR(50) NOT NULL,
   hire_date DATE,
   salary DECIMAL(10,2),
   department_id INT,
   manager_id INT,
+  PRIMARY KEY (employee_id),
   FOREIGN KEY (department_id) REFERENCES departments(department_id),
   FOREIGN KEY (manager_id) REFERENCES employees(employee_id)
 );
 ```
 
-### DROP
+Integrity constraints can also be defined while creating a table.
+
+### CREATE TYPE
+
+Can either be defined using a built-in type or similar to a relation.
+
+```sql
+CREATE TYPE Dollar AS DECIMAL(10,2) FINAL;
+
+CREATE TYPE Address AS (
+    street VARCHAR(50),
+    city   VARCHAR(30),
+    zip    CHAR(6)
+) NOT FINAL;
+```
+
+If `FINAL` modifier is defined, the type cannot be inherited by other types. `NOT FINAL` is the default.
+
+## DROP
 
 The `DROP` statement removes database objects. Feature of DDL.
 
@@ -36,7 +57,7 @@ The `DROP` statement removes database objects. Feature of DDL.
 DROP TABLE employees;
 ```
 
-### ALTER
+## ALTER
 
 The `ALTER` statement modifies existing database objects. Feature of DDL.
 
@@ -44,9 +65,11 @@ The `ALTER` statement modifies existing database objects. Feature of DDL.
 ALTER TABLE employees ADD email VARCHAR(100);
 ```
 
-### SELECT
+Columns and integrity constraints can be added, modified, or dropped.
 
-The `SELECT` statement retrieves data from one or more tables. Feature of DML.
+## SELECT
+
+Retrieves data from one or more tables. Feature of DML.
 
 ```sql
 SELECT first_name, last_name 
@@ -57,19 +80,19 @@ ORDER BY last_name;
 
 "*" will fetch all the columns. But have performance impacts on large tables. Post-processing can be done on the selected fields as well, although generally not recommended.
 
-### AS
+## AS
 
 Allows renaming a relation or a attribute name.
 
-### ORDER BY
+## ORDER BY
 
 Specifies the order in which to sort the result set. Feature of DML. Ascending by default. Can have multiple attributes.
 
-### LIMIT
+## LIMIT
 
 Specifies the maximum number of rows to return. Feature of DML. No limits by default.
 
-### HAVING
+## HAVING
 
 Specifies a condition for a group of rows. Feature of DML. `HAVING` is used with `GROUP BY` to filter groups based on aggregate functions.
 
@@ -83,7 +106,7 @@ GROUP BY department_id
 HAVING AVG(salary) > 60000;
 ```
 
-### FROM
+## FROM
 
 Specifies the table(s) from which to retrieve data. Feature of DML.
 
@@ -94,7 +117,7 @@ FROM employees
 
 If multiple tables are specified, considers the cartesian product of the tables.
 
-### INSERT
+## INSERT
 
 The `INSERT` statement adds new records. Feature of DML.
 
@@ -103,7 +126,7 @@ INSERT INTO employees (employee_id, first_name, last_name, hire_date, salary)
 VALUES (1, 'John', 'Doe', '2023-01-15', 65000);
 ```
 
-### UPDATE
+## UPDATE
 
 The `UPDATE` statement modifies existing records. Feature of DML.
 
@@ -113,7 +136,7 @@ SET salary = 70000
 WHERE employee_id = 1;
 ```
 
-### DELETE
+## DELETE
 
 The `DELETE` statement removes records. Feature of DML.
 
@@ -128,7 +151,7 @@ All results of SQL DML features are also relations.
 
 :::
 
-### WHERE
+## WHERE
 
 Specifies the condition for any type of queries. Can have many conditions separated by logical operators `AND`, `OR`, `NOT`.
 
@@ -136,6 +159,52 @@ Specifies the condition for any type of queries. Can have many conditions separa
 SELECT *
 FROM employees
 WHERE salary > 70000;
+```
+
+## JOIN
+
+### INNER JOIN
+
+Combines rows from two or more tables based on a related column between them.
+
+```sql
+SELECT employees.first_name, departments.department_name
+FROM employees
+INNER JOIN departments ON employees.department_id = departments.department_id;
+```
+
+### LEFT (OUTER) JOIN
+
+```sql
+SELECT employees.first_name, departments.department_name
+FROM employees
+LEFT JOIN departments ON employees.department_id = departments.department_id;
+```
+
+### RIGHT (OUTER) JOIN
+
+```sql
+SELECT employees.first_name, departments.department_name
+FROM employees
+RIGHT JOIN departments ON employees.department_id = departments.department_id;
+```
+
+### FULL (OUTER) JOIN
+
+```sql
+SELECT employees.first_name, departments.department_name
+FROM employees
+FULL JOIN departments ON employees.department_id = departments.department_id;
+```
+
+Not supported in all SQL dialects, especially MySQL. In that case, `UNION` should be used to combine the results of `LEFT JOIN` and `RIGHT JOIN` to achieve the same result.
+
+### CROSS JOIN
+
+```sql
+SELECT employees.first_name, departments.department_name
+FROM employees
+CROSS JOIN departments;
 ```
 
 ## WHERE Predicates

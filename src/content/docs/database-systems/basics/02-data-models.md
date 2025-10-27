@@ -2,7 +2,7 @@
 title: Data Models
 sidebar:
   order: 2
-slug: database-systems/data-models
+slug: database-systems/basics/data-models
 prev: true
 next: true
 ---

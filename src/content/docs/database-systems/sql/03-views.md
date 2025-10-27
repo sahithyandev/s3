@@ -1,13 +1,13 @@
 ---
 title: Views
 sidebar:
-  order: 16
-slug: database-systems/views
+  order: 3
+slug: database-systems/sql/views
 prev: true
 next: true
 ---
 
-A named, virtual table defined by a SQL query. It does not store data itself, but presents data from one or more base tables (or other views) according to its definition. Views encapsulate complex queries, provide abstraction, and can restrict access to sensitive data.
+A named, virtual relation or table defined by a SQL query. It does not store data itself, but presents data from one or more base tables (or other views) according to its definition. Views encapsulate complex queries, provide abstraction, and can restrict access to sensitive data.
 
 ## View Dependencies
 

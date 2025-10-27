@@ -1,8 +1,8 @@
 ---
 title: JDBC & ODBC
 sidebar:
-  order: 15
-slug: database-systems/jdbc-odbc
+  order: 13
+slug: database-systems/basics/jdbc-odbc
 prev: true
 next: true
 ---

@@ -1,8 +1,8 @@
 ---
 title: Authorization
 sidebar:
-  order: 20
-slug: database-systems/authorization
+  order: 14
+slug: database-systems/basics/authorization
 prev: true
 next: false
 ---

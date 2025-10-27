@@ -1,8 +1,8 @@
 ---
 title: Procedures
 sidebar:
-  order: 18
-slug: database-systems/procedures
+  order: 5
+slug: database-systems/sql/procedures
 prev: true
 next: true
 ---

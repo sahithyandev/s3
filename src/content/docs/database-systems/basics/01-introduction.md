@@ -3,7 +3,7 @@ title: Introduction to Database Systems
 sidebar:
   order: 1
   label: Introduction
-slug: database-systems/introduction
+slug: database-systems/basics/introduction
 prev: false
 next: true
 ---

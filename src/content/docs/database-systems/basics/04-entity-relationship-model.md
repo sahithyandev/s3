@@ -2,7 +2,7 @@
 title: Entity Relationship Model
 sidebar:
   order: 4
-slug: database-systems/entity-relationship-model
+slug: database-systems/basics/entity-relationship-model
 prev: true
 next: true
 ---

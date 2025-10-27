@@ -1,8 +1,8 @@
 ---
 title: Application Development
 sidebar:
-  order: 14
-slug: database-systems/application-development
+  order: 12
+slug: database-systems/basics/application-development
 prev: true
 next: true
 ---

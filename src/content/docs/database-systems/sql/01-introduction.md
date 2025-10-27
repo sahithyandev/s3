@@ -1,9 +1,10 @@
 ---
-title: SQL
+title: Introduction to SQL
 sidebar:
-  order: 7
-slug: database-systems/sql
-prev: true
+  order: 1
+  label: Introduction
+slug: database-systems/sql/introduction
+prev: false
 next: true
 ---
 
@@ -32,23 +33,11 @@ SQL has several implementations with varying features and syntax:
 
 - MariaDB: Community-developed fork of MySQL
 
-Each SQL flavor implements the ANSI SQL standard but adds proprietary extensions and features, which can affect portability of SQL code between systems. The syntax and capabilities of functions vary between SQL dialects (e.g., PostgreSQL, SQL Server, Oracle, MySQL).
-
-## Things
-
-A relational database has a set of relations, views, indexes, and constraints.
-
-### Relation
-
-Aka. table. A set of tuples with a fixed number of attributes and a fixed domain for each attribute.
-
-### View
-
-Aka. virtual relation. Any relation that is not of the conceptual model but is made visible to a user.
+Each SQL flavor implements the ANSI SQL standard but adds proprietary extensions and features, which can affect portability of SQL code between systems. The syntax and capabilities of functions vary between SQL dialects.
 
 ## Data Types
 
-SQL supports several data types that can be used to define the type of data that can be stored in a database table column:
+SQL supports several built-in data types as well as user-defined data types.
 
 - Numeric Types:
   - `INTEGER` / `INT`: Whole numbers without decimal places
@@ -73,62 +62,19 @@ SQL supports several data types that can be used to define the type of data that
 - Binary Types:
   - `BLOB`: Binary Large Object for storing binary data
   - `BINARY` / `VARBINARY`: Fixed and variable-length binary data
+  
+Users can define additional data types using [`CREATE TYPE`](/database-systesm/sql-commands#create-type).
 
 ## Joins
 
-To combine rows from two or more relations based on related columns.
+To combine columns from more than 1 relations based on related columns.
 
-### INNER JOIN
-
-Returns records that have matching values in both tables:
-
-```sql
-SELECT employees.first_name, departments.department_name
-FROM employees
-INNER JOIN departments ON employees.department_id = departments.department_id;
-```
-
-### LEFT JOIN (LEFT OUTER JOIN)
-
-Returns all records from the left table and matched records from the right table:
-
-```sql
-SELECT employees.first_name, departments.department_name
-FROM employees
-LEFT JOIN departments ON employees.department_id = departments.department_id;
-```
-
-### RIGHT JOIN (RIGHT OUTER JOIN)
-
-Returns all records from the right table and matched records from the left table:
-
-```sql
-SELECT employees.first_name, departments.department_name
-FROM employees
-RIGHT JOIN departments ON employees.department_id = departments.department_id;
-```
-
-### FULL JOIN (FULL OUTER JOIN)
-
-Returns all records when there's a match in either the left or right table:
-
-```sql
-SELECT employees.first_name, departments.department_name
-FROM employees
-FULL JOIN departments ON employees.department_id = departments.department_id;
-```
-
-Not supported in all SQL dialects, especially MySQL. In that case, `UNION` should be used to combine the results of `LEFT JOIN` and `RIGHT JOIN` to achieve the same result.
-
-### CROSS JOIN
-
-Returns the Cartesian product of two tables:
-
-```sql
-SELECT employees.first_name, departments.department_name
-FROM employees
-CROSS JOIN departments;
-```
+- INNER JOIN: Returns records that have matching values in both tables.
+- LEFT (OUTER) JOIN: Returns all records from the left table and matched records from the right table.
+- RIGHT (OUTER) JOIN: Returns all records from the right table and matched records from the left table:
+- FULL (OUTER) JOIN: Returns all records when there's a match in either the left or right table:
+- CROSS JOIN: Returns the Cartesian product of two tables
+- NATURAL JOIN: Returns the intersection of two tables based on common column names
 
 ## SQL Queries
 
@@ -177,7 +123,6 @@ cursor.execute("SELECT first_name, last_name FROM employees WHERE employee_id = 
 
 ### Notes
 
-- The exact syntax for prepared statements varies between SQL dialects and client libraries.
 - Some systems (like MySQL and PostgreSQL) support server-side prepared statements, while others may only support client-side emulation.
 - Prepared statements are especially useful in web applications and APIs where user input is involved.
 
