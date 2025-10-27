@@ -10,6 +10,8 @@ next: true
 
 Conventionally, used in capitalized forms.
 
+SQL commands can be categorized into DDL and DML features. Results of DML commands are relations.
+
 ## CREATE
 
 The `CREATE` statement is used to create database objects like tables, views, functions, procedures, user-defined types, and triggers. Feature of DDL.
@@ -67,6 +69,8 @@ ALTER TABLE employees ADD email VARCHAR(100);
 
 Columns and integrity constraints can be added, modified, or dropped.
 
+Most DBMS systems did not allow dropping columns, as explained in [the previous section](/database-systems/sql/introduction/#add-column-vs-drop-column).
+
 ## SELECT
 
 Retrieves data from one or more tables. Feature of DML.
@@ -80,31 +84,39 @@ ORDER BY last_name;
 
 "*" will fetch all the columns. But have performance impacts on large tables. Post-processing can be done on the selected fields as well, although generally not recommended.
 
+### DISTINCT
+
+A modifier used in SELECT. Retrieves rows with unique values only. Applies to all columns combined.
+
 ## AS
 
-Allows renaming a relation or a attribute name.
+Allows renaming a relation or a attribute name. Optional. Can be used with `SELECT`, `FROM`, `JOIN`, and `ORDER BY` clauses.
+
+The aliased names cannot be used in WHERE, GROUP BY, HAVING clauses, per the standard.
 
 ## ORDER BY
 
-Specifies the order in which to sort the result set. Feature of DML. Ascending by default. Can have multiple attributes.
+```sql
+ORDER BY attribute_name [ASC or DESC]
+```
+
+Specifies the order in which to sort the result set. Feature of DML. If neither `ASC` nor `DESC` is specified, the order is ascending.
+
+If the value is `NULL`, by default, they can either show up at first or last (implementation-dependent). This behavior can be controlled using the `NULLS FIRST` or `NULLS LAST` modifiers.
+
+```sql
+ORDER BY column NULLS FIRST
+```
+
+When 2 values are equal, the SQL standard specifies that their relative order is undefined, and it's implementation-dependent.
+
+Can have multiple attributes. When multiple attributes are specified, the sorting is done in the order of the attributes.
+
+If ORDER BY is not specified, the order of the result set is undefined, and random.
 
 ## LIMIT
 
-Specifies the maximum number of rows to return. Feature of DML. No limits by default.
-
-## HAVING
-
-Specifies a condition for a group of rows. Feature of DML. `HAVING` is used with `GROUP BY` to filter groups based on aggregate functions.
-
-Examples:
-
-```sql
--- Find departments with an average salary greater than $60,000
-SELECT department_id, AVG(salary)
-FROM employees
-GROUP BY department_id
-HAVING AVG(salary) > 60000;
-```
+Specifies the maximum number of rows to return. Feature of DML. No limits by default. If used without `ORDER BY`, the result is non-deterministic. 
 
 ## FROM
 
@@ -138,18 +150,14 @@ WHERE employee_id = 1;
 
 ## DELETE
 
-The `DELETE` statement removes records. Feature of DML.
+Removes 0 or more records. Feature of DML.
 
 ```sql
 DELETE FROM employees
 WHERE employee_id = 1;
 ```
 
-:::note
-
-All results of SQL DML features are also relations.
-
-:::
+If `WHERE` predicate is not specified, all records will be deleted.
 
 ## WHERE
 
@@ -160,6 +168,38 @@ SELECT *
 FROM employees
 WHERE salary > 70000;
 ```
+
+## GROUP BY
+
+Specifies the grouping criteria for [aggregate functions](#aggregate-functions). Feature of DML.
+
+```sql
+SELECT department_id, AVG(salary)
+FROM employees
+GROUP BY department_id;
+```
+
+All non-aggregated values specified in the SELECT clause must appear in the GROUP BY clause. 
+
+## HAVING
+
+Specifies a condition for a group of rows. Feature of DML. Used with `GROUP BY` to filter groups based on aggregate functions.
+
+Examples:
+
+```sql
+-- Find departments with an average salary greater than $60,000
+SELECT department_id, AVG(salary)
+FROM employees
+GROUP BY department_id
+HAVING AVG(salary) > 60000;
+```
+
+:::note[Difference between WHERE and HAVING]
+
+`WHERE` is used to filter rows before aggregation. `HAVING` is used to filter groups after aggregation.
+
+:::
 
 ## JOIN
 
@@ -209,6 +249,16 @@ CROSS JOIN departments;
 
 ## WHERE Predicates
 
+### =, <, >, <>
+
+These values can be used in the WHERE clause to filter rows based on specific conditions.
+
+:::note
+
+`NULL` doesn't work with `=`. `IS` comparator works with `NULL`.
+
+:::
+
 ### LIKE
 
 Specifies a pattern for pattern matching with wildcard characters. Feature of DML.
@@ -256,7 +306,14 @@ SELECT * FROM employees WHERE salary NOT BETWEEN 50000 AND 70000;
 
 ## Aggregate Functions
 
-Aggregate functions perform calculations on a set of values and return a single value. They are often used with `GROUP BY` to summarize data.
+Aggregate functions perform calculations on a set of values and return a single value. Used with `GROUP BY` to summarize data.
+
+If all values in the aggregated field are `NULL`:
+- `COUNT(*)` returns total number of rows
+- `COUNT` returns 0
+- Otherwise, `NULL` is returned
+
+Otherwise, `NULL` values are ignored for all aggregate functions other than `COUNT`.
 
 ### COUNT
 
