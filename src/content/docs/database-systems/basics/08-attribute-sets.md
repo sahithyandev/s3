@@ -1,23 +1,32 @@
 ---
 title: Attribute Sets
 sidebar:
-  order: 11
+  order: 8
 slug: database-systems/basics/attribute-sets
 prev: true
 next: true
 ---
 
+A set of attributes.
+
 ## Closure
 
-Given a set of attributes $X$ and a set of functional dependencies $F$, the closure of $X$ with respect to $F$, denoted $X^+$, is the set of all attributes that are functionally determined by $X$ according to $F$. Formally:
+Suppose $X$ is an attribute set and $F$ is a set of functional dependencies.
 
-```math
-X^+ = \bigcup_{i=0}^{\infty} X_i
-```
-
-where $X_0 = X$ and $X_{i+1} = X_i \cup \{ \beta \mid \alpha \rightarrow \beta \in F$ and $\alpha \subseteq X_i \}$.
+Closure of $X$ under a set of functional dependencies $F$, is the set of all attributes functionally determined by $X$ using the dependencies in $F$. Denoted as $X^+$,  
 
 ### Algorithm
+
+$X^+$ can be computed by:
+
+1. Start with $X^+ = X$.  
+2. For each dependency $Y \rightarrow Z$ in $F$:  
+   If $Y \subseteq X^+$, then add $Z$ to $X^+$.  
+3. Repeat until no new attributes can be added.
+
+If $X^+$ includes all attributes of $R$, then $X$ is a superkey of $R$.
+
+Can be used to test if a given functional dependency holds.
 
 ```py
 def attribute_closure(attributes, fds):

@@ -7,18 +7,24 @@ prev: true
 next: true
 ---
 
-A relationship between two sets of attributes in a relational database. Denoted as `X → Y`. A generalization of a _key_. Means that for any two rows in a table, if the values of attributes in set `X` are the same, then the values of attributes in set `Y` must also be the same. In other words, the value of `X` uniquely determines the value of `Y`.
+Describes a relationship between attributes in a relation. Defines if one set of attributes can determine another.
 
-Functional dependencies are fundamental to understanding how data is organized and how redundancy can be minimized. They are used to guide the process of normalization, which helps ensure that the database structure is efficient and free from undesirable anomalies.
+If attribute set $X$ determines attribute set $Y$, it's denoted as $X → Y$. Which means, for any two tuples in a relation, if their $X$ values are the same, their $Y$ values must also be the same.
 
-Consider a table with attributes `StudentID`, `StudentName`, and `Major`. If each `StudentID` is unique and always refers to the same `StudentName`, then there is a functional dependency:  
-`StudentID → StudentName`
+Here:
+- X is called the determinant
+- Y is called the dependent
+
+A functional dependency represents a constraint on valid data. All candidate keys of a relation are determinants (they functionally determine every attribute).
+
+### Usage
+Functional dependencies are basis of normalization. Helps find redundancy, anomalies.
 
 Functional dependencies help identify candidate keys and are essential for designing robust relational schemas.
 
 ### Trivial
 
-A functional dependency is trivial **if** it is satisfied by all instances of a relation. Of the form $A → B$ where $B \subseteq A$.
+A functional dependency is trivial **if** it is satisfied by all instances of a relation. Of the form $A \rightarrow B$ where $B \subseteq A$.
 
 ## Legal instance
 
@@ -30,13 +36,7 @@ For a database: an instance of a database in which all the relations are legel.
 
 If a set of functional dependencies $F$ is legal under a relation schema $R$, it's mentioned as $F$ holds on $R$.
 
-## Closure
-
-Suppose a set of functional dependencies $F$. The set of all functional dependencies logically implied by $F$. Superset of $F$. Denoted by $F^+$.
-
-### Armstrong's axioms
-
-Closure of $F$ can be found by repeatedly applying Armstrong's axioms.
+## Armstrong's axioms
 
 - Reflexivity: **If** $\beta \subseteq \alpha$ **then** $\alpha \rightarrow \beta$
 - Augmentation: **If** $\alpha \rightarrow \beta$ **then** $\gamma\alpha \rightarrow \gamma\beta$
@@ -51,10 +51,27 @@ Other inferred rules:
 - decomposition: **If** $\alpha \rightarrow \beta\gamma$ **then** $\alpha \rightarrow \gamma$ and $\alpha \rightarrow \beta$
 - pseudotransitivity: **If** $\alpha \rightarrow \beta$ and $\gamma\beta \rightarrow \delta$ **then** $\alpha\gamma \rightarrow \delta$
 
-## Superkey
+## Closure
 
-$K$ is a superkey for a relation schema $R$ **iff** $K \implies R$.
+### Closure of Functional Dependencies
 
-## Candidate key
+Suppose $F$ is a set of functional dependencies.
 
-$K$ is a candidate for a relation schema $R$ **iff** $K \implies R$ **and** $K$ is minimal.
+Closure of $F$, denoted as $F^+$, is the complete set of all functional dependencies that can be logically inferred from $F$. Armstrong’s axioms are repeatedly applied to compute $F^+$.
+
+$F^+$ can be computed by:
+
+#### Step-by-step procedure
+
+1. Initialize $F^+$ = F
+2. For each functional dependency of $F^+$, apply Armstrong’s axioms:
+  - Reflexivity
+  - Augmentation
+  - Transitivity
+3. Add each new functional dependency to $F^+$.
+4. Continue applying rules until no new dependencies appear
+
+
+## Canonical Cover
+
+For a set of functional dependencies $F$, its canonical cover is the minimal set of functional dependencies equivalent to $F$, having no redundant dependencies or redundant parts of dependencies.
