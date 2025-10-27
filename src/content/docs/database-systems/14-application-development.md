@@ -1,7 +1,7 @@
 ---
 title: Application Development
 sidebar:
-  order: 12
+  order: 14
 slug: database-systems/application-development
 prev: true
 next: true
@@ -172,9 +172,16 @@ Act as intermediaries, enabling applications to request and provide services reg
 Key roles in web services architecture include the service provider (hosts the service), the service requester (calls the service), and the service registry (helps find services). This enables flexible, interoperable, and distributed computing across diverse systems.
 
 Two approaches are widely used:
-  1. **Representation State Transfer (REST)** - Allows use of standard HTTP request to a URL to execute a request and return data in **XML** or **JSON** format.
-  2. **Big Web Services** - uses **XML** representation for sending request data, as well as for returning results. Standard protocol layer built on top of HTTP.
+  1. Representation State Transfer (REST) - Allows use of standard HTTP request to a URL to execute a request and return data in **XML** or **JSON** format.
+  2. Big Web Services - uses XML representation for sending request data, as well as for returning results. Standard protocol layer built on top of HTTP.
 
+### XML
+
+Aka. Extended Markup Language. A flexible, text-based format for structuring and exchanging data. Uses custom tags to organize information in a hierarchical, tree-like structure, making it both human-readable and machine-readable. Widely used for data interchange between systems, configuration files, and web services, especially in enterprise environments.
+
+### JSON
+
+Aka. JavaScript Object Notation. A lightweight, text-based format for representing structured data. Uses key-value pairs and arrays, making it easy to read and write for both humans and machines. Commonly used in web applications for data exchange due to its simplicity and compatibility with JavaScript.
 
 ## Application Performance
 

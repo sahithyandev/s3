@@ -1,7 +1,7 @@
 ---
 title: Authorization
 sidebar:
-  order: 18
+  order: 20
 slug: database-systems/authorization
 prev: true
 next: false

@@ -1,7 +1,7 @@
 ---
 title: Triggers
 sidebar:
-  order: 17
+  order: 19
 slug: database-systems/triggers
 prev: true
 next: true

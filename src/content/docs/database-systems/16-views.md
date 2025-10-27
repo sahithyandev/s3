@@ -1,7 +1,7 @@
 ---
 title: Views
 sidebar:
-  order: 14
+  order: 16
 slug: database-systems/views
 prev: true
 next: true

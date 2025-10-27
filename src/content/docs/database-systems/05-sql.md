@@ -1,13 +1,15 @@
 ---
 title: SQL
 sidebar:
-  order: 4
+  order: 5
 slug: database-systems/sql
 prev: true
 next: true
 ---
 
-A declarative [DML](/database-systems/introduction/#data-modelling-language) and [DDL](/database-systems/introduction/#data-definition-language). Case insensitive.
+A declarative [DML](/database-systems/introduction/#data-modelling-language) and [DDL](/database-systems/introduction/#data-definition-language). Case insensitive. Became the industry standard in the 1980s.
+
+Query planner decides on the most efficient way to execute a query.
 
 ## Flavors and Versions
 

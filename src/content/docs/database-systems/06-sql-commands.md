@@ -1,7 +1,7 @@
 ---
 title: SQL Commands
 sidebar:
-  order: 5
+  order: 6
 slug: database-systems/sql-commands
 prev: true
 next: true

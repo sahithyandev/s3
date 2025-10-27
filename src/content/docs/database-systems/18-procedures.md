@@ -1,7 +1,7 @@
 ---
 title: Procedures
 sidebar:
-  order: 16
+  order: 18
 slug: database-systems/procedures
 prev: true
 next: true

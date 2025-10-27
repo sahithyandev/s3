@@ -1,7 +1,7 @@
 ---
 title: Functions
 sidebar:
-  order: 15
+  order: 17
 slug: database-systems/functions
 prev: true
 next: true

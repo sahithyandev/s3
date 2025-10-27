@@ -1,7 +1,7 @@
 ---
 title: Third Normal Form
 sidebar:
-  order: 10
+  order: 12
 slug: database-systems/third-normal-form
 prev: true
 next: true

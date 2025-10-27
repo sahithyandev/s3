@@ -12,11 +12,11 @@ A collection of tools for describing data, relationships, and constraints.
 ## Examples
 ### Relational model
 
-Data is organized into tables with columns and rows.
+Data is organized into tables and relationships.
 
 ### Entity-Relationship Model
 
-Data is organized into entities with attributes and relationships.
+Data is organized into entities with attributes and relationships. Used only in the design phase. Used to implement relational model.
 
 #### Entity
 
@@ -33,6 +33,10 @@ Represents the association between 2 entities.
 ### Object-Relational Model
 
 Extends relational model by adding object-oriented features. Attributes can be complex.
+- User defined types
+- Inherited subtypes
+- Inherited tables
+- Complex attributes such as arrays and sets
 
 ### Semistructured Model
 
