@@ -1,7 +1,7 @@
 ---
 title: Crows Foot Notation
 sidebar:
-  order: 8
+  order: 5
 slug: database-systems/crows-foot-notation
 prev: true
 next: true
@@ -30,11 +30,11 @@ Represented by a line. Can have 2 indicators on each ends.
 ### Multiplicity
 
 Refers to maximum number of times that an instance of an entity can be associated with instances in the related entity. Indicated close to the entity rectangle. Indicated by:
-- | means 1
-- > means many
+- `|` means 1
+- `>` means many
 
 ### Optionality
 
 Refers to the minimum number of times that an instance can be related to others. Indicated next to the multiplicity indicator. Indicated by:
-- | means 1
-- o means 0
+- `|` means 1
+- `o` means 0

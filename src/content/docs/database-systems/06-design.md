@@ -1,7 +1,7 @@
 ---
 title: Design
 sidebar:
-  order: 3
+  order: 6
 slug: database-systems/design
 prev: true
 next: true
@@ -9,12 +9,15 @@ next: true
 
 Process of designing a database's structure.
 
-### Logical design
-Deciding on the database schema. Affected by business decisions and computer science considerations.
-
 ### Physical design
 
 Deciding on the physical layout of the database.
+
+### Logical design
+
+Deciding on the database schema. Affected by business decisions and computer science considerations.
+
+This module focuses on the logical design.
 
 ## Design approaches
 

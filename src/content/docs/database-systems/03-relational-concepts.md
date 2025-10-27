@@ -1,7 +1,7 @@
 ---
 title: Relational Concepts
 sidebar:
-  order: 4
+  order: 3
 slug: database-systems/relational-concepts
 prev: true
 next: true

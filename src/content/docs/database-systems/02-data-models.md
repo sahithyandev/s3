@@ -16,19 +16,7 @@ Data is organized into tables and relationships.
 
 ### Entity-Relationship Model
 
-Data is organized into entities with attributes and relationships. Used only in the design phase. Used to implement relational model.
-
-#### Entity
-
-Represents an object or concept that can be uniquely identified. Described by a set of attributes.
-
-#### Attribute
-
-Represents a characteristic or property of an entity.
-
-#### Relationship
-
-Represents the association between 2 entities.
+Data is organized into entities with attributes and relationships. Used only in the design phase. Used to implement relational model. Explained more on [Entity-Relationship Model](/database-systems/entity-relationship-model)
 
 ### Object-Relational Model
 
