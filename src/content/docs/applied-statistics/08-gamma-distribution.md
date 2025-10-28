@@ -48,7 +48,7 @@ $\tau(1) = 1$ and $\tau(0.5) = \sqrt{\pi}$.
 ### Relation with Exponential Distribution
 
 ```math
-\text{Gamma}(1, \frac{1}{\lambda}) \equiv \text{Exp}(\lambda)
+\text{Gamma}\left(1, \frac{1}{\lambda}\right) \equiv \text{Exp}(\lambda)
 ```
 
 ### Relation with Chi-Squared Distribution

@@ -21,10 +21,12 @@ Here:
 :::note
 
 The binomial distribution models the number of successes in a fixed number of independent trials, while the Pascal distribution models the number of trials needed to achieve a fixed number of successes.
-
+{1-p}
 :::
 
 ## Mean
+
+$\mu_X$ means the expected number o{1-p}f trials until $r$ successes.
 
 ```math
 \mu_X = \frac{r}{p}
@@ -32,17 +34,16 @@ The binomial distribution models the number of successes in a fixed number of in
 
 :::note
 
-Suppose $R$ is the number of successes before the experiment results in $k$ failures.
-```math
-\mu_R = \frac{kp}{1-p}
-```
+Suppose $K$ is the number of failures until $r$ successes.
 
-Here $p$ is the probability of a success in a single trial. $ $
+```math
+\mu_K = \frac{r(1-p)}p
+```
 
 :::
 
 ## Variance
 
 ```math
-V_x = \frac{r(1-p)}{p^2}
+V_X = \frac{r(1-p)}{p^2}
 ```
