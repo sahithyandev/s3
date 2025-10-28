@@ -4,7 +4,7 @@ sidebar:
   order: 12
 slug: database-systems/basics/authorization
 prev: true
-next: false
+next: true
 ---
 
 Refers to the process of determining what actions a user or application is permitted to perform on database objects such as tables, views, or procedures.

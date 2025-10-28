@@ -159,6 +159,14 @@ WHERE employee_id = 1;
 
 If `WHERE` predicate is not specified, all records will be deleted.
 
+## TRUNCATE
+
+Drops and recreates the specified table. Feature of DDL. Faster compared to running `DELETE` on all rows. Skips DELETE triggers.
+
+```sql
+TRUNCATE TABLE employees;
+```
+
 ## WHERE
 
 Specifies the condition for any type of queries. Can have many conditions separated by logical operators `AND`, `OR`, `NOT`.

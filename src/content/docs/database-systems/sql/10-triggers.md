@@ -1,10 +1,10 @@
 ---
 title: Triggers
 sidebar:
-  order: 6
+  order: 10
 slug: database-systems/sql/triggers
 prev: true
-next: false
+next: true
 ---
 
 A special type of stored procedure that is automatically executed, or "triggered," in response to modifications on a particular table or view. Triggers are commonly used to enforce business rules, maintain audit trails, or automatically update related data.
