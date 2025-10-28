@@ -1,12 +1,11 @@
 ---
 title: Procedures
 sidebar:
-  order: 9
+  order: 10
 slug: database-systems/sql/procedures
 prev: true
 next: true
 ---
-
 
 Aka. stored procedure. A named collection of SQL statements and procedural logic that is stored in the database and can be executed as a unit. Used to encapsulate business logic, automate repetitive tasks, and manage complex operations within the database. Not idempotent.
 
@@ -54,6 +53,11 @@ CALL AddEmployee('Alice Smith', 75000.00);
 
 Functions and procedures are both programmable database objects that encapsulate reusable logic, but they have important differences and similarities:
 
+### Similarities
+
+Can encapsulate complex logic and promote code reuse. Supports parameters (though with different capabilities). Stored in the database and can be invoked by applications or other SQL code.
+
+### Differences
 - Return Value:
   - Function: Always returns a single value (scalar or table). Can be used in SQL expressions (e.g., in `SELECT`, `WHERE`, or `JOIN` clauses).
   - Procedure: May return zero, one, or multiple values via output parameters or result sets, but is not required to return a value. Cannot be used directly in SQL expressions.
@@ -73,10 +77,3 @@ Functions and procedures are both programmable database objects that encapsulate
 - Transaction Control:
   - Function: Usually cannot start or commit/rollback transactions.
   - Procedure: Can manage transactions (depending on the SQL dialect).
-
-Similarities:
-- Both can encapsulate complex logic and promote code reuse.
-- Both support parameters (though with different capabilities).
-- Both are stored in the database and can be invoked by applications or other SQL code.
-
-:::

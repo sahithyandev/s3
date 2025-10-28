@@ -1,13 +1,11 @@
 ---
 title: NoSQL
 sidebar:
-  order: 14
+  order: 15
 slug: database-systems/basics/nosql
 prev: true
 next: false
 ---
-
-# NoSQL — a practical overview for engineering undergraduates
 
 NoSQL ("not only SQL") is an umbrella term for databases that depart from the traditional relational (table-based) model. They are designed to handle large volumes of data, high request rates, distributed architectures, flexible schemas, or specialized data models (e.g., graphs). NoSQL systems trade off certain relational features to gain scalability, performance, or simplicity for particular workloads.
 

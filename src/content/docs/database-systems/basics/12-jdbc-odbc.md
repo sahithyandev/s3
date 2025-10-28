@@ -11,12 +11,10 @@ Two widely used APIs that enable applications to interact with databases.
 
 ## JDBC
 
-Short for Java Database Connectivity. A Java-based API that allows Java applications to connect to and interact with relational databases. It provides a set of interfaces and classes written in Java, enabling developers to execute SQL statements, retrieve results, and manage database connections in a platform-independent way.
-
-Key features of JDBC:
+Short for Java Database Connectivity. An API that allows Java applications to connect to and interact with relational databases. Provides a set of interfaces and classes, to execute SQL statements, retrieve results, and manage database connections.
 
 - Java-centric: Designed specifically for Java applications.
-- Database independence: Applications can switch databases with minimal code changes, as long as the appropriate JDBC driver is available.
+- Database independence: Can switch databases with minimal code changes, as long as the appropriate JDBC driver is available.
 - Standard API: Offers a consistent interface for database operations such as querying, updating, and transaction management.
 - Driver-based architecture: JDBC drivers translate Java calls into database-specific calls. There are four types of JDBC drivers (Type 1 to Type 4), each with different mechanisms for database communication.
 
@@ -32,8 +30,6 @@ Typical JDBC workflow:
 ## ODBC
 
 Short for Open Database Connectivity. A standard API developed by Microsoft that allows applications written in various programming languages to access data from a wide range of DBMS. ODBC achieves this by using database-specific drivers that translate ODBC function calls into DBMS-specific calls.
-
-Key features of ODBC:
 
 - Language-agnostic: Can be used by applications written in many programming languages.
 - Wide database support: Works with numerous databases, provided the appropriate ODBC driver is installed.
