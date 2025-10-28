@@ -1,7 +1,7 @@
 ---
 title: JDBC & ODBC
 sidebar:
-  order: 11
+  order: 12
 slug: database-systems/basics/jdbc-odbc
 prev: true
 next: true

@@ -1,7 +1,7 @@
 ---
 title: Normalization
 sidebar:
-  order: 9
+  order: 10
 slug: database-systems/basics/normalization
 prev: true
 next: true
@@ -29,6 +29,25 @@ Several normal forms are defined, each builds on the previous one and defines a 
 Each normal form defines a set of conditions. If one of the conditions are violated, the relation is said to be violate the normal form.
 
 If a relation violates $n$th normal form, it is violating $i$th normal forms where $i \gt n$.
+
+### Extraneous Attributes
+
+Unnecessary attributes in a functional dependency (FD) that can be removed without affecting the closure. Can either be in LHS or RHS.
+
+Removing extraneous attributes:
+- Simplifies functional dependency sets
+- Helps compute minimal covers
+- Avoids redundant checks during normalization
+
+#### Testing
+
+Consider a set of functional dependencies $F$, and $\alpha \rightarrow \beta \in F$.
+
+The attribute $A \in \alpha$ is extraneous in $\alpha$ **if** $(\alpha - A)^+$ contains $\beta$.
+
+The attribute $A \in \beta$ is extraneous in $\beta$ **if**:
+- Compute $\alpha^+$ using only the dependencies in $F' = (F - \set{\alpha - \beta}) \cup (\alpha \rightarrow (\beta - A))$
+- Check if $\alpha^+$ contains $A$; if it does, $A$ is extraneous in $\beta$
 
 ## Anomalies
 
@@ -87,6 +106,12 @@ If all the below conditions are met, the relation is in BCNF:
 
 3NF allows key attributes to depend on non-key attributes, but BCNF doesn't.
 
+:::note
+
+**If** none of the dependencies in $F$ causes a violation of BCNF, **then** none of the dependencies in $F^+$ will cause a violation of BCNF either.
+
+:::
+
 ### Fix for BCNF Violation
 
 Suppose relation $R$ and a non-trivial functional dependency $A \rightarrow B$ cause a violation of BCNF.
@@ -97,7 +122,12 @@ $R$ is decomposed into:
 
 :::note
 
-In most cases, normalization is done up to BCNF. If that's not enough, normalization can be done up to 4NF or 5NF.
+Usually the goal in a relational database design is:
+- BCNF
+- Lossless-join decomposition
+- Dependency preservation
+
+If that's not achievable, either dependency preservation is left or 3NF is used.
 
 :::
 
@@ -114,9 +144,3 @@ If not, the relation must be decomposed into smaller relations.
 If all the below conditions are met, the relation is in 5NF:
 - It's in 4NF
 - It cannot be describable as the logical result of joining some other tables together.
-
-## Dependency preservation
-
-Suppose a relation is decomposed into smaller relations.
-
-Dependency preservation means that all the functional dependencies from the original relation can still be enforced by checking them locally on the decomposed relations, without having to recombine (join) the tables.

@@ -1,7 +1,7 @@
 ---
 title: NoSQL
 sidebar:
-  order: 13
+  order: 14
 slug: database-systems/basics/nosql
 prev: true
 next: false

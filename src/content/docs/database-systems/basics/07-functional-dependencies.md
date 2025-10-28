@@ -53,8 +53,6 @@ Other inferred rules:
 
 ## Closure
 
-### Closure of Functional Dependencies
-
 Suppose $F$ is a set of functional dependencies.
 
 Closure of $F$, denoted as $F^+$, is the complete set of all functional dependencies that can be logically inferred from $F$. Armstrong’s axioms are repeatedly applied to compute $F^+$.
@@ -71,6 +69,7 @@ $F^+$ can be computed by:
 3. Add each new functional dependency to $F^+$.
 4. Continue applying rules until no new dependencies appear
 
+Takes exponential time to compute.
 
 ## Canonical Cover
 
