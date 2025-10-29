@@ -4,7 +4,7 @@ sidebar:
   order: 15
 slug: applied-statistics/confidence-interval
 prev: true
-next: false
+next: true
 ---
 
 An interval, with a certain level of confidence (specified in percentage), in which the true population parameter is likely to lie. Calculated based on sample data. Quantifies uncertainty in estimation.
