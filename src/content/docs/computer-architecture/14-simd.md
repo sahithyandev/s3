@@ -1,7 +1,7 @@
 ---
 title: SIMD
 sidebar:
-  order: 13
+  order: 14
 slug: computer-architecture/simd
 prev: true
 next: true
