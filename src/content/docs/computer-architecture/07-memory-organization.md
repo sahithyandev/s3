@@ -7,75 +7,76 @@ prev: true
 next: true
 ---
 
-Memory is very slow compared to CPU. To bridge the performance gap between the 2, a memory hierarchy which includes, different levels of memory is used.
+Memory is very slow compared to CPU. To bridge the performance gap, a memory hierarchy is used.
 
-## Cache
+## Principle of Locality
 
-Small amount of memory, ranging from a few KBs to MBs. Built using SRAM. Slower than registers but faster than main memory. Used to store frequently accessed data. A transparent speedup mechanism; performance increases even though the program instructions remain unchanged.
+Explains why programs tend to access a small portion of memory repeatedly within short time intervals. It forms the theoretical basis for cache memory design and memory hierarchy optimization.
 
-### Cache block
+[Caching](/computer-architecture/cache) is based on this principle.
 
-Minimum unit of data that is transferred between cache and main memory. Tagged with memory address. Searched in parallel. A cache block stores data, tag for the memory address and some other metadata.
+### Temporal Locality
 
-Multiple blocks are moved between levels in cache hierarchy.
+Refers to the tendency of a program to reuse recently accessed data or instructions. If a memory location is referenced once, it is likely to be referenced again soon.
 
-### Hit ratio
+Example: Loop counters or variables in iterative constructs.
 
-Fraction of memory accesses found in cache.
+Practical effects:
 
-### Hit time
+- Caches keep recently accessed blocks.
+- Speeds up execution for repeated accesses within short intervals.
 
-Time to access a block in cache.
+### Spatial Locality
 
-### Cache miss
+Refers to the tendency to access memory addresses near recently accessed ones. Once a memory location is accessed, nearby locations are likely accessed soon.
 
-When required item is not found in cache.
+Example: Sequential instruction execution or array traversal.
 
-3 types:
-- Compulsory: 1st access to a block
-- Capacity: limited cache capacity force blocks to be removed from a cache & later retrieved
-- Conflict (collision)– multiple blocks compete for the same set/block
+Practical effects:
 
-### Miss ratio
+- Memory fetched in blocks.
+- Hardware prefetching takes advantage of predictable address proximity.
 
-Fraction of memory accesses not found in cache.
+## Inclusion Property
 
-### Miss penalty
+Often (not 100% of the tiem) data in lower levels of hierarchy are a superset of higher level memories.
 
-Time to bring a block from memory plus deliver it to processor.
+## Impact of Memory Hierarchy
 
-:::note
+- Affect many aspects of a computer
+  - How OS manages memory & IO
+  - How compilers generate codes
+  - How applications use the computers
+- Programs spend more time on memory access
+- Need to know exact hierarchy for optimizing
 
-```math
-\text{Average memory access time} = \text{Hit time} + \text{Miss rate} \times \text{Miss penalty}
-```
+## Memory Technologies
 
-:::
+Different technologies are used to optimize for speed, density, and cost. Dominant semiconductor memory types are Static RAM (SRAM) and Dynamic RAM (DRAM).
 
-## Cache Organization
+### SRAM
 
-Memory is divided into _blocks_ (aka. _lines_) to be stored in cache.
+Each bit is stored using a flip-flop. Data is retained as long as power is supplied.
 
-### Memory address split
+High speed. Low physical bit density. High cost per bit. Low power usage during access. High standby power usage.
 
-A memory address is split into tag, index, and offset.
-- Offset   
-  Selects the word within a block. If block size is 64 bytes, least significant 6 bits are used to address each word. 
-- Index  
-  Index of the set. If the total number of sets are $2^n$, then $n$ bits are used here.
-- Tag   
-  Identifies which memory block is stored in the that set's line. Remaining bits are index and offset.
-  
-### Cache Entry Table
+Used in CPU caches (L1–L3) and register files inside processors.
 
-A small table is used to record cache entries. The table stores:
-- tag
-- index
-- valid bit (1 bit)
+### DRAM – Dynamic Random Access Memory
 
-### Associativity
+Each bit is built using a capacitor and a transistor. Refreshing is needed to maintain the data; otherwise the data will be lost. Refresh timeout is typically around 100 ms.
 
-Defines where blocks can be placed in a cache.
-- Fully associative: no sets, blocks can be placed anywhere
-- N-way set associative: blocks are placed in sets, each set has multiple blocks
-- Direct mapped: each block is placed in a unique set (special case of N-way set associative where $N=1$)
+High physical bit density, low cost per bit. High power usage during access. Low standby power usage.
+
+Used in main memory (DDR4, DDR5) and graphics memory (GDDR, HBM).
+
+### Comparison Table
+
+| Feature        | SRAM                        | DRAM                       |
+| -------------- | --------------------------- | -------------------------- |
+| Storage cell   | 4–6 transistors (flip-flop) | 1 transistor + 1 capacitor |
+| Refresh needed | No                          | Yes                        |
+| Speed          | Very fast (1–5 ns)          | Slower (30–100 ns)         |
+| Density        | Low                         | High                       |
+| Cost per bit   | High                        | Low                        |
+| Typical use    | Cache memory                | Main memory                |

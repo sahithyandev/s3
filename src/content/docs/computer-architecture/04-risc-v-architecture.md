@@ -11,13 +11,13 @@ An open-standard ISA based on established RISC principles. Open source. Modular 
 
 ### Key Characteristics
 
-- Modularity: RISC-V has a small base integer instruction set (RV32I/RV64I) with optional extensions (M for multiplication, F/D for floating-point, etc.)
-- Simplicity: Clean design with fixed-length 32-bit instructions (in the base encoding)
-- Scalability: Supports various implementation sizes from embedded microcontrollers to high-performance computing
+- Modularity: RISC-V has a small base integer instruction set (RV32I/RV64I) with optional extensions.
+- Simplicity: Clean design with fixed-length 32-bit instructions (in the base encoding).
+- Scalability: Supports various implementation sizes from embedded microcontrollers to high-performance computing.
 
 ### Memory Addressing
 
-RISC-V uses a load-store architecture where only specific load and store instructions can access memory. All other operations work directly on the registers.
+RISC-V uses a load-store architecture where only a small set of load and store instructions can access memory. All other operations work directly on the registers.
 
 ### Extensions
 
@@ -62,7 +62,7 @@ Has 32 registers. Each register is numbered from x0 to x31. Each one also has an
 
 ## Instructions
 
-All instructions are 32 bits wide. All the instructions are encoded in different formats. All instructions have an opcode of 7 bits wide.
+All instructions are 32 bits wide. All the instructions are encoded in different formats.
 
 ### Instruction Types
 
@@ -116,11 +116,28 @@ As both the instruction size and the address bus size are 32 bits wide, the targ
 
 ### B-type
 
-Conditional branch operations. Similar to jumps, but for temporary jumps.
+Conditional branch operations. Similar to jumps, but for temporary and short-range jumps.
+
+| Section     | Width (bits) | Description              |
+| ----------- | ------------ | ------------------------ |
+| `imm[12]`   | 1 [31]       | MSB of offset (sign bit) |
+| `imm[10:5]` | 6 [30:25]    | Offset bits [10:5]       |
+| `rs2`       | 5 [24:20]    | Second source register   |
+| `rs1`       | 5 [19:15]    | First source register    |
+| `funct3`    | 3 [14:12]    | Instruction variant      |
+| `imm[4:1]`  | 4 [11:8]     | Offset bits [4:1]        |
+| `imm[11]`   | 1 [7]        | Another bit of offset    |
+| `opcode`    | 7 [6:0]      | Operation code           |
 
 Memory is byte-addressable. Instructions can only start from addresses that are multiples of 4 (otherwise it would be complex and slower). As branch targets must point to instructions, the target memory address must be aligned to a multiple of 4, which means the 2 LSBs are always 0. When compressed instructions are used, the target memory address must be aligned to a multiple of 2.
 
-To improve the branch range, the LSB, which is always 0, is not stored in the instruction. When actually executing the instruction, the target address is multiplied by 2.
+The exact range branchable range is:
+
+```math
+\left[-2^{12},\,2^{12} - 2\right]
+```
+
+To improve the branch range, the LSB, which is always 0, is not stored in the instruction. When actually executing the instruction, the target address is left shifted by 1 bit.
 
 ### U-type
 
@@ -138,7 +155,7 @@ Handle large immediate values (20 bits). Used for `LUI` (Load Upper Immediate) t
 
 ### J-type
 
-Used for unconditional jump operations. Similar to branch operations, but used for long range. Has an unintuitive instruction format for better performance.
+Used for unconditional jump operations. Similar to branch operations, but for long range. Has an unintuitive instruction format for better performance.
 
 The instruction format:
 
@@ -151,7 +168,13 @@ The instruction format:
 | `rd`         | 5 [11:7]     | Destination register     |
 | `opcode`     | 7 [6:0]      | Operation code           |
 
-Enables 20-bit signed offsets (multiplied by 2), allowing jumps to targets further away than B-type branches. The immediate bits are arranged in a non-sequential order to simplify hardware implementation. The most significant bit is placed at bit 31 for efficient sign extension, and the remaining bits are organized to maximize compatibility with other instruction formats.
+Allows 20-bit signed offsets, allowing jumps to targets further away than B-type branches. The exact range is:
+
+```math
+\left[2^{-21},\,2^{21} - 2\right]
+```
+
+The immediate bits are arranged in a non-sequential order to simplify hardware implementation. The most significant bit is placed at bit 31 for efficient sign extension, and the remaining bits are organized to maximize compatibility with other instruction formats.
 
 Like B-type instructions, the least significant bit of the target address is omitted as it must be 0 (instructions are aligned on even byte boundaries when using compressed instructions, or 4-byte boundaries otherwise). The jump offset is sign-extended and added to the PC to form the jump target address.
 
@@ -162,24 +185,24 @@ Like B-type instructions, the least significant bit of the target address is omi
 Instructions of RISC-V are designed to follow maximum commanility.
 
 - Opcode is always last 7 bits.
-- When required, `rd` is always last 5 bits.
+- When required, `rs1`, `rs2` and `rd` are always placed at the same positions.
 - If `rd` is not required, a subset of `imm` is stored there.
 - When `imm` is required, its MSB is stored in the instruction's MSB.  
   Reason: to improve performance in sign extension
 
 ## Instruction Execution
 
-RISC-V instructions can be executed in at most 5 clock cycles.
+RISC-V instructions can be executed in at most 5 clock cycles. RISC-V has a 5-stage [pipeline](/computer-architecture/pipelining).
+
+| Instruction Type | Required CC | Used Stages         |
+| ---------------- | ----------- | ------------------- |
+| B                | 3           | IF, ID, EX          |
+| S                | 4           | IF, ID, EX, MEM     |
+| R, I, U, J       | 5           | IF, ID, EX, MEM, WB |
 
 ### Instruction Fetch (IF)
 
-Send the program counter (PC) to memory and fetch the current instruction from memory. Update the PC to the next sequential instruction by adding 4 (because each instruction is 4 bytes) to the PC.
-
-| Instruction Type | Required CC |
-| ---------------- | ----------- |
-| Branch           | 3           |
-| Store            | 4           |
-| Other            | 5           |
+Current instruction pointed by the PC is fetched from memory. Update the PC to the next sequential instruction by adding 4 bytes.
 
 ### Instruction Decode (ID)
 
@@ -197,7 +220,7 @@ nique is known as fixed-field decoding.
 
 ### Execution/effective address cycle (EX)
 
-In this step, only one of the following tasks is performed:
+Only one of the following tasks is performed:
 
 - Effective address is calculated (base register + offset) OR
 - Other ALU operation is performed based on the instruction type
@@ -212,22 +235,24 @@ The reason is RISC-V is load-store architecture. No instruction needs to simulta
 
 ### Memory access (MEM)
 
-Skipped unless the instruction is either a load or a store.
+Required only for S instructions. Dummy stage for R, I, U and J instructions. Skipped for B instructions.
 
 - For a load: the memory does a read using the effective address computed in the previous cycle
 - For a store: the memory writes the data from the second register
 
+Skipped for B instructions because:
+- No memory access and no write back is required
+- PC updates cannot be delayed
+
+J instructions also has to update PC, but they have to write to `ra` (WB stage). Because of that they go through MEM stage.
+
 ### Write-back cycle (WB)
 
-Write result back to destination register. Skipped for store and branch/jump instruction.
+Write result back to destination register. Skipped for S and B instruction.
 
 - For an ALU instruction
-  The ALU’s output is written27.3%.
+  The ALU’s output is written.
 - For a load instruction
   The data fetched from memory in MEM stage is written.
-
-:::note
-
-I have created a [short note on Addressing Modes in RISC-V](/notes/Addressing%20Modes%20RISC-V.pdf) for quick reference.
-
-:::
+- For jump instruction   
+  Return address is stored in the `ra` register.

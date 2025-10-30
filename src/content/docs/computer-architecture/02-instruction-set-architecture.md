@@ -69,15 +69,15 @@ Examples of CISC architectures:
 - VAX (historically important)
 - Motorola 68000 series (used in early Macs and Amigas)
 
-### Modular vs Incremental
+### Modular vs. Incremental
 
 #### Incremental
 
-An ISA is incremental if it adds new instructions and features to an existing ISA without breaking backward compatibility. Features are linearly enabled.
+An ISA is incremental **if** it adds new instructions and features to an existing ISA without breaking backward compatibility. Features are linearly enabled.
 
 #### Modular
 
-An ISA is modular if it is built as separate, self-contained pieces (modules) that can be combined in different ways. Any combination of modules can be enabled. 
+An ISA is modular **if** it is built as separate, self-contained pieces (modules) that can be combined in different ways. Any combination of modules can be enabled. 
 
 ## ISA Families
 

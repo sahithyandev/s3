@@ -1,7 +1,7 @@
 ---
 title: Micro Architecture
 sidebar:
-  order: 11
+  order: 14
 slug: computer-architecture/micro-architecture
 prev: true
 next: true

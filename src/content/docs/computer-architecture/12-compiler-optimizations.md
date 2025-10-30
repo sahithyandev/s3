@@ -1,7 +1,7 @@
 ---
 title: Compiler Optimizations
 sidebar:
-  order: 9
+  order: 12
 slug: computer-architecture/compiler-optimizations
 prev: true
 next: true
