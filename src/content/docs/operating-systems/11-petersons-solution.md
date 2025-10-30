@@ -2,6 +2,9 @@
 title: Peterson's Solution
 sidebar:
   order: 11
+slug: operating-systems/petersons-solution
+prev: true
+next: true
 ---
 
 A software algorithm for achieving mutual exclusion. Assumes `load` and `store` operations are atomic.

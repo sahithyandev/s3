@@ -1,10 +1,10 @@
 ---
 title: Deadlocks
 sidebar:
-  order: 13
+  order: 14
 slug: operating-systems/deadlocks
 prev: true
-next: false
+next: true
 ---
 
 Occurs when 2 or more processes cannot proceed and wait for each other. Each process is waiting for a resource held by another. No process can continue. Wastes resources and slows down systems.

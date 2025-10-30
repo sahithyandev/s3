@@ -1,7 +1,7 @@
 ---
 title: Threads
 sidebar:
-  order: 7
+  order: 8
 slug: operating-systems/threads
 prev: true
 next: true

@@ -1,7 +1,7 @@
 ---
 title: Semaphores
 sidebar:
-  order: 11
+  order: 13
 slug: operating-systems/semaphores
 prev: true
 next: true

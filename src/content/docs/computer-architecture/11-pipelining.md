@@ -7,17 +7,16 @@ prev: true
 next: true
 ---
 
-A technique used in CPU architecture to improve performance. The technique of overlapping the execution of multiple instructions, instead of processing each instruction sequentially from start to finish.
+A technique to improve CPU performance. Execution of multiple instructions are overlapped the execution of multiple instructions, instead of processing each instruction sequentially from start to finish.
 
-The CPU divides instruction execution into several stages (such as fetch, decode, execute, and write-back). Each stage is handled by a different part of the processor, allowing multiple instructions to be in different stages of execution at the same time.
+The CPU divides instruction execution into several stages. Each stage is handled by a different part of the processor, allowing multiple instructions to be in different stages of execution at the same time.
 
 Increases instruction throughput. Slightly increases the execution time of each instruction due to increased overhead (caused by pipeline register delays, clock skew). Introduces challenges (hazards) which must be managed to maintain correct program execution.
-
-Here, RISC-V is used as the example.
 
 ## Terminology
 
 ### Clock skew
+
 Maximum delay between when the clock arrives at any 2 registers.
 
 ### Pipe
@@ -51,16 +50,20 @@ Clock cycle cannot be smaller than the sum of clock skew and latch overhead.
 
 ### Time per instruction
 
+Denoted by TPI.
+
 ```math
-\text{Time per instruction} =
-\frac{\text{Time per instructions on unpipelined machine}}{\text{Number of pipeline stages}}
+\text{TPI}_{\text{pipelined}} =
+\frac{\text{TPI}_{\text{unpipelined}}}{\text{N}}
 ```
+
+Here $N$ is the number of pipeline stages.
 
 ### Speedup
 
 ```math
 \text{Speedup} =
-\frac{\text{Time for an instruction in unpipelined method}}{\text{Time for an instruction in pipelined method}}
+\frac{\text{TPI}_{\text{unpipelined}}}{\text{TPI}_{\text{pipelined}}}
 ```
 
 For a balanced pipeline:
@@ -85,7 +88,7 @@ A register placed between two stages of a CPU pipeline.
 
 - Use separate instruction and data memories with separate caches.
 - Registers could be used instead of memory, for fast read and write.
-- Pipeline registers can be used between successive stages to handle dependencies.   
+- Pipeline registers can be used between successive stages to handle dependencies.  
   They are named as `IF/ID`, `ID/EX`, `EX/MEM`, `MEM/WB` denoting the stages they are between.
 
 ## Hazards
@@ -107,19 +110,19 @@ When next instruction depends on the result of the current instruction during ov
 
 3 types:
 
-- Read after write (RAW)   
+- Read after write (RAW)  
   `j` must read only after `i` writes. Stall is required to resolve.
-- Write after read (WAR)   
+- Write after read (WAR)  
   `j` writes only after `i` reads. Impossible in 5-stage pipeline. Occurs when instructions are reordered. Can be solved by renaming registers.
-- Write after write (WAW)   
+- Write after write (WAW)  
   `j` writes only after `i` writes. Impossible in 5-stage pipeline. Occurs when instructions are reordered.
-  
+
 :::note
 
 Read after read (RAR) is not a hazard because read operation is idempotent.
 
 :::
-  
+
 #### Forwarding
 
 Aka. bypassing or short-circuiting. An alternate solution to stalling for data hazards. The result is forwarded directly from the stage where it becomes available (mostly EX or MEM) to the stage that needs it.
@@ -156,7 +159,7 @@ Used when a misprediction is made (with any branch prediction policy).
 
 #### Assume untaken
 
-Treat all branches are untaken. Fetches next instruction placed sequentially. No branch penalty for untaken branches.  If the branch is taken, 2 cycle branch penalty. 
+Treat all branches are untaken. Fetches next instruction placed sequentially. No branch penalty for untaken branches. If the branch is taken, 2 cycle branch penalty.
 
 Processor state must remain unchanged until the actual branching outcome is known. If the prediction is wrong, the pipeline is flushed and restarted. Results in a 1 cycle penalty when the branch is taken.
 
@@ -174,6 +177,6 @@ In either assume taken or untaken, the order of instructions can be rearranged t
 
 #### Delayed branch
 
-Branch outcome is only known after the EX step. Delayed branch technique is used to run instruction(s) before the EX step, whether the branch is taken or not. Mostly a single instruction delay is used. If longer branch penalty is there, other techniques are used. Compiler is responsible for filling the delay slot with a useful instruction, or a nop. 
+Branch outcome is only known after the EX step. Delayed branch technique is used to run instruction(s) before the EX step, whether the branch is taken or not. Mostly a single instruction delay is used. If longer branch penalty is there, other techniques are used. Compiler is responsible for filling the delay slot with a useful instruction, or a nop.
 
 Useful for short and simple pipelines. Implementation becomes too complex when dynamic branch prediction is there. Heavily used in early RISC-V processors; not anymore.

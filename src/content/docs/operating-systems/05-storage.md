@@ -1,7 +1,7 @@
 ---
 title: Storage
 sidebar:
-  order: 4
+  order: 5
 slug: operating-systems/storage
 prev: true
 next: true

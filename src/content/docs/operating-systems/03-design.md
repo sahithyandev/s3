@@ -1,7 +1,10 @@
 ---
 title: Design
 sidebar:
-  order: 2
+  order: 3
+slug: operating-systems/design
+prev: true
+next: true
 ---
 
 

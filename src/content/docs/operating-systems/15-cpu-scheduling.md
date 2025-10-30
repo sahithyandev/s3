@@ -1,7 +1,10 @@
 ---
 title: CPU Scheduling
 sidebar:
-  order: 13
+  order: 15
+slug: operating-systems/cpu-scheduling
+prev: true
+next: true
 ---
 
 Determines the order in which processes or threads are given access to the processor, aiming to optimize various aspects such as CPU utilization, throughput, turnaround time, waiting time, and response time.
