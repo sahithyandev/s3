@@ -15,7 +15,7 @@ These algorithms only know how to generate successor states and recognize goal s
 
 ### Uniform cost search
 
-Expands the node with the lowest path cost. Optimal for general action costs.
+Aka. [Dijkstra's algorithm](https://s2.sahithyan.dev/data-structures-and-algorithms/algorithms/dijkstras-algorithm/). Expands the node with the lowest path cost. Optimal for general action costs. _uniform_ because it expands nodes in increasing order of path cost.
 
 ### Depth-first Search
 
@@ -23,7 +23,7 @@ Not complete, but complete for finite state space. Not optimal, returns the firs
 
 ### Iterative deepening depth-first search
 
-Calls DFS with increasing depth limits, until a solution is found. Complete if finite and acyclic. Optimal for unit action costs. Time complexity comparable to BFS. Space complexity is linear.
+Calls DFS with increasing depth limits, until a solution is found. Complete **if** finite and acyclic. Optimal for unit action costs. Time complexity comparable to BFS. Space complexity is linear.
 
 ### Depth-limited DFS
 

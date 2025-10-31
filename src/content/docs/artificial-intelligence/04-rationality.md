@@ -21,7 +21,7 @@ Given the percept sequence, the action that maximizes the expected value of the 
 
 ## Omniscience
 
-An agent exhibits omniscience when it knows the actual outcomes of its actions and can act accordingly. An ideal case, and not a practical goal. Rational agent and omniscient agent are independent.
+An agent is omniscient **if** it knows the actual outcomes of its actions. An ideal case, and not a practical goal. Rational agent and omniscient agent are independent.
 
 It represents a hypothetical agent with complete knowledge of:
 - The environment's true state

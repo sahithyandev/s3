@@ -1,7 +1,10 @@
 ---
 title: Markov Decision Process
 sidebar:
-  order: 15
+  order: 19
+slug: artificial-intelligence/mcp
+prev: true
+next: true
 ---
 
 ### Stochastic Domain

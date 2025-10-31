@@ -15,7 +15,7 @@ The state that the agent starts in.
 
 ### Actions
 
-Given a state $𝑠$, finite set of actions that can be executed in $𝑠$. Denoted by $\text{Action}(𝑠)$. Each of these actions is said to be _applicable_ in 𝑠.
+The finite set of actions that can be executed in a state $𝑠$. Denoted by $\text{Action}(𝑠)$. Each action is said to be _applicable_ in 𝑠.
 
 ### Transition model
 
@@ -36,7 +36,7 @@ A sequence of states connected by a sequence of actions.
 
 ### Goal test
 
-Determines if a given state is a goal state. Goal is defined by a property that applies to many states.
+Determines if a given state is a goal state. Multiple goal states can exist.
 
 ### Path cost
 
@@ -48,7 +48,7 @@ A path from initial state to a goal state.
 
 ### Optimal solution
 
-The solution with the lowest path cost.
+A solution with the lowest path cost.
 
 ## Measuring performance
 

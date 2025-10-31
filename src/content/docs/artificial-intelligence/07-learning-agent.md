@@ -7,6 +7,8 @@ prev: true
 next: true
 ---
 
+An improvement over "agent"s. Learns from its experiences.
+
 ### Performance element
 
 Takes in percepts and decides on actions. What is meant by "agent" until now.

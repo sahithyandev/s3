@@ -7,8 +7,8 @@ prev: true
 next: true
 ---
 
-A measure of the effectiveness of the agent function.
+A measure of the effectiveness of the agent function. Evaluates how successful the agent’s behavior is.
 
 ## Consequentialism
 
-Evaluation based on the consequences of an agent's behaviors.
+Evaluation based only on the consequences of an agent's behaviors. Only outcomes are evaluated and not the actions.

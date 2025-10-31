@@ -24,9 +24,9 @@ Examples:
 
 When a heuristic function never overestimates the true cost to reach the goal.
 
-#### Consistent/Monotonic
+#### Consistent
 
-$h$ is consistent **iff**:
+Aka. monotonic. When the estimated cost along any path is never decreasing. $h$ is consistent **iff**:
 
 ```math
 h(n) \leq c(n, a, n') + h(n')
@@ -103,7 +103,7 @@ Most widely known form of best-first search that uses an evaluation function $f(
 
 Combines the benefits of Dijkstra's algorithm (which considers path cost) and greedy best-first search (which uses a heuristic). It expands nodes in order of their $f(n)$ values, maintaining completeness while being more efficient than uniform-cost search.
 
-Optimal when $h(n)$ is admissible. If $h(n)$ is also consistent (satisfies triangle inequality), A* becomes even more efficient as it never needs to reopen closed nodes.
+Optimal when $h(n)$ is admissible. If $h(n)$ is also consistent, A* becomes even more efficient as it never needs to reopen closed nodes.
 
 Combines $h(n)$ with the actual cost $g(n)$ to reach node $n$. Explores the node that appears to be closest to the goal while considering the actual cost.
 

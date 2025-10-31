@@ -4,7 +4,7 @@ sidebar:
   order: 13
 slug: artificial-intelligence/logical-agents
 prev: true
-next: false
+next: true
 ---
 
 Computational entities that make decisions and take actions based on formal logic.

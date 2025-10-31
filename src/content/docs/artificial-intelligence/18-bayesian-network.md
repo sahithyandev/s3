@@ -1,7 +1,10 @@
 ---
 title: Bayesian Network
 sidebar:
-  order: 14
+  order: 18
+slug: artificial-intelligence/bayesian-network
+prev: true
+next: true
 ---
 
 A graph with the following:
