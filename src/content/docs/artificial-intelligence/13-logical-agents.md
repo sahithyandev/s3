@@ -7,23 +7,71 @@ prev: true
 next: true
 ---
 
-Computational entities that make decisions and take actions based on formal logic.
 
+Agents that reason about the world using formal logic. Maintains an internal representation of the world. Infers new facts from known facts. Acts based on reasoning rather than fixed behavior.
 
-Unlike agents that rely solely on simple rules or direct mappings from perceptions to actions, logical agents use a knowledge base composed of logical sentences to represent information about the world. This knowledge base is typically expressed in a formal language, such as propositional logic or first-order logic, which allows the agent to reason about complex relationships and infer new facts.
+## Logic Fundamentals
 
-At the core of a logical agent is the process of inference. The agent receives percepts from its environment, which it encodes as logical statements and adds to its knowledge base. Using inference mechanisms—such as modus ponens, resolution, or forward and backward chaining—the agent can deduce new information that is not explicitly stated in its percepts. This ability to derive implicit knowledge is what distinguishes logical agents from simpler types.
+Logic provides a formal language for representing and reasoning about facts.
 
-A logical agent operates in three main phases:
+### Logical Sentence
 
-1. **Knowledge Representation:** The agent must represent facts, rules, and relationships about the world in a formal logical language. This includes both static knowledge (unchanging facts) and dynamic knowledge (facts that change over time).
+A statement that can be either true or false. Used to represent facts, rules, and relationships about the world. Typically expressed in a formal language such as propositional logic or [first-order logic](/artificial-intelligence/first-order-logic). The language is called the knowledge representation language.
 
-2. **Inference:** The agent applies logical inference rules to its knowledge base to derive new conclusions. For example, if the agent knows "All humans are mortal" and "Socrates is a human," it can infer "Socrates is mortal."
+#### Tautology
 
-3. **Decision Making:** Based on the conclusions drawn from inference, the agent selects actions that achieve its goals. The agent may use goal-based reasoning, planning, or utility-based approaches, but the foundation is always the logical manipulation of its knowledge base.
+A sentence which is true in all models.
 
-Logical agents must also handle uncertainty and incomplete information. While classical logic is deterministic, real-world environments are often noisy and ambiguous. To address this, logical agents may incorporate probabilistic reasoning or non-monotonic logic, allowing them to revise beliefs and make plausible assumptions when necessary.
+#### Satisfiable
 
-The power of logical agents lies in their generality and flexibility. Because their reasoning is based on formal logic, they can adapt to new situations by updating their knowledge base and applying inference to novel problems. However, this expressiveness comes at a computational cost: inference in rich logical languages can be computationally expensive, and managing large knowledge bases efficiently is a significant challenge.
+A sentence is satisfiable **if** it's true in at least one model.
 
-In summary, logical agents are distinguished by their use of formal logic to represent knowledge, infer new information, and make decisions. Their deep reasoning capabilities enable them to operate in complex, dynamic environments, but also require sophisticated algorithms to manage inference and knowledge representation.
+### Syntax
+
+Specifies how valid sentences are formed.
+
+### Semantics
+
+Defines how to interpret sentences in different models.
+
+If sentence $s$ is true in model $m$, $m$ is a model of $s$ or $m$ satisfies $s$.
+
+The set of all models that satisfy $s$ is $M(s)$.
+
+### Logical Equivalence
+
+Two sentences $\alpha$ and $\beta$ are logically equivalent **if** they are true in exactly the same models.
+
+```math
+\alpha ≡ \beta \iff M(\alpha) = M(\beta)
+```
+
+### Logical Entailment
+
+A sentence $\alpha$ entails $\beta$ **iff** $M(\alpha) \subset M(\beta)$.
+
+### Grounding
+
+Connecting logical sentences in KB to real-world facts. If the KB correctly represents the world, then any conclusion drawn by a sound inference process must also be true in the real world.
+
+## Knowledge Base
+
+A collection of logical sentences. Used to infer new knowledge.
+
+The agent interacts with the KB through two operations:
+
+- `TELL(KB, sentence)`: Add new information.
+- `ASK(KB, query)`: Retrieve or infer information.
+
+Can be huge, complex, and dynamic.
+
+### Knowledge
+
+Information that helps achieve goals efficiently.
+
+Two knowledge types:
+
+- Procedural   
+  “How to” information. Actions or methods.
+- Declarative   
+  “What is” information. Facts and relationships.

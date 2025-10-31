@@ -1,7 +1,7 @@
 ---
 title: Markov Decision Process
 sidebar:
-  order: 19
+  order: 21
 slug: artificial-intelligence/mcp
 prev: true
 next: true
