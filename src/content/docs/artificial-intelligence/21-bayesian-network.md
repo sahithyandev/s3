@@ -1,7 +1,7 @@
 ---
 title: Bayesian Network
 sidebar:
-  order: 20
+  order: 21
 slug: artificial-intelligence/bayesian-network
 prev: true
 next: true

@@ -1,11 +1,13 @@
 ---
 title: Propositonal Logic
 sidebar:
-  order: 16
+  order: 15
 slug: artificial-intelligence/propositonal-logic
 prev: true
 next: true
 ---
+
+Less ontological commitment. Weak epistemological commitment.
 
 ### Syntax
 

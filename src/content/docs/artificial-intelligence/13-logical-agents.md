@@ -75,3 +75,13 @@ Two knowledge types:
   “How to” information. Actions or methods.
 - Declarative   
   “What is” information. Facts and relationships.
+
+### Ontology Commitment
+
+Refers to what the logic assumes about the world.
+
+Higher-order logic is more ontological but more complex to reason with.
+
+## Epistemological Commitment
+
+Describes what kinds of knowledge states a logic system can express about facts.

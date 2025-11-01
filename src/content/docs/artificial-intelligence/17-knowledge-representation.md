@@ -1,7 +1,7 @@
 ---
 title: Knowledge Representation
 sidebar:
-  order: 15
+  order: 17
 slug: artificial-intelligence/knowledge-representation
 prev: true
 next: true
@@ -9,24 +9,7 @@ next: true
 
 Defines how information about the world is stored and structured in knowledge base. Focuses on what knowledge should be represented and how.
 
-## Ontological Engineering
-
-Defines the concepts and relationships that form an agent’s view of the world.
-It answers two questions:
-
-- Can we represent everything in the world?
-- Is it necessary to represent everything?
-
-In practice, agents use general ontologies for broad concepts (e.g., PhysicalObject) and fill in specific details later.
-
-### Ontology
-
-Study of being, existence, and relationships among entities.
-
-In AI, ontology provides structured categories (concepts, properties, relations).
-
-- Upper ontology: general entities (e.g., Object, Event, Time).
-- Domain ontology: specific entities (e.g., Car, Engine, DriveEvent).
+Knowledge representation can either be done using propositional logic or first-order logic. Here, first-order logic is assumed.
 
 ## Substance
 
