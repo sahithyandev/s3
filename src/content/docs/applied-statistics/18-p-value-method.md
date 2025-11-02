@@ -4,7 +4,7 @@ sidebar:
   order: 18
 slug: applied-statistics/p-value-method
 prev: true
-next: false
+next: true
 ---
 
 An alternative to the critical value method.
