@@ -1,7 +1,7 @@
 ---
 title: Chi-Square Distribution
 sidebar:
-  order: 13
+  order: 14
 slug: applied-statistics/chi-square-distribution
 prev: true
 next: true

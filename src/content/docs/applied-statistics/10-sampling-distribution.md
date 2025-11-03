@@ -1,7 +1,7 @@
 ---
 title: Sampling Distribution
 sidebar:
-  order: 9
+  order: 10
 slug: applied-statistics/sampling-distribution
 prev: true
 next: true

@@ -1,7 +1,7 @@
 ---
 title: Sampling Distribution of Mean
 sidebar:
-  order: 10
+  order: 11
 slug: applied-statistics/sampling-distribution-of-mean
 prev: true
 next: true

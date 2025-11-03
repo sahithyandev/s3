@@ -1,7 +1,7 @@
 ---
 title: P-Value Method
 sidebar:
-  order: 18
+  order: 19
 slug: applied-statistics/p-value-method
 prev: true
 next: true

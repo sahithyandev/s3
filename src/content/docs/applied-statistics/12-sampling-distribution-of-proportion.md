@@ -1,7 +1,7 @@
 ---
 title: Sampling Distribution of Proportion
 sidebar:
-  order: 11
+  order: 12
 slug: applied-statistics/sampling-distribution-of-proportion
 prev: true
 next: true

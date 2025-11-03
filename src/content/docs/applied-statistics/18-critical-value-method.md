@@ -1,7 +1,7 @@
 ---
 title: Critical Value Method
 sidebar:
-  order: 17
+  order: 18
 slug: applied-statistics/critical-value-method
 prev: true
 next: true

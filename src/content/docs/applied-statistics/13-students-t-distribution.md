@@ -1,7 +1,7 @@
 ---
 title: Student's t Distribution
 sidebar:
-  order: 12
+  order: 13
 slug: applied-statistics/students-t-distribution
 prev: true
 next: true

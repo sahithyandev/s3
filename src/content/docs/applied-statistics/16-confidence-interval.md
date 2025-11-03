@@ -1,7 +1,7 @@
 ---
 title: Confidence Interval
 sidebar:
-  order: 15
+  order: 16
 slug: applied-statistics/confidence-interval
 prev: true
 next: true

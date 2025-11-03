@@ -1,7 +1,7 @@
 ---
 title: Linear Regression
 sidebar:
-  order: 19
+  order: 28
 slug: applied-statistics/linear-regression
 prev: true
 next: false
@@ -90,7 +90,7 @@ Under the normal error assumption $\varepsilon_i \sim N(0, \sigma^2)$:
 \hat{\beta} \sim N\left(\beta, \frac{\sigma^2}{S_{xx}}\right)
 ```
 
-where $S_{xx} = \sum (x_i - \bar{x})^2$.
+where $S_{xx} = \sum (x_i - \bar{x})^2 = n\sigma $.
 
 When $\sigma^2$ is unknown, estimate it using:
 

@@ -1,7 +1,7 @@
 ---
 title: F Distribution
 sidebar:
-  order: 14
+  order: 15
 slug: applied-statistics/f-distribution
 prev: true
 next: true

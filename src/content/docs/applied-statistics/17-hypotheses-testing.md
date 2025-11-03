@@ -1,7 +1,7 @@
 ---
 title: Hypotheses Testing
 sidebar:
-  order: 16
+  order: 17
 slug: applied-statistics/hypotheses-testing
 prev: true
 next: true
@@ -121,4 +121,4 @@ Used when testing if the parameter is less than the claimed value. Rejection reg
 
 ## Decision Methods
 
-Either [critical value method](/applied-statistics/critical-value-method) or [p-value method](/applied-statistics/p-value-method) can be used. Both produce the same results.
+For a single sample, either [critical value method](/applied-statistics/critical-value-method) or [p-value method](/applied-statistics/p-value-method) can be used. Both produce the same results.
