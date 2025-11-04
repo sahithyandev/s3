@@ -77,14 +77,7 @@ $A$ and $B$ are conditionally independent given $C$ **if**:
 P(A,B|C)=P(A|C)P(B|C)
 ```
 
-Example:
-If a person has a cavity, the chance a probe catches doesn’t depend on toothache:
-P(catch | toothache, cavity)=P(catch | cavity).
-Using chain rule:
-[
-P(Toothache,Catch,Cavity)=P(Toothache|Cavity)P(Catch|Cavity)P(Cavity)
-]
-Conditional independence reduces required parameters from exponential to linear in n and is key to efficient probabilistic reasoning.
+Reduces required parameters from exponential to linear in n. Useful for efficient probabilistic reasoning.
 
 ### Naïve Bayes Model
 

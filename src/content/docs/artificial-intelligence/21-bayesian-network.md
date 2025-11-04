@@ -77,11 +77,11 @@ This method sums over hidden (unobserved) variables to find the posterior probab
 
 ### Patterns
 
-| Relationship Type | Structure | Independence Property       |
-| ----------------- | --------- | --------------------------- |
-| Common cause      | X → Y ← Z | X and Z independent given Y |
-| Common effect     | X ← Y → Z | X and Z dependent given Y   |
-| Causal chain      | X → Y → Z | X and Z independent given Y |
+| Relationship Type | Structure   | Independence Property             |
+| ----------------- | ----------- | --------------------------------- |
+| Common cause      | $X ← Y → Z$ | $X$ and $Z$ independent given $Y$ |
+| Common effect     | $X → Y ← Z$ | $X$ and $Z$ dependent given $Y$   |
+| Causal chain      | $X → Y → Z$ | $X$ and $Z$ independent given $Y$ |
 
 ### Structure
 
@@ -91,15 +91,10 @@ This method sums over hidden (unobserved) variables to find the posterior probab
 
 ## Compactness and Efficiency
 
+If every node has at most $k$ parents, total storage = $O(n \cdot 2^k)$.
+This is linear in n, compared to $O(2^n)$ for the full joint distribution.
 
-If every node has at most ( k ) parents, total storage = ( O(n \cdot 2^k) ).
-This is **linear in n**, compared to ( O(2^n) ) for the full joint distribution.
-
-**Example:**
-
-- Burglary network: 1 + 1 + 4 + 2 + 2 = 10 probabilities
-- Full joint (5 variables) → 2⁵ – 1 = 31 probabilities
-  → Bayesian networks are far more compact.
+More compact than full joint tables.
 
 ## Constructing a Bayesian Network
 
@@ -109,27 +104,3 @@ This is **linear in n**, compared to ( O(2^n) ) for the full joint distribution.
   - Add a node for $X_i$.
   - Select minimal parents ensuring conditional independence.
   - Define the CPT for $X_i$.
-
-### Example Construction Order
-
-If variables are ordered as ( M, J, A, B, E ):
-
-- $P(J|M) \neq P(J)$
-- $P(A|J, M) \neq P(A|J)$
-- $P(B|A, J, M) = P(B|A)$
-- $P(E|B, A, J, M) = P(E|A, B)$
-
-**Observation:**
-Choosing an order that follows **causal flow** (e.g., B, E → A → J, M) yields a **more compact and interpretable** network.
-
-The Bayesian network helps compute the **probability of each fault** given observed symptoms.
-
-## Summary
-
-| Concept               | Description                                                  |                 |
-| --------------------- | ------------------------------------------------------------ | --------------- |
-| **Joint Probability** | ( P(X_1, ..., X_n) = \prod_i P(X_i                           | Parents(X_i)) ) |
-| **Inference**         | Compute posterior probabilities given evidence (e.g., ( P(B  | J,M) )).        |
-| **Compactness**       | O(n·2ᵏ) parameters if each node ≤ k parents.                 |                 |
-| **Construction**      | Choose variables → order → assign parents → define CPTs.     |                 |
-| **Causality**         | Causal direction (cause → effect) gives more compact models. |                 |
