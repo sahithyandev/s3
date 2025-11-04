@@ -7,6 +7,7 @@ else
 fi
 
 rm .shell/README.md
+rm .shell/src/config.mjs
 
 cp -r .shell/* .
 
