@@ -41,5 +41,3 @@ E_{ij} = \frac{(\text{Row total}) \times (\text{Column total})}{\text{Grand tota
 ```
 
 $H_0$ is rejected **if** $\chi_{\text{calc}}^2 \gt \chi_{\nu,\alpha}$.
-
-## Chi-Square Goodness-of-Fit Test

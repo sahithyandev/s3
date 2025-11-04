@@ -47,57 +47,36 @@ $\Omega$ is the set of all possible world descriptions. Elements of $\Omega$ are
 
 Aka. probability space. Defined by sample space $\Omega$ and probability function $P$ which assigns a probability for all elements of $\Omega$.
 
-### Propositions and Events
-
-A **proposition** corresponds to the set of worlds where it is true.
-Example:
-For dice roll X,
-X_is_odd = {1, 3, 5} ⇔ (X=1) ∨ (X=3) ∨ (X=5).
-Propositions may combine via Boolean logic.
-
-### Prior Probability
-
-**Prior probability** represents belief before new evidence.
-Example:
-
-```
-P(Weather=sunny)=0.7
-P(Weather=rain)=0.2
-P(Weather=cloudy)=0.08
-P(Weather=snow)=0.02
-```
-
-These values form a normalized distribution (sum = 1).
-A **joint distribution** P(Weather, Cavity) gives probabilities of all combinations of variables.
-
 ### Inference by Enumeration
 
 Given a joint distribution, probability of any proposition φ:
-[
+
+```math
 P(φ)=\sum_{\omega: \omega\models φ} P(ω)
-]
-Example:
-P(toothache)=0.108+0.012+0.016+0.064=0.2
-P(cavity ∨ toothache)=0.28.
+```
 
 Conditional inference uses normalization:
-[
-P(Cavity|toothache)=αP(Cavity,toothache)
-]
-where α is a constant ensuring probabilities sum to 1.
+```math
+P(\text{Cavity}|\text{Toothache})=\alpha P(\text{Cavity},\text{Toothache})
+```
+
+Here $\alpha$ is a constant ensuring probabilities sum to 1.
 
 In general:
-[
+```math
 P(Y|E=e)=α\sum_h P(Y,E=e,H=h)
-]
-H = hidden variables. Complexity ≈ O(2ⁿ) for n binary variables.
+```
+
+Here $H$ means hidden variables. Time complexity is $O(2^n)$ for $n$ binary variables.
 
 ### Conditional Independence
 
-A and B are **conditionally independent given C** if
-[
+$A$ and $B$ are conditionally independent given $C$ **if**:
+
+```math
 P(A,B|C)=P(A|C)P(B|C)
-]
+```
+
 Example:
 If a person has a cavity, the chance a probe catches doesn’t depend on toothache:
 P(catch | toothache, cavity)=P(catch | cavity).
