@@ -20,11 +20,11 @@ Short for File Transfer Protocol. A standard network protocol used for transferr
 Authentication is supported using username and password.
 
 Some FTP commands:
-- USER <username> - User identification
-- PASS <password> - Password for access
-- LIST – List the files in the current remote dir
-- RETR (or GET) <filename> - Retrieve file
-- STOR (or PUT) <filename> - Upload a file to remote host
+- <span class="font-mono">USER username</span> - User identification
+- <span class="font-mono">PASS password</span> - Password for access
+- <span class="font-mono">LIST</span> – List the files in the current remote dir
+- <span class="font-mono">RETR filename</span> - Retrieve file
+- <span class="font-mono">STOR filename</span> - Upload a file to remote host
 
 ### SFTP
 

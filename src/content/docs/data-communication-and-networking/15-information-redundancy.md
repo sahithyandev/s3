@@ -14,7 +14,7 @@ Extra, redundant bits are added to the transmitted data so that the receiving en
 
 A systematic way of representing data using specific patterns of bits.
 
-Usually, redundant bits are included with the original data. Additional bits are included to enable the detection, and sometimes correction of errors that may occur during transmission. The receiver can determine whether the data has been altered and, depending on the code's properties, may be able to reconstruct the original information even if some bits have been corrupted.
+Usually, redundant bits are included with the original data. To enable the detection, and sometimes correction, of errors that may occur during transmission.
 
 ### Separability
 
@@ -34,7 +34,7 @@ Extended version of parity bit for a matrix of bits. Parity bits are added for e
 
 ## Hamming Distance
 
-Between 2 code words, the number of differing bits in appropriate positions.
+Between 2 code words, the number of differing bits in matching positions.
 
 ## Hamming Code
 Developed based on hamming distance concept. Assigns multiple parity bits to cover each bit of
@@ -46,11 +46,13 @@ Suppose a hamming code has $d$ data bits and $r$ parity bits. The following equa
 d + r + 1 \leq 2^r
 ```
 
+Because $r$ parity bits can be used to denote $2^r$ states. Each bit position in the word requires a state, and another additional one to denote no errors.
+
+Parity bits are placed at positions $2^i$ for $i = 0, 1, 2$.
+
 ### (7,4) SEC Hamming Code
 
 Uses 7 bit code (4 data bits + 3 parity bits). Can correct single bit errors.
-
-Parity bits are placed at positions $2^i$ for $i = 0, 1, 2$.
 
 ## Cyclic Redundancy Checksum (CRC)
 

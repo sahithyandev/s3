@@ -29,8 +29,8 @@ Each sample is approximated to the nearest value of the finite set of $2^n$ leve
 
 If the set of levels are placed linearly, low amplitude signals might get very low precision. To fix that:
 
-- non-linear quantization can be used. Here, the levels are placed logarithmically. Reduces overall signal distortion.
-- companding can be used. Companding means compression + expanding. Used to reduce effects of quantization noise especially in low-amplitude parts.
+- Non-linear quantization can be used. Here, the levels are placed logarithmically. Reduces overall signal distortion.
+- Companding can be used, which means compression + expanding. Used to reduce effects of quantization noise especially in low-amplitude parts.
 
 #### Encoding
 
@@ -38,4 +38,4 @@ Each quantized sample is converted to a binary number.
 
 ### Delta Modulation
 
-Analog input is approximated by a staircase function. The value is increased or decreased at each sample interval based on the difference between the current sample and the previous sample, which is the delta.
+Analog input is approximated by a staircase function. The value is increased or decreased a unit at each sample interval based on the difference between the current sample and the previous sample, which is the delta.

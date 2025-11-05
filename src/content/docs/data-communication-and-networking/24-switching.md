@@ -39,23 +39,28 @@ Data passes through one or more intermediate nodes between the sender and receiv
 
 ### Circuit Switching
 
-Establishes a dedicated physical path between sender and receiver for the entire communication session. Requires caller, callee and all intermediate links and nodes to be available at the same time. Once established, circuit capacity must be paid for, whether data is transmitted or not.
+A dedicated communication path is established between sender and receiver before data transfer.
+The path remains reserved for the entire duration of the session. The circuit is released after the session ends.
 
-Constant, guaranteed bandwidth. Low transmission delay once the connection is established.
+Requires caller (sender), callee (receiver) and all intermediate nodes and links to be available at the same time.
+
+Constant, guaranteed bandwidth. Delay occurs only during setup.
 
 Inefficient if data is bursty. Setup time required before data transmission begins. Cannot be optimized while data is being transmitted. Not suitable for computer communications.
 
 Used in human-to-human telephone calls.
 
 #### Space-division switching
- 
-Each sample takes a different path through the switch, depending on the destination.
 
-Crossbar is an example of space-division switch. Crosspoints can be turned on or off.
+Each call uses a separate physical path through the switch. Implemented using crossbar or matrix switches.
+
+Used in analog systems.
 
 #### Time-division switching
 
-Each call is divided into small pieces and each piece is assigned a time-slot. The contents of each time-slot are switched independently.
+Same physical path shared by multiple calls in different time-slots. Uses [TDM](/data-communication-and-networking/multiplexing/#synchronous-time-division-multiplexing).
+
+Used in digital systems.
 
 ### Message Switching
 
@@ -75,9 +80,7 @@ Each packet contains:
 
 Each intermediate nodes switches incoming packet through a link to another node.
 
-No need of dedicated paths. Ideal for bursty data.
-
-Variable delay (aka. jitter) is possible. Packets may arrive out of order.
+No need of dedicated paths. Ideal for bursty data. [Jitter](/data-communication-and-networking/transmission-errors/#jitter) is possible. Packets may arrive out of order.
 
 More flexible than circuit switching. Because it allows multiple devices to share a single link. More efficient than circuit switching. Can handle bursty data more effectively.
 
@@ -93,9 +96,7 @@ Packets are routed independently. No initial setups or delays.
 
 Destination address of a packet stays the same throughout the transmission. Datagram switch uses a routing table to store destination address and output port.
 
-Adapts to node or link failure during transmission.
-
-Switching each packets is relatively expensive. Packets may arrive out of order.
+Adapts to node or link failure during transmission. Switching each packets is relatively expensive.
 
 #### Label Switching
 

@@ -7,7 +7,7 @@ prev: true
 next: true
 ---
 
-Nowadays messaging is a crucial aspect of communication, enabling users to exchange information and ideas in real-time. Different messaging protocols exist, each with its own strengths and weaknesses. Most protocols are proprietary.
+A crucial aspect of communication. Enables communication in real-time. Most protocols are proprietary.
 
 ## XMPP
 

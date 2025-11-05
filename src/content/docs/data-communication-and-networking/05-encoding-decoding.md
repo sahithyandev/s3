@@ -9,7 +9,7 @@ next: true
 
 Encoding is the process of taking a signal and converting it into a form that can be transmitted over a communication medium.
 
-Data can either be analog or digital. Signals can either be analog or digital. Encoding must be done between the 2 types, thus 4 variations. For this module, [digital data to digital signals](/data-communication-networking/digital-to-digital) is focused most.
+Data can either be analog or digital. Signals can either be analog or digital. Encoding must be done between the 2 types, thus 4 variations. For this module, [digital data to digital signals](/data-communication-and-networking/digital-to-digital) is focused most.
 
 ## Terms
 
@@ -47,14 +47,14 @@ Data is represented by changes rather than levels. More reliable detection. More
 
 Examples:
 
-- [NRZ-I](/data-communication-networking/digital-to-digital#nrz-i)
+- [NRZ-I](/data-communication-and-networking/digital-to-digital#nrz-i)
 
 ### Bipolar encoding
 
 A return-to-zero type encoding. 2 non-zero levels and zero level are used. Standard bipolar encodings are designed to be DC-balanced.
 
 Examples:
-- [Bipolar-AMI](/data-communication-networking/digital-to-digital#bipolar-ami)
+- [Bipolar-AMI](/data-communication-and-networking/digital-to-digital#bipolar-ami)
 
 #### Bipolar violation
 
@@ -75,5 +75,5 @@ Cons:
 - Maximum modulation is 2 times of NRZ
 
 Examples:
-- [Manchester](/data-communication-networking/digital-to-digital#manchester)
-- [Differential Manchester](/data-communication-networking/digital-to-digital#differential-manchester)
+- [Manchester](/data-communication-and-networking/digital-to-digital#manchester)
+- [Differential Manchester](/data-communication-and-networking/digital-to-digital#differential-manchester)

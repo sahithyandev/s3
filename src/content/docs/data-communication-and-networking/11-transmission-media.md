@@ -103,7 +103,7 @@ An ideal one. A point in space that radiates equally in all directions.
 
 ### Radiation pattern
 
-power radiated in all directions in a non-uniform manner.
+The pattern of power radiated in all directions. Usually a 2D or 3D plot.
 
 ### Antenna gain
 
@@ -129,10 +129,12 @@ Propagated by waves which bounce off the ionoshere. Used for high frequency wave
 
 :::note
 
-Neither refraction nor ground wave propagation is not possible for high frequency waves above 30 MHz.
+Neither refraction nor ground wave propagation is not possible for high frequency waves above 30 MHz. Ionosphere becomes transparent to these waves. Ground waves are not suitable because of high attenuation.
 
 :::
 
 ### Line of sight
 
-Propagation of waves in a straight line. Effective line of sight is required, which depends on bending and refraction by the atmosphere. Used for high frequency waves over 30 MHz. Used for short distances, as signal loss increases with distance. Atmospheric conditions can also affect signal quality, such as rain, fog, and humidity. Receiver may not be able to receive signal if it is obstructed or the wave refracted away.
+Propagation of waves in a straight line. Effective line of sight is required, which depends on bending and refraction by the atmosphere. Atmospheric conditions can also affect signal quality, such as rain, fog, and humidity. Receiver may not be able to receive signal if it is obstructed or the wave refracted away.
+
+Used for high frequency waves over 30 MHz. Used for short distances, as signal loss increases with distance.

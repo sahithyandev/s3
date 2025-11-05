@@ -107,7 +107,7 @@ Concerns:
 
 #### Token passing
 
-Token is a special frame, which circulates around the network. Onlt the token-holding station can transmit. No collisions. No central controller is required.
+Token is a special frame, which circulates around the network. Only the token-holding station can transmit. No collisions. No central controller is required.
 
 Token passing adds time overhead for transmission. Single point of failure (token). Requires token recovery mechanism.
 

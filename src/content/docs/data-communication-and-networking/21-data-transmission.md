@@ -16,7 +16,7 @@ There are 2 transmission modes:
   - Asynchronous
   - Isochronous
   
-## Transmission Modes
+## Parallel vs. Serial
 
 ### Parallel
 
@@ -44,7 +44,7 @@ Example: keyboard inputs.
 
 #### Synchronous Serial
 
-Group of bits (_frame_) is sent simultaneously by using a single line. Slower than parallel. Cheaper.
+Group of bits (_frame_) sent using a single line. Slower than parallel. Cheaper.
 
 Start, stop bit patterns are not used. Synchronization and control bits are included in the frame.
 
@@ -61,9 +61,11 @@ Interval between 2 adjacent frames is not constant.
 
 Hybrid of both synchronous and asynchronous. Sends blocks of data asynchronously, in other words the data stream can be transferred at random intervals. Once the start packet is transmitted, the data must be delivered with a guaranteed bandwidth.
 
-Each character starts with a _start bit_ and ends at a _stop bit_. Each character is transmitted with a fixed time interval. High transmission rate like asynchronous.  Has advnatages of serial asynchronous.
+Each character starts with a _start bit_ and ends at a _stop bit_. Each character is transmitted with a fixed time interval. High transmission rate like asynchronous.  Has advantages of serial asynchronous.
 
 Commonly used where data must be delivered within certain time constraints, like streaming video.
+
+## Direction of Communication
 
 ### Simplex
 

@@ -7,12 +7,14 @@ prev: true
 next: true
 ---
 
+Factors that degrade the quality of signal during transmission.
+
 ## Free space loss
 
 Attenuation due to spread of the signal over large area.
 
 ```math
-\text{Free space loss} = \frac{P_t}{P_r} = \frac{(4\pi f d)^2}{c^2}
+\text{Free space loss} = \frac{P_t}{P_r} = \left(\frac{4\pi f d}{c} \right)^2
 ```
 
 Here:
@@ -23,7 +25,7 @@ Here:
 - $c$: Speed of light in vacuum
 
 ```math
-L_{\text{DB}} = 10 \log_{10} \left(\frac{(4\pi f d)^2}{c^2}\right)
+L_{\text{DB}} = 20 \log_{10} \left(\frac{4\pi f d}{c}\right)
 ```
 
 ## Multipath interference

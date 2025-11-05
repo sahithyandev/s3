@@ -21,32 +21,40 @@ Aka. thermal noise, gaussian noise. Continuous, random noise spread evenly acros
 
 ### Impulse Noise
 
-Sudden, short-duration spikes in the signal. One of the most disruptive forms of noise. Random spikes of power that can destroy one or more bits of information. Difficult to remove from an analog signal because it may be hard to distinguish from the original signal. Can damage more bits if the bits are closer together or transmitted at a faster rate.
+Sudden, short-duration spikes in the signal. One of the most disruptive forms of noise. Can destroy 1 or more bits of information. Difficult to remove from an analog signal because it may be hard to distinguish from the original signal. Can damage more bits if the bits are closer together or transmitted at a faster rate.
 
-### Crosstalk
+## Jitter
 
-Unwanted coupling between two different signal paths. Relatively constant and can be reduced with proper measures.
+When received signal arrives at irregular intervals. Does not cause data loss. But can cause problems in real-time communications (like video calls, online gaming).
 
-### Echo
+Caused by:
+- Network congestion
+- EM interference
+
+Can be reduced by either:
+- Jitter buffers: temporarily storing incoming data packets to ensure a steady stream of data to the receiver.
+- Shielding: signal carrying cables are protected from EM or radio frequency interference.
+
+## Crosstalk
+
+Unwanted coupling between two different signal paths. Relatively constant and can be reduced.
+
+## Echo
 
 A delayed repetition of the original signal. The reflective feedback of a transmitted signal as the signal moves through a medium. Most often occurs on coaxial cable. If bad enough, it could interfere with original signal. Relatively constant. Can be significantly reduced.
 
-### Jitter
-
-Variability in the timing of received signal elements (bits, packets, or clock pulses). The result of small timing irregularities during the transmission of digital signals. Occurs when a digital signal is repeated over and over. If serious enough, jitter forces systems to slow down their transmission. Can be reduced using shielding.
-
-### Delay distortion
+## Delay distortion
 
 Occurs because the velocity of propagation of a signal through a medium varies with the frequency of the signal. Can be reduced using equalizers.
 
-### Attenuation
+## Attenuation
 
 The reduction in signal strength as it travels through a medium. If the signal gets too weak, the receiver can't detect the bits. Can be reduced using less lossy mediums, or amplifiers.
 
-### Distortion
+## Distortion
 
 As signal travels, it become distorted (changes shape). Successive bits may merge, making reception difficult.
 
-### Interference
+## Interference
 
 Unwanted signal from outside sources. Often intermittent, difficult to diagnose.

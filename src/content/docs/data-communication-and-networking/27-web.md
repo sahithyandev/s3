@@ -33,7 +33,7 @@ Message sent from a client to a server to request a resource.
 
 Example:
 
-```
+```http
 GET /index.html HTTP/1.1
 Host: www.example.com
 User-Agent: Mozilla/5.0
@@ -45,7 +45,7 @@ Accept: text/html
 Message sent from a server to a client in response to a request.
 
 Example:
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: text/html
 Content-Length: 1256
@@ -60,13 +60,20 @@ Content-Length: 1256
 
 Aka. HTTP methods. Defines the type of action to perform on a resource. The most common verbs are:
 
-- OPTIONS: Retrieve information about the communication options available on the server.
-- HEAD: Retrieve metadata about a resource without downloading it.
-- GET: Retrieve data from the server.
-- POST: Send data to the server to create a new resource.
-- PUT: Update an existing resource on the server.
-- DELETE: Remove a resource from the server.
-- PATCH: Partially update an existing resource.
+- <span class="font-mono">OPTIONS</span>   
+  Retrieve information about the communication options available on the server.
+- <span class="font-mono">HEAD</span>   
+  Retrieve metadata about a resource without downloading it.
+- <span class="font-mono">GET</span>   
+  Retrieve data from the server.
+- <span class="font-mono">POST</span>   
+  Send data to the server to create a new resource.
+- <span class="font-mono">PUT</span>   
+  Update an existing resource on the server.
+- <span class="font-mono">DELETE</span>   
+  Remove a resource from the server.
+- <span class="font-mono">PATCH</span>   
+  Partially update an existing resource.
 
 Each verb indicates the intended operation and helps servers understand how to process the request.
 
@@ -113,12 +120,19 @@ Some common HTTP headers include:
 
 Included in the response. Indicates the outcome of a request. The most common status codes are:
 
-- 200 OK: The request was successful.
-- 301 Moved Permanently: The resource has moved permanently to a new URL.
-- 400 Bad Request: The request was malformed or invalid.
-- 404 Not Found: The requested resource was not found.
-- 500 Internal Server Error: An error occurred on the server.
-- 503 Service Unavailable: The server is currently unavailable.
-- 505 HTTP Version Not Supported: The server does not support the HTTP version used in the request.
+- <span class="font-mono">200 OK</span>   
+  The request was successful.
+- <span class="font-mono">301 Moved Permanently</span>   
+  The resource has moved permanently to a new URL.
+- <span class="font-mono">400 Bad Request</span>   
+  The request was malformed or invalid.
+- <span class="font-mono">404 Not Found</span>   
+  The requested resource was not found.
+- <span class="font-mono">500 Internal Server Error</span>   
+  An error occurred on the server.
+- <span class="font-mono">503 Service Unavailable</span>   
+  The server is currently unavailable.
+- <span class="font-mono">505 HTTP Version Not Supported</span>   
+  The server does not support the HTTP version used in the request.
 
 Each status code indicates the outcome of a request and helps clients understand how to handle the response.

@@ -60,11 +60,7 @@ Short for Phase Modulation. Phase of the carrier signal is varied according to i
 s(t) = A_c\cos(\omega_c t + \theta(t))
 ```
 
-Here:
-
-```math
-\theta(t) = \Delta_p m(t)
-```
+Here $\theta(t) = \Delta_p m(t)$ and:
 
 - $\Delta_p$: Phase modulation index
 - $A_c$: Amplitude of the carrier signal

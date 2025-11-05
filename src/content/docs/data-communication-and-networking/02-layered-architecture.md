@@ -75,7 +75,7 @@ Examples:
 
 ### Transport Layer
 
-Transmits semgents between 2 hosts. A host is a device that is running applications and using transport protocols to send or receive data over a network.
+Transmits segments between 2 hosts. A host is a device that is running applications and using transport protocols to send or receive data over a network.
 
 Handles:
 - Connection establishment and termination
