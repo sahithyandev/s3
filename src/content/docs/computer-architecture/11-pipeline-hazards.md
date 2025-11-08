@@ -1,7 +1,7 @@
 ---
 title: Pipeline Hazards
 sidebar:
-  order: 12
+  order: 11
 slug: computer-architecture/pipeline-hazards
 prev: true
 next: true

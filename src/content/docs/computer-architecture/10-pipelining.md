@@ -1,7 +1,7 @@
 ---
 title: Pipelining
 sidebar:
-  order: 11
+  order: 10
 slug: computer-architecture/pipelining
 prev: true
 next: true

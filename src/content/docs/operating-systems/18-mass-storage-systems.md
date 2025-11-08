@@ -1,7 +1,7 @@
 ---
 title: Mass Storage Systems
 sidebar:
-  order: 16
+  order: 18
 slug: operating-systems/mass-storage-systems
 prev: true
 next: true
@@ -178,23 +178,6 @@ Can detect multi-bit errors. Might produce false-negatives if multiple bits are 
 ### ECC
 
 Short for Error-Correcting Code. Can detect and correct soft errors (like bit flips due to radiation). More complex and expensive.
-
-## Swapping
-
-Swap space is reserved on secondary storage. Used by the OS to hold processes when main memory isn't large enough. Processes are moved back and forth between RAM and swap space. OS maintains tables to track which virtual memory pages are in RAM and which are on disk.
-
-- Page-out: Pages are written (swapped) from RAM to swap space.
-- Page-in: When swapped pages are needed again, they’re read back into RAM.
-
-Allows running more processes than physical memory can hold. Prevents “out of memory” crashes.
-
-As disk I/O is much slower than RAM access, frequent swapping (_thrashing_) degrades performance. OS tries to reduce swapping frequency and use multiple swap areas to distribute load.
-
-### Swap Implementation
-
-Swap space can be a dedicated raw partition (faster) or a swap file within an existing filesystem (easier to resize or add).
-
-In Linux, multiple swap areas are supported. The kernel balances I/O between them. Swap map tracks which slots are free and which are used.
 
 ## Object Storage
 

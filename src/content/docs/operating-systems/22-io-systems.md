@@ -1,7 +1,7 @@
 ---
 title: I/O Systems
 sidebar:
-  order: 20
+  order: 22
 slug: operating-systems/io-systems
 prev: true
 next: false
@@ -135,9 +135,12 @@ Consists of:
 
 Buffering: Temporary data storage to handle speed/size mismatches.
 
-Double Buffering: Uses two buffers (user & kernel).
 Caching: Stores frequently used data for faster access.
 Spooling: Queues output for single-access devices (e.g., printers).
+
+### Double Buffering
+
+Using two buffers: user & kernel. All I/O operations are done using kernel-managed buffer first. Then results will be copied to the process' memory block. Adds overhead.
 
 ### Management
 
