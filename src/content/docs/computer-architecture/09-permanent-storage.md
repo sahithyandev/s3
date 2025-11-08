@@ -9,9 +9,21 @@ next: true
 
 Retains data even when power is off. Can either be magnetic, solid-state, or optical media.
 
-## Hard Disk Drives (HDD)
+## Terminology
 
-Magnetic. Cost per GB is low.
+### Transfer Rate
+
+How fast bits are read or written. Measured in _bits per second_. Can be theoretical or practical.
+
+### Logical Formatting
+
+Aka. high-level formatting. Prepares a storage device for use by creating file system structures. Done by OS using disk management software.
+
+## Hard Disk Drives
+
+Aka. HDD. Magnetic. Cost per GB is low. Theoritcal transfer rates up to 6 GBps. Effective transfer rates up to 1 Gbps. Typical access times 5–15 ms.
+
+Best for sequential access. Mechanical parts can wear out or fail. Sensitive to shocks, vibrations, magnetic fields, and temperature extremes.
 
 ### Platter
 
@@ -35,11 +47,15 @@ Circular paths on the platter surface where data is stored. Centered around the 
 
 ### Sectors
 
-Circular segments within tracks. Each sector contains a header and data payload.
+Circular segments within tracks. Each sector contains header information, data, [error correction code](/operating-systems/mass-storage-systems/#ecc). Usually data size is 512 bytes or 4096 bytes.
+
+### Low-level formatting
+
+Aka. hardware formatting. Prepares disk for use by creating sectors. Usually done by manufacturer. Each sector
 
 ### Seek Time
 
-Time to move the head to the correct track. Typical: 3–10 ms.
+Time to move the head to the correct track. Approximately proportional to seek distance. Typical: 3–10 ms.
 
 ### Rotational Latency
 
@@ -49,25 +65,66 @@ Time for the desired sector to rotate under the head.
 \text{Average} = \frac{1}{2} \times \text{rotation period}
 ```
 
+### Controller Overhead
+
+Time taken by the disk controller to process commands. Typically 0.2–0.5 ms.
+
 ### Transfer Time
 
 Time to read/write the bits once head is in position. Depends on data rate.
 
+### Access Time
+
+Sum of seek time, rotational latency, and controller overhead.
+
 ### Total access time
 
+Aka. Total I/O block time. Sum of seek time, rotational latency, controller overhead and transfer time.
 Typically 5–15 ms for random access.
 
-```math
-\text{Total access time} = \text{Seek} + \text{Rotational} + \text{Transfer}
-```
+### Average I/O time
 
-## Solid State Drives (SSD)
+Sum of access time, transfer, controller overhead.
 
-Built using NAND flash memory (arrays of floating-gate transistors). No moving parts; purely electronic read/write operations. Data organized into pages (~4 KB). Pages are grouped into blocks (~256 pages).
+## Magnetic Tape
 
-Extremely low latency (tens of µs). High throughput via parallel memory channels. Limited write cycles (wear leveling required). Instant random access. Shock-resistant and silent. Lower power consumption. High durability.
+Used in the early days of computing for secondary storage. A tape coated with magnetic material, is kept in a spool and is wound or rewound past a read–write head. Seek time is in the order of minutes. Transfer time is comparable to HDDs.
 
-Cost per GB higher than HDD. Limited write endurance (mitigated by controller algorithms).
+Large capacity. Some tapes have built-in compression.
+
+Low access time. Random access is about 1000 times slower than HDDs, and a 100,000 times slower than SSDs.
+
+Mainly used for backup of infrequently used information and to transfer information between systems.
+
+## Non-Volatile Memory
+
+Aka. NVM. No moving parts. Can be built using NAND flash, NOR flash, 3D XPoint, etc. Can work as main memory or secondary storage.
+
+Faster. Slower than DRAM. High thoroughput compared to HDD. More reliable. Optimal for random access.
+
+Cost per GB is higher, compared to HDD. Less capacity.
+
+Includes SSDs, USB drives, flash storage, etc.
+
+### Solid State Drives
+
+Aka. SSD. Physically similar to HDDs. A type of NVM. Built using NAND flash memory (arrays of floating-gate transistors). Data organized into pages (~4 KB). Pages are grouped into blocks (~256 pages).
+
+Extremely low latency (tens of µs). High throughput via parallel memory channels. Instant random access. Shock-resistant and silent. Lower power consumption. High durability.
+
+Limited write cycles ([wear leveling](/operating-systems/mass-storage-systems/#wear-leveling) required). Write in pages. Erase in blocks. Limited write endurance (mitigated by controller algorithms). Erase operations are much slower and cause wear.
+
+#### Page
+
+Smallest unit of read/write operation. Cannot erase a single page.
+
+#### Block
+
+Group of pages. Smallest erasable unit.
+
+#### Drive Writes Per Day
+
+Aka. DWPD. Measuring unit of life span. A drive write means writing the whole drive capacity.
 
 ## Optical Storage
 

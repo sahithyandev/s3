@@ -54,6 +54,6 @@ Parity bits are placed at positions $2^i$ for $i = 0, 1, 2$.
 
 Uses 7 bit code (4 data bits + 3 parity bits). Can correct single bit errors.
 
-## Cyclic Redundancy Checksum (CRC)
+## CRC
 
-A non-separable code. A divisor polynomial (of $c$ bits) is used. The message is considered to be a polynomial. Binary division is done for message (after padding with $c-1$ zeros), with the divisor. Remainder is appended to the message.
+Short for Cyclic Redundancy Checksum. A non-separable code. A divisor polynomial (of $c$ bits) is used. The message is considered to be a polynomial. Binary division is done for message (after padding with $c-1$ zeros), with the divisor. Remainder is appended to the message.
