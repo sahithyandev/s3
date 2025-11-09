@@ -48,6 +48,14 @@ Disadvantages:
 
 Performance limitation as the CPU can't simultaneously access instructions and data. An inevitable disadvantage of Von Neumann architecture.
 
+Can be solved by:
+
+- [Caching](/computer-architecture/cache/)
+- Prefetching
+- Speculative execution
+- Hardware acceleration
+- Multithreading
+
 ## Harvard Architecture
 
 Originated from the Harvard Mark I computer. Uses physically separate storage and signal pathways for instructions and data. CPU can access instructions and data simultaneously. Can use different memory technologies optimized for specific purposes. Commonly used in microcontrollers, digital signal processors (DSPs), and many embedded systems where performance and security are critical.

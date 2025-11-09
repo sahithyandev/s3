@@ -1,7 +1,7 @@
 ---
 title: Domain Specific Architectures
 sidebar:
-  order: 16
+  order: 17
 slug: computer-architecture/domain-specific-architectures
 prev: true
 next: false

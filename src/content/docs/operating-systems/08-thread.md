@@ -1,8 +1,8 @@
 ---
-title: Threads
+title: Thread
 sidebar:
   order: 8
-slug: operating-systems/threads
+slug: operating-systems/thread
 prev: true
 next: true
 ---
