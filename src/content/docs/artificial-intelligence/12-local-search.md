@@ -7,28 +7,21 @@ prev: true
 next: true
 ---
 
-A type of searching that focuses only on the final configuration and not the track. Uses a single state, to store the current configuration, and moves to neighboring states until a goal state is reached. Not systemetic, might never search the portion where the goal is. Uses less space. Can work for large search spaces.
+Focuses only on the final configuration and not the path. Keep tracks of the current state only. Moves to neighboring states until a goal state is reached. Not systemetic, might never search the portion where the goal is. Uses less space. Can work for large search spaces.
 
 Often suitable for optimization problems. Best configuration is searched for by optimizing an objective function.
 
 ### Objective Function
 
-A mathematical expression that evaluates the quality or _fitness_ of a given configuration or solution.
+Evaluates the quality (_fitness_) of a given configuration or solution. Denoted by $f(n)$, where $n$ is a state.
 
-In local search algorithms, the objective function assigns a numerical value to each possible state, allowing the algorithm to compare different states and decide which direction to move in the search space. The goal is typically to maximize or minimize this function, depending on the problem, in order to find the best possible solution.
-
-Can be visualized as a landscape, where each point's height represents the value of the objective function at that point. The algorithm starts at a random point and moves to neighboring points with higher or lower values, depending on the optimization goal. The search continues until a local optimum is reached, which may not be the global optimum.
+Objective function is minimized or maximized depending on the use case. Search is continued until a local maximum or local minimum is reached.
 
 ## Algorithms
 
-Different algorithms can be used for choosing the state to visit next:
-- Hill climbing
-- Simulated annealing
-- Genetic algorithms (extension for multiple states)
-
 ### Hill Climbing
 
-Aka. greedy local search. Starts at a random state. Checks all the neighboring states. Moves to the neighboring state having the highest value of the objective function. If no such state exists, the algorithm terminates. Incomplete.
+Aka. greedy local search. Starts at a random state. Moves to the neighboring state having the highest value for objective function. If no such state exists, searching is done. Incomplete.
 
 #### Ridge
 
@@ -36,29 +29,30 @@ A region that is higher than its neighbors but itself has a slope. A special kin
 
 #### Plateau
 
-A region where all neighboring states have the same value. Results in random walk.
+A region where all neighboring states have the same value. Might result in random walk.
 
-#### Variations
+### Variations of Hill Climbing
 
-- Stochastic hill climbing   
-  Chooses at random from among the uphill moves; the probability of
-selection can vary with the steepness of the uphill move. This usually converges more slowly than steepest ascent, but in some state landscapes, it finds better solutions.
-- First-choice hill climbing   
-  Implements stochastic hill climbing by generating successors randomly until one is generated that is better than the current state. This is a good strategy when a state has many (e.g., thousands) of successors.
-- Random-restart hill climbing
-  - Start different hill-climbing searches from random starting positions
-  stopping when a goal is found.
-  - Save the best result from any search so far.
-  - If all states have an equal probability of being generated, it is complete
-  with a probability approaching 1 (a goal state will eventually be
-  generated).
-  - Finding an optimal solution becomes the question of a sufficient
-  number of restarts.
-  - Surprisingly effective, if there aren’t too many local maxima or plateau.
+### Stochastic Hill Climbing
+
+Chooses at random from among the uphill moves; the probability of selection can vary with the steepness of the uphill move. This usually converges more slowly than steepest ascent, but in some state landscapes, it finds better solutions.
+
+### First-Choice Hill Climbing
+
+A variant of stochastic hill climbing. Selects a better successor from the randomly generated successors.
+Does not evaluate all the successor states. Used when states has too many of successors. Might be less optimal.
+
+### Random-Restart Hill Climbing
+
+Hill climbing searches are started from different starting positions. Reached local optimums are saved.
+
+If all states have an equal probability of being generated, it is complete with a probability approaching 1. Goal state will eventually be generated. Surprisingly effective, if there aren’t too many local maxima or plateau.
+
+Required number of restarts is the new problem.
 
 ### Simulated Annealing
 
-Pure random walk is very inefficient. Combines randomness to hill-climbing. Allows the possibility of escape from a local optimum.
+A method which combines randomness and hill-climbing. Allows the possibility of escape from a local optimum.
 
 ```py
 def simulated_annealing(initial_state, objective_function, neighbor_function, schedule):
@@ -89,30 +83,30 @@ def simulated_annealing(initial_state, objective_function, neighbor_function, sc
     return current_state
 ```
 
-Probably of a worst move decreases with the amount of $\Delta E$  and increases with the temperature.
+Probably of a worst move decreases with the amount of $\Delta E$ and increases with the temperature.
 
 ### Local beam search
 
-Keep track of $k$ states. Begins with $k$ randomly generated states. At each step, all successors of all $k$
-states are generated. If goal is reached, algorithm halts. Otherwise, selects the best $k$ successors from the complete list, and repeats
+Keep track of only $k$ states. Begins with $k$ randomly generated states. At each step, all successors of all $k$ states are generated. If goal is reached, algorithm halts. Otherwise, selects the best $k$ successors from the complete list, and repeats.
 
 Stochastic local beam search chooses the successors with the probability proportional to their fitness, increases diversity.
 
 ### Genetic algorithm
 
-Similar to local beam search. A variant of stochastic local beam search. A successor state is generated by combining 2 parent states.
+Similar to local beam search but for multiple states in parallel. A variant of stochastic local beam search. A successor state is generated by combining 2 parent states.
 
-Start with a _population_ of $k$ randomly generated states. Fitness function is used to evaluate the quality of each state, higher=better. The next generation is created by:
-- selection   
+Start with a _population_ of $k$ randomly generated states. The next generation is created by:
+
+- selection  
   the best $k$ states from the current population
 - crossover
 - mutation
 
-Similar to human evolution. Can find solutions when local search gets stuck. But has many tunable parameters.
+Similar to human evolution. Can find solutions when local search gets stuck. But has too many tunable parameters.
 
 #### Mutation rate
 
-How often offspring have random mutations.
+How often successor states have random mutations.
 
 #### Elistism
 
@@ -123,10 +117,10 @@ Include a few top-scoring parents from the previous generation in addition to ne
 Discard individuals below a given threshold.
 
 ```py
-def genetic_algorithm(population, fitness_function, crossover_function, mutation_function, selection_function, generations, mutation_rate, elitism_count):
+def genetic_algorithm(population, objective_function, crossover_function, mutation_function, selection_function, generations, mutation_rate, elitism_count):
     for gen in range(generations):
         # Evaluate fitness for each individual
-        fitness_scores = [fitness_function(individual) for individual in population]
+        fitness_scores = [objective_function(individual) for individual in population]
 
         # Select top individuals for elitism
         elites = select_top_individuals(population, fitness_scores, elitism_count)

@@ -7,7 +7,7 @@ prev: true
 next: true
 ---
 
-Uses domain-specific hints about the location of goals. The hint comes in a heuristic function.
+Uses domain-specific hints about the location of goals. The hint is given by a heuristic function.
 
 ### Heuristic Function
 
@@ -22,20 +22,21 @@ Examples:
 
 #### Admissible
 
-When a heuristic function never overestimates the true cost to reach the goal.
+When the heuristic is always equal to or lesser than the actual lowest cost.
 
 #### Consistent
 
-Aka. monotonic. When the estimated cost along any path is never decreasing. $h$ is consistent **iff**:
+Aka. monotonic. When the estimated cost along any path is never decreasing. $h$ is consistent **iff** for any $n, n'$:
 
 ```math
 h(n) \leq c(n, a, n') + h(n')
 ```
 
 Here:
-- $h(n)$ is the heuristic of a node $n$
-- $h(n')$ is the heuristic of a node $n'$ 
+
 - $n'$ is the successor node of $n$ after applying action $a$
+- $h(n)$ is the heuristic of a node $n$
+- $h(n')$ is the heuristic of a node $n'$
 - $c(n, a, n')$ is the cost of the action $a$ from node $n$ to node $n'$.
 
 :::note
@@ -50,7 +51,7 @@ Every consistent heuristic function is admissible.
 
 A general search approach that prioritizes nodes based on an evaluation function. At each step, it selects the most promising node from the frontier according to some measure.
 
-The frontier is typically implemented as a priority queue ordered by the evaluation function value.
+The frontier is typically implemented as a priority queue, ordered by the evaluation function value.
 
 #### Evaluation Function
 
@@ -58,7 +59,7 @@ Denoted by $f(n)$. Used to determine which nodes to expand next. Assigns a numer
 
 ### Greedy Best-First Search
 
-Uses the heuristic function $h(n)$ as the evaluation function. $f(n) = h(n)$. $ $ Not complete, can lead to dead ends or infinite loops. Not optimal. Efficient.
+$f(n) = h(n)$. Does not backtrack. Not complete. Might cause false-negatives if the heuristic is misleading. Might get on an infinite loop if full cycle checking is not done. Not optimal as it doesn't take actual path cost into account.
 
 ```python
 def greedy_best_first_search(start, goal_test, successors, heuristic):
@@ -95,19 +96,18 @@ def greedy_best_first_search(start, goal_test, successors, heuristic):
 
 ### A\* Search
 
-Most widely known form of best-first search that uses an evaluation function $f(n) = g(n) + h(n)$ where:
+Most widely used form of best-first search. Uses an evaluation function $f(n) = g(n) + h(n)$ where:
 
-- $f(n)$ - evaluation function
 - $g(n)$ - cost so far to reach node $n$ from the start state
 - $h(n)$ - estimated cost from $n$ to the goal
 
-Combines the benefits of Dijkstra's algorithm (which considers path cost) and greedy best-first search (which uses a heuristic). It expands nodes in order of their $f(n)$ values, maintaining completeness while being more efficient than uniform-cost search.
+Explores the node that appears to be closest to the goal while considering the actual cost. Combines the benefits of Dijkstra's algorithm (which considers path cost) and greedy best-first search (which uses a heuristic). It expands nodes in order of their $f(n)$ values, maintaining completeness while being more efficient than uniform-cost search.
 
-Optimal when $h(n)$ is admissible. If $h(n)$ is also consistent, A* becomes even more efficient as it never needs to reopen closed nodes.
+Complete **iff** search space is finite.
 
-Combines $h(n)$ with the actual cost $g(n)$ to reach node $n$. Explores the node that appears to be closest to the goal while considering the actual cost.
+Optimal **iff** search space is finite and $h(n)$ is admissible. If $h(n)$ overestimates, optimal path might be ignored and a suboptimal path might be prioritized. If $h(n)$ is admissible, the issue is avoided.
 
-Complete and optimal given an admissible heuristic $h(n)$. $ $
+A\* becomes even more efficient **if** $h(n)$ is also consistent, as it never needs to reopen closed nodes.
 
 ```python
 import heapq
@@ -149,34 +149,39 @@ def a_star_search(start, goal_test, successors, heuristic):
 
 ### Bidirectional A\* Search
 
-More efficient than A\* search.
+Optimized A\* search algorithm. Runs 2 simultaneous searches from initial and goal states. Stops when the frontiers meet. Each search uses their own heuristic functions. One heuristic function cannot be defined from the another.
 
 ### Beam Search
 
-Puts a limit on the size of the frontier. Not complete. Not optimal.
+A variant of best-first search. Uses heuristic function alone. Similar to [BFS](/artificial-intelligence/uninformed-searching#breadth-first-search). Puts a limit (_beam width_) on the size of the frontier. Not complete, and not optimal. Because some nodes are discarded.
 
 ## Comparison
 
-| Algorithm         | Completeness        | Optimality              | Time Complexity           | Space Complexity          |
-| ----------------- | ------------------- | ----------------------- | ------------------------- | ------------------------- |
-| Greedy Best-First | No                  | No                      | O(b^m) worst              | O(b^m) worst              |
-| A\* Search        | Yes                 | Depends                 | O(b^d) exponential        | O(b^d) stores all nodes   |
-| Bidirectional A\* | Yes                 | Yes (with consistent h) | O(b^(d/2))                | O(b^(d/2))                |
-| Beam Search       | No (discards paths) | No                      | O(b·k) where k=beam width | O(k) linear in beam width |
+| Algorithm         | Completeness | Optimality | Time Complexity | Space Complexity |
+| ----------------- | ------------ | ---------- | --------------- | ---------------- |
+| Greedy Best-First | No           | No         | $O(b^m)$        | $O(b^m)$         |
+| A\*               | Yes\*        | Yes\*\*    | $O(b^d)$        | $O(b^d)$         |
+| Bidirectional A\* | Yes\*        | Yes\*\*    | $O(b^(d/2))$    | $O(b^(d/2))$     |
+| Beam Search       | No           | No         | $O(bk)$         | $O(k)$           |
 
-Where:
+\* **Iff** the graph is finite.
+\*\* **Iff** $h(n)$ is admissible.
 
-- b = branching factor
-- d = depth of the shallowest goal
-- m = maximum depth of the search tree
+Here:
+
+- $b$ - branching factor
+- $d$ - depth of the shallowest goal
+- $m$ - maximum depth of the search tree
+- $k$ - beam width
 
 ## Performance of Heuristic Search
 
 Depends on the quality of the heuristic function. A good heuristic can significantly reduce the search space and time. A poor heuristic can lead to inefficient search.
 
 A good heuristic function can be constructed by:
+
 - Relaxing the problem definition
--  Storing precomputed solution costs for subproblems in a pattern database
+- Storing precomputed solution costs for subproblems in a pattern database
 - Defining landmarks
 - Learning from the experience with the problem class
 

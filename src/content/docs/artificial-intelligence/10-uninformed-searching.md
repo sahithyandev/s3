@@ -11,52 +11,65 @@ Methods for exploring state spaces without using domain-specific knowledge about
 
 These algorithms only know how to generate successor states and recognize goal states, but don't have information about how close they are to a solution.
 
+### Branching Factor
+
+The average number of successors generated from each node in a search tree or graph. Finite graph implies finite branching factor. Opposite is not necessarily true.
+
 ## Algorithms
 
-### Uniform cost search
+### Depth-First Search
 
-Aka. [Dijkstra's algorithm](https://s2.sahithyan.dev/data-structures-and-algorithms/algorithms/dijkstras-algorithm/). Expands the node with the lowest path cost. Optimal for general action costs. _uniform_ because it expands nodes in increasing order of path cost.
+Complete **iff** search space is finite state space. Wanders off into infinite paths for infinite graphs. Not optimal, returns the first solution it finds.
 
-### Depth-first Search
-
-Not complete, but complete for finite state space. Not optimal, returns the first solution it finds.
-
-### Iterative deepening depth-first search
-
-Calls DFS with increasing depth limits, until a solution is found. Complete **if** finite and acyclic. Optimal for unit action costs. Time complexity comparable to BFS. Space complexity is linear.
+Covered in detail in [DFS on Graphs](https://s2.sahithyan.dev/data-structures-and-algorithms/algorithms/depth-first-search/#in-graphs).
 
 ### Depth-limited DFS
 
-A version of DFS with a depth limit $l$. Keeps DFS from wandering off into infinite paths. $ $
+Aka. DDFS. Depth-constrained DFS. Avoids wandering off into infinite paths.
 
-Not complete. For lower $l$, it may not find a solution. Not cost optimal, returns the first solution it finds.
+Not complete. Causes a false-negative for nodes far apart. Not optimal. Returns the first solution it finds.
 
-### Breadth-first Search
+### Iterative Deepening DFS
 
-Expands the shallowest nodes first.
+Aka. IDS. Repeatedly runs DDFS with increasing depth limits. Stops when a solution is found. Complete **iff** finite. Wanders off into infinite for infinite graphs. Optimal **iff** all action costs are equal. Time complexity comparable to BFS. Space complexity is linear.
+
+Works similar to BFS, but uses much less memory.
+
+### Breadth-First Search
+
+Expands the shallowest nodes first. Covered in detail in [BFS on Graphs](https://s2.sahithyan.dev/data-structures-and-algorithms/algorithms/breadth-first-search/#in-graphs).
 
 ### Bidirectional Search
 
-Expands 2 frontiers, both around the initial state and the goal, stopping when the two frontiers meet.
+Expands 2 frontiers: around initial and goal states. BFS is used because it searches level by level. Stops when the frontiers meet.
+
+### Uniform Cost Search
+
+Aka. [Dijkstra's algorithm](https://s2.sahithyan.dev/data-structures-and-algorithms/algorithms/dijkstras-algorithm/). Fails for graphs with negative weights. Expands the node with the lowest path cost. Optimal for general action costs. Named _uniform_ because it expands nodes in increasing order of path cost.
 
 ## Comparison
 
-| Algorithm           | Complete?            | Optimal?                        | Time Complexity | Space Complexity |
-| ------------------- | -------------------- | ------------------------------- | --------------- | ---------------- |
-| BFS                 | Yes (if b is finite) | Yes (**iff** costs are uniform) | $O(b^d)$        | $O(b^d)$         |
-| Uniform Cost        | Yes (if b is finite) | Yes                             | $O(b^{1+C/ε})$  | $O(b^{1+C/ε})$   |
-| DFS                 | No\*                 | No                              | $O(b^m)$        | $O(bm)$          |
-| Depth-limited       | No                   | No                              | $O(b^l)$        | $O(bl)$          |
-| Iterative Deepening | Yes                  | Yes (if costs are uniform)      | $O(b^d)$        | $O(bd)$          |
-| Bidirectional       | Yes                  | Yes (if costs are uniform)      | $O(b^{d/2})$    | $O(b^{d/2})$     |
+<div class="scrollable-table">
 
-\*Yes for finite state spaces.
+| Algorithm     | Complete? | Optimal? | Time Complexity                    | Space Complexity         |
+| ------------- | --------- | -------- | ---------------------------------- | ------------------------ |
+| DFS           | Yes\*     | No       | $O(V+E)$ or $O(b^m)$               | $O(V)$ or $O(bm)$        |
+| DDFS          | No        | No       | $O(b^l)$                           | $O(bl)$                  |
+| IDS           | Yes\*     | Yes\*\*  | $O(b^d)$                           | $O(bd)$                  |
+| BFS           | Yes\*     | Yes\*\*  | $O(V+E)$ or $O(b^d)$               | $O(V)$ or $O(b^d)$       |
+| Bidirectional | Yes\*     | Yes\*\*  | $O(b^{d/2})$                       | $O(b^{d/2})$             |
+| UCS           | Yes\*     | Yes      | $O(b^{1+C/ε})$ or $O((V+E)\log V)$ | $O(b^{1+C/ε})$ or $O(V)$ |
+
+</div>
+
+\* **Iff** the graph is finite.  
+\*\* **Iff** all costs are equal.
 
 Here:
 
-- $b$ is the branching factor
-- $d$ is the depth of the shallowest solution
-- $m$ is the maximum depth of the state space
-- $l$ is the depth limit
-- $C$ is the cost of the optimal solution
-- $ε$ is the minimum action cost
+- $b$ - branching factor
+- $d$ - depth of the shallowest solution
+- $m$ - maximum depth of the state space
+- $l$ - depth limit
+- $C$ - cost of the optimal solution
+- $ε$ - minimum action cost
