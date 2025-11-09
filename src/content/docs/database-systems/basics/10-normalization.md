@@ -94,6 +94,8 @@ If all the below conditions are met, the relation is in 3NF:
 - It's in 2NF
 - All non-key attributes must dependent only on the entire primary key.
 
+Allows key attributes to depend on non-key attributes.
+
 Aims to remove data redundancy.
 
 ## Boyce-Codd Normal Form (BCNF)
@@ -102,9 +104,7 @@ Slightly stronger than 3NF. Can be thought of as 3.5NF.
 
 If all the below conditions are met, the relation is in BCNF:
 - It's in 3NF
-- All key attributes must dependent on the entire primary key.
-
-3NF allows key attributes to depend on non-key attributes, but BCNF doesn't.
+- All key attributes must dependent on and only on the entire primary key.
 
 :::note
 
