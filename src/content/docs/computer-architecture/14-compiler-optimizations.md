@@ -1,13 +1,13 @@
 ---
 title: Compiler Optimizations
 sidebar:
-  order: 13
+  order: 14
 slug: computer-architecture/compiler-optimizations
 prev: true
 next: true
 ---
 
-Compiler translates high-level programming language code to machine code. Optimization techniques are employed to improve the translated code in terms of performance.
+Optimization techniques are employed to improve the translated code in terms of performance.
 
 ## Compiler Optimization flags
 
