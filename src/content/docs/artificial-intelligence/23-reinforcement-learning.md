@@ -1,7 +1,7 @@
 ---
 title: Reinforcement Learning
 sidebar:
-  order: 24
+  order: 23
 slug: artificial-intelligence/reinforcement-learning
 prev: true
 next: false
