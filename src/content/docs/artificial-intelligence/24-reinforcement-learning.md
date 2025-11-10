@@ -4,7 +4,7 @@ sidebar:
   order: 24
 slug: artificial-intelligence/reinforcement-learning
 prev: true
-next: false
+next: true
 ---
 
 The process of _learning_ to maximize expected rewards by trial and error. Feedback is given in the form of _rewards_. Agent's utility is defined by the reward function. All learning is based on observed samples of outcomes.
