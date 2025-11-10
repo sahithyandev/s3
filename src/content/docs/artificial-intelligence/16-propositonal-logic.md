@@ -1,7 +1,7 @@
 ---
 title: Propositonal Logic
 sidebar:
-  order: 15
+  order: 16
 slug: artificial-intelligence/propositonal-logic
 prev: true
 next: true

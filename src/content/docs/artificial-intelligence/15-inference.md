@@ -1,7 +1,7 @@
 ---
 title: Inference
 sidebar:
-  order: 14
+  order: 15
 slug: artificial-intelligence/inference
 prev: true
 next: true

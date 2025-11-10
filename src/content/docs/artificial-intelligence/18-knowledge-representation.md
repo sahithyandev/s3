@@ -1,7 +1,7 @@
 ---
 title: Knowledge Representation
 sidebar:
-  order: 17
+  order: 18
 slug: artificial-intelligence/knowledge-representation
 prev: true
 next: true

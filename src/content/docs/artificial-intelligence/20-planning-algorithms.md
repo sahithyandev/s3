@@ -1,7 +1,7 @@
 ---
 title: Planning Algorithms
 sidebar:
-  order: 19
+  order: 20
 slug: artificial-intelligence/planning-algorithms
 prev: true
 next: true

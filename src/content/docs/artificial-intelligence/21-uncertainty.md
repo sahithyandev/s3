@@ -1,7 +1,7 @@
 ---
 title: Uncertainty
 sidebar:
-  order: 20
+  order: 21
 slug: artificial-intelligence/uncertainty
 prev: true
 next: true

@@ -1,7 +1,7 @@
 ---
 title: Logical Agents
 sidebar:
-  order: 13
+  order: 14
 slug: artificial-intelligence/logical-agents
 prev: true
 next: true

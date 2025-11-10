@@ -1,7 +1,7 @@
 ---
 title: Planning
 sidebar:
-  order: 18
+  order: 19
 slug: artificial-intelligence/planning
 prev: true
 next: true
