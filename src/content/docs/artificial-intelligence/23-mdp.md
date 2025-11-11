@@ -56,6 +56,14 @@ A policy that maximizes the expected sum of future rewards. Denoted using $\pi^*
 
 A policy that exhaustively defines the action for all the states. Results in a reflex agent.
 
+### Policy Evaluation
+
+The process of computing the state-value function $V_\pi$ for a given policy $\pi$.
+
+```math
+V_\pi (s) = \sum_{s'} T\left(s,\pi(s),s'\right) \Big[ R\left(s,\pi(s),s'\right) + \gamma V_\pi(s') \Big]
+```
+
 ### Discounting rewards
 
 It's reasonable to prefer rewards sooner. A solution for incorporating discounting rewards is to use a discount factor $\gamma \in (0,1]$ that reduces the importance of future rewards. The discounted reward is denoted as:
@@ -257,6 +265,22 @@ V, policy = value_iteration(states, actions, P, gamma=0.9, theta=1e-6)
 print("Value function:", V)
 print("Policy:", policy)
 ```
+
+### Q-Value Iteration
+
+Similar to value iteration. Calculates q-values instead of state-values. Approximately equivalent in computation with value iteration.
+
+Initially $Q_0(s,a) = 0, \forall s \in S,\; a \in A$.
+
+```math
+Q_{k+1}(s,a) = \sum_{s'} T(s,a,s') \Big[ R(s,a,s') + \gamma \max_{a'} Q_k(s',a') \Big]
+```
+
+Here:
+- $Q_k(s,a)$: estimate at iteration $k$,
+- $T(s,a,s')$: transition probability,
+- $R(s,a,s')$: immediate reward,
+- $\gamma$: discount factor.
 
 ### Policy Iteration
 

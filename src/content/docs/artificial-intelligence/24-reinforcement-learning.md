@@ -11,116 +11,160 @@ The process of _learning_ to maximize expected rewards by trial and error. Feedb
 
 Builds on MDPs. Here, transition function and reward function are unknown. Can't simulate the world as it is not a known model. Online learning.
 
-### Components
+Defined by:
 
-- State $s \in S$
-- Action $a \in A(s)$
-- Transition model $T(s,a,s’)$ – unknown
-- Reward $R(s,a,s’)$ – unknown
-- Policy $\pi(s)$: action rule
+- States $S$
+- Actions $A(s)$
+- Policy $\pi(s)$
 
-## Model-Based Learning
+## Model-Based vs. Model-Free
 
-Based on observations through multiple episodes, the agent learns the $T$ and $R$ functions.
+### Model-Based Learning
 
-Steps:
-- Collect counts of $(s,a,s’)$ and rewards.
-- Estimate $T, R$.
-- Run planning on learned model.
+Learns from a model of the environment. Observations through multiple simulations, $T$ and $R$ functions are learnt. Used when the environment is known.
 
-## Model-Free Learning
+### Model-Free Learning
 
-An agent learns directly from its interactions with the environment.
+Learns $T$, $R$ directly from interactions with the environment. Used when the environment is too complex or cannot be modelled. Can use either sample-based policy evaluation or control methods.
 
-### Passive RL
+#### Sample-Based Policy Evaluation
 
-An agent observes another agent's actions and rewards. And learns from the observed outcomes.
+A method for estimating the value of a given policy $\pi$ by using averages obtained from samples. Used in some model-free learning algorithms.
 
-### Active RL
+Over multiple episodes, following $\pi(s)$, the following update rule is executed.
 
-An agent takes actions and receives rewards. And learns from the outcomes.
+```math
+V_{\pi}(s) \approx \dfrac{1}{N(s)} \sum_{i=1}^{N(s)} G_i(s)
+```
 
-**Model-Free**
+Here:
+- $G_i(s)$ be the discounted sum of rewards from a visit to $s$
+- $N(s)$ be the number of samples for $s$
 
-* Don’t learn T,R explicitly.
-* Learn values (V or Q) directly from samples.
-* Suited when environment is large or partially unknown.
+## Active vs. Passive
 
-## Passive Reinforcement Learning (Policy Evaluation)
+### Active
 
-**Given:** a fixed policy π(s).
-**Goal:** learn Vπ(s) without T,R.
-Agent follows π and observes transitions.
+Learns the best policy by interacting with the environment.
+
+#### Exploration vs. Exploitation
+
+A challenge for active RL. Agent mustb balance:
+
+- Explore: try new actions to discover rewards.
+- Exploit: use best-known action for high return.
+
+### Passive
+
+Follows the given policy $\pi(s)$. Learns the value of states using $\pi(s)$.
+
+## Algorithms
+
+All of the below algorithms use sample-based policy evaluation.
 
 ### Direct Evaluation
 
-* For each visited s, record total discounted return G from that episode.
-* Average all G values → Vπ(s).
-* Simple but slow; each state learned independently.
+Model-free. Passive. Learns the value of each state $V(s)$ by averaging the future reward observed after $s$ under a fixed policy $\pi(s)$. Simple to implement.
 
-### Sample-Based Evaluation
+Must wait until the episode ends to compute returns. Each state must be learnt separately. Slow.
 
-* Idea: use samples of outcomes s’ to approximate expectations in Bellman update.
-* But can’t “rewind” to resample → inefficient.
+```py
+import random
 
-### Temporal-Difference (TD) Learning
+# Define a simple environment
+states = ['A', 'B', 'C', 'D', 'E']
+rewards = {'A': 2, 'B': 1, 'C': 5, 'D': 0, 'E': 10}
+transitions = {
+    'A': 'B',
+    'B': 'C',
+    'C': 'D',
+    'D': 'E',
+    'E': None  # terminal
+}
 
-* Update V(s) after every transition:
-  V(s) ← V(s) + α [ r + γ V(s’) − V(s) ]
-* Learns incrementally; combines sampling + dynamic programming idea.
-* **α:** learning rate; **γ:** discount factor.
-* Works without T,R and learns faster than direct evaluation.
+# Parameters
+gamma = 1.0  # no discount
+num_episodes = 1000
 
-**Key Points**
+# Value table and returns
+V = {s: 0.0 for s in states}
+returns = {s: [] for s in states}
 
-* TD(0) ≈ sampled Bellman update.
-* Larger α → faster but noisier learning.
-* Decreasing α → convergent average.
+for _ in range(num_episodes):
+    # Start at random state
+    state = random.choice(states)
+    episode = []
 
-## Active Reinforcement Learning
+    # Generate an episode following fixed policy (always move to next)
+    while state is not None:
+        reward = rewards[state]
+        episode.append((state, reward))
+        state = transitions[state]
 
-**Goal:** learn **optimal policy** π* without knowing T,R.
-Now agent **chooses actions** itself.
+    # Calculate returns from each state in the episode
+    G = 0
+    for t in reversed(range(len(episode))):
+        s, r = episode[t]
+        G = r + gamma * G
+        returns[s].append(G)
 
-**Challenge:** *Exploration vs. Exploitation*
+# Compute average return for each state
+for s in states:
+    if returns[s]:
+        V[s] = sum(returns[s]) / len(returns[s])
 
-* Explore → try new actions to discover rewards.
-* Exploit → use best-known action for high return.
-  Balancing both is essential.
+print("Estimated State Values (V):")
+for s, v in V.items():
+    print(f"{s}: {v:.2f}")
+```
 
-## Q-Learning (Model-Free Control)
+### Temporal Difference Learning
 
-**Idea:** learn Q*(s,a) directly using sample updates.
+Aka. TD Learning. Model-free. Passive. Smarter version of Direct Evaluation. Updates value estimates $V(s)$ after each step, not waiting for episode end. Combines ideas from Monte Carlo (learning from experience) and Dynamic Programming (bootstrapping using next state’s value). Incremental.
 
-**Update Rule**
-Q(s,a) ← Q(s,a) + α [ r + γ maxₐ′ Q(s’,a′) − Q(s,a) ]
+Faster than Direct Evaluation.
 
-**Properties**
+The sample value of $s$ using $\pi$ is calculated as:
 
-* Converges to optimal Q* even with suboptimal actions (off-policy).
-* Needs:
+```math
+V^s_\pi (s) = R(s,\pi(s),s') + \gamma V_\pi(s')
+```
 
-  * Enough exploration (e.g., ε-greedy).
-  * Gradually reduced α.
-* In limit → yields optimal policy: π*(s) = argmaxₐ Q(s,a).
+The update rule is:
 
-## Summary Table
+```math
+V_\pi (s) \leftarrow (1-\alpha)V_\pi(s) + \alpha V^s_\pi(s)
+```
 
-| Concept     | Known?       | Learns       | Key Update / Idea      |
-| ----------- | ------------ | ------------ | ---------------------- |
-| Model-Based | Learns T,R   | Optimal V, π | Estimate T,R → run VI  |
-| Direct Eval | Policy fixed | Vπ           | Average returns        |
-| TD Learning | Policy fixed | Vπ           | V ← V + α[r+γV′−V]     |
-| Q-Learning  | No model     | Q*, π*       | Q ← Q + α[r+γmax Q′−Q] |
+Or:
 
-### Practical Applications
+```math
+V_\pi(s) \leftarrow V_\pi(s) + \alpha \Big[ R(s,a,s') + \gamma V(s') − V(s) \Big]
+```
 
-* **Games (Atari, Chess):** learn optimal moves by simulation.
-* **Robotics:** learn control without full physics model.
-* **Autonomous driving:** balance exploration safely.
+Here $\alpha$ is the  learning rate. Larger $\alpha$ provides faster but noisier learning. Decreasing $\alpha$ gives convergent average.
 
-### Common Pitfalls
+### Q-Learning
 
-* Too high α → oscillations.
-* No exploration → stuck in suboptimal policy.
-* Premature convergence if α drops too soon.
+Model-free. Active. Learns action values $Q(s, a)$ directly to find the optimal policy. Does [sample-based](#sample-based-policy-evaluation), [q-value iteration](/artificial-intelligence/mdp#q-value-iteration).
+
+Requires enough exploration to be optimal. The learning rate must be reduced. And the reduction must be gradual, not too quick.
+
+The sample q-value of $s$ at $a$ using $\pi$ is calculated as:
+
+```math
+Q_s (s,a) = R(s,a,s') + \gamma \max_{a'} Q(s',a')
+```
+
+The update rule is:
+```math
+Q (s,a) \leftarrow (1-\alpha)Q(s,a) + \alpha Q_s(s)
+```
+
+Or:
+
+```math
+Q(s, a) \leftarrow Q(s, a) + \alpha \Big[ R(s,a,s') + \gamma \max_a Q(s', a') − Q(s, a) \Big]
+```
+
+The  optimal policy can be extracted using $\pi^*(s) = \arg\max_a Q(s,a)$.
