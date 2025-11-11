@@ -9,7 +9,7 @@ next: true
 
 The process of _learning_ to maximize expected rewards by trial and error. Feedback is given in the form of _rewards_. Agent's utility is defined by the reward function. All learning is based on observed samples of outcomes.
 
-Builds on MDPs. Here, transition function and reward function are unknown.
+Builds on MDPs. Here, transition function and reward function are unknown. Can't simulate the world as it is not a known model. Online learning.
 
 ### Components
 

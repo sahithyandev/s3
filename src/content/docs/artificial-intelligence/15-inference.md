@@ -52,8 +52,6 @@ Scales better for large knowledge bases. Produces symbolic proofs instead of exh
 
 #### Proof by Resolution
 
-A rule-based inference method suitable for automated theorem proving. Allows fully mechanical proofs and is widely used in logic-based AI systems.
-
-It applies to sentences in Conjunctive Normal Form (CNF). All logical sentences are simplified to a conjunction of disjunctions of literals to achieve CNF.
+A rule-based inference method suitable for automated theorem proving. Allows fully mechanical proofs and is widely used in logic-based AI systems. Applies to sentences in [Conjunctive Normal Form](/artificial-intelligence/proposition-logic#conjunctive-normal-form).
 
 Resolution rules combines complementary literals to simplify until either no other resolution is possible.

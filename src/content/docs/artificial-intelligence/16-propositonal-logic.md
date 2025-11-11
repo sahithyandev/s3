@@ -22,3 +22,30 @@ Sentences are formed using logical connectives such as not, and.
 Defines the truth of sentences under a model (assignment of true/false values).
 
 Example: $m1 = \set{P = \text{true}, Q = \text{true}, R = \text{false}}$
+
+## Conjunctive Normal Form
+
+Aka. CNF. A standard way of writing logical formulas so that they can be easily processed by reasoning algorithms like resolution.
+
+A formula is in CNF **iff**:
+- it’s a conjunction ($\land$) **and**
+- each clause inside the conjunction is a disjunction ($\lor$) of literals
+
+### Steps
+
+- Eliminate biconditionals ($\iff$)   
+   Replace: $(A \iff B) \to  (A \implies B) \land (B \implies A)$
+
+- Eliminate implications ($\implies$)   
+   Replace: $(A \implies B)  \to  \lnot A \lor B$
+
+- Move lnot inwards using De Morgan’s laws   
+   - $\lnot(A \land B) \to (\lnot A \lor \lnot B)$
+   - $\lnot(A \lor B) \to (\lnot A \land \lnot B)$
+   - $\lnot(\lnot A) \to A$
+
+- Apply distributive law to get a conjunction of disjunctions    
+   $(A \lor (B \land C)) \to (A \lor B) \land (A \lor C)$
+
+- Simplify   
+   Remove duplicate literals or clauses if possible.

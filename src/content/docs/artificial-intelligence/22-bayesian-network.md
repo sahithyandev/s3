@@ -89,6 +89,28 @@ This method sums over hidden (unobserved) variables to find the posterior probab
 - Siblings are conditionally independent given their common parent.
 - Parents are generally not conditionally independent given a child.
 
+## D-Separation
+
+Used to test independences in a Bayesian network.
+
+Steps:
+
+1. List all paths between the 2 variables (ignore arrow direction).
+2. For each path, identify the type of connection at each intermediate node
+   - Chain: $A → B → C$ or $A ← B ← C$
+   - Fork: $A ← B → C$
+   - Collider: $A → B ← C$
+3. Apply blocking rules
+   - For chain or fork: path is blocked **if** middle node is conditioned
+   - For collider: path is blocked **if** both collider and its descendents are not conditioned
+4. They are independent **iff** all paths between the 2 nodes are blocked.
+
+:::note
+
+Collider's child is any node that directly descends from the collider.
+
+:::
+
 ## Compactness and Efficiency
 
 If every node has at most $k$ parents, total storage = $O(n \cdot 2^k)$.
