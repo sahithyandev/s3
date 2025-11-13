@@ -35,7 +35,7 @@ Unallocated disks in RAID setup. Usually in a small number. Automatically replac
 
 ## Techniques
 
-### Stripping
+### Striping
 
 When data is divided into blocks and distributed across multiple disks. Improves read/write speed by allowing parallel access.
 
@@ -49,31 +49,35 @@ Refers to different configurations of RAID. Each with its own method of data dis
 
 ### RAID 0
 
-Uses striping only. High speed. No redundancy. No fault tolerance.
+Uses striping only. High speed. No redundancy. No fault tolerance. If 1 disk fails, all data is gone. 100% usable space. Used in non-critical systems where speed is prioritized over reliability.
 
 ### RAID 1
 
-Uses mirroring only. Data is duplicated on 2 or more disks. Can survive 1 disk failure. Fast reads. More reliable. 50% usable space.
+Uses mirroring only. Data is duplicated on 2 or more disks. Can survive 1 disk failure. Fast reads. More reliable. 50% usable space. Requires 2 block writes for each block write. Better write performance than RAID 5.
+
+### RAID 2
+
+Uses striping at bit level. A single disk store ECC bits. Too complex for implementation. Not used as much (RAID 3 is used instead). Memory-Style Error-Correcting-Codes (ECC) with bit striping.
+
+### RAID 3
+
+Uses striping at bit level. Corresponding parity bits are stored on a dedicated parity disk. Can recover 1 failed disk. XOR of bits used for parity. Faster data transfer. Less I/O operations per second because all disks must be synchronized for each read/write. Not used as much because bit-striping causes too much arm movement. RAID 5 is used instead.
 
 ### RAID 4
 
-Stripping is used for data. A dedicated disk stores parity information.
-
-Usually congestion is caused on the parity disk, which degrades write performance.
+Uses striping at block-level. A dedicated disk stores block parity. Parity bit must be re-written for every block writes, which becomes a performance bottleneck. Not used as much (RAID 5 is used instead).
 
 ### RAID 5
 
-Data and parity are spread across all disks. Can survive 1 disk failure. Good read performance. Moderate write performance because of extra parity calculation. Balance of speed, cost, and fault tolerance.
+Uses striping at block-level. Data and parity are distributed across all disks. Can survive 1 disk failure. Good read performance. Higher I/O rates than RAID 4. Avoids bottleneck of RAID 4. Moderate write performance because of extra parity calculation. Less cost compared to RAID 1. Requires 4 I/O operations (2 block reads, 2 block writes) for each block write.
 
-Used in general-purpose storage.
+Balances speed, cost, and fault tolerance. Used in general-purpose storage.
 
 ### RAID 6
 
-Similar to RAID 5 but stores 2 parity blocks per stripe. Can survive 2 disk failures.
+Similar to RAID 5 but stores 2 parity blocks per stripe. Can survive 2 disk failures. Safer than RAID 5. Slower. Costlier. Slightly slower writes because of extra parity math. Not used as much, because RAID 1 or RAID 5 offer adequate protection for most applications.
 
-Safer than RAID 5. Slower. Costlier. Slightly slower writes because of extra parity math.
-
-Use Case: Large-capacity arrays where rebuild times are long.
+Used in large-capacity arrays where rebuild times are long.
 
 ### RAID 10
 
@@ -88,6 +92,8 @@ Aka. RAID 0+1. Creates a stripe set, then mirrors the set.
 :::note
 
 RAID 2, 3, 4 and 0+1 are early experimental versions which are not used now.
+
+RAID 5 is preferred for applications with low update rate and large amounts of data. Otherwise RAID 1 is preferred.
 
 :::
 

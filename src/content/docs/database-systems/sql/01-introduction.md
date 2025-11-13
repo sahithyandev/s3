@@ -8,7 +8,7 @@ prev: false
 next: true
 ---
 
-A declarative [DML](/database-systems/introduction/#data-modelling-language) and [DDL](/database-systems/introduction/#data-definition-language). Case insensitive. Became the industry standard in the 1980s.
+A declarative [DML](/database-systems/introduction/#dml) and [DDL](/database-systems/introduction/#ddl). Case insensitive. Became the industry standard in the 1980s.
 
 Query planner decides on the most efficient way to execute a query.
 

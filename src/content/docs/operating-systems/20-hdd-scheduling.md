@@ -46,7 +46,7 @@ Most performant. Minimal average seek time. Starvation might be caused for dista
 
 ### SCAN
 
-Sweeps both directions in turn. Move the head in one direction, servicing all requests along the way; then reverse direction.
+Aka. elevator algorithm. Sweeps both directions in turn. Move the head in one direction, servicing all requests along the way; then reverse direction.
 
 Uniform wait time. Reduces variance. Either ends may wait longer.
 

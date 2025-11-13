@@ -43,11 +43,15 @@ Moves the heads radially to position them over the correct track.
 
 ### Tracks
 
-Circular paths on the platter surface where data is stored. Centered around the spindle.
+Circular paths on the platter surface where data is stored. Centered around the spindle. Around 50-100 thousand tracks per platter.
 
 ### Sectors
 
-Circular segments within tracks. Each sector contains header information, data, [error correction code](/operating-systems/mass-storage-systems/#ecc). Usually data size is 512 bytes or 4096 bytes.
+Small unit of readable/writeable data. Circular segments within tracks. Each sector contains header information, data, [error correction code](/operating-systems/mass-storage-systems/#ecc). Usually data size is 512 bytes or 4096 bytes. 500 to 2000 sectors per track. More sectors on outer tracks due to larger circumference.
+
+### Blocks
+
+Continguous sectors form a block. Data is moved between disk and main memory in blocks. Typical block size is 4 KB.
 
 ### Low-level formatting
 

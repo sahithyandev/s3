@@ -30,7 +30,7 @@ Suppose a relation $R$ (satisfying $F$) is decomposed into $R_1, R_2, \ldots, R_
 The decomposition is dependency preserving **if**:
 
 ```math
-(F_1 \cup F_2 \cup \ldots F_n) = F^+
+(F_1 \cup F_2 \cup \ldots F_n)*+ = F^+
 ```
 
 Means that all the functional dependencies from the original relation can still be enforced by checking them locally on the decomposed relations, without having to recombine (join) the tables.

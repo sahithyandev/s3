@@ -1,7 +1,7 @@
 ---
 title: Integrity Constraints
 sidebar:
-  order: 5
+  order: 3
 slug: database-systems/sql/integrity-constraints
 prev: true
 next: true

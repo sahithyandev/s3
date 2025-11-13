@@ -1,8 +1,8 @@
 ---
-title: Relational Concepts
+title: Relational Algebra
 sidebar:
   order: 3
-slug: database-systems/basics/relational-concepts
+slug: database-systems/basics/relational-algebra
 prev: true
 next: true
 ---

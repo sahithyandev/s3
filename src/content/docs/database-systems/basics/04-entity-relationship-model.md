@@ -91,8 +91,6 @@ Binary relationships are frequently encountered in real life. Higher degree rela
 
 Defines the number of entities that can participate in a relationship from each side.
 
-### Definition
-
 For a binary relationship set $R$ between entity sets $A$ and $B$:
 
 ```math
@@ -103,21 +101,21 @@ The cardinality specifies how many entities in $B$ can be associated with one en
 
 In ER diagrams, represented near the entity sets using symbols like $1$, $N$, or $M$. Some notations also use $(min, max)$ pairs to indicate participation limits.
 
-### Types
+#### One-to-One (1:1)
 
-- One-to-One (1:1):  
-  Each entity in $A$ is related to at most one entity in $B$, and vice versa.
+Each entity in $A$ is related to at most one entity in $B$, and vice versa.
 
-- One-to-Many (1:N):  
-  Each entity in $A$ can be related to many entities in $B$,
-  but each entity in $B$ is related to only one entity in $A$.
+#### One-to-Many (1:N)
 
-- Many-to-One (N:1):  
-  Each entity in $A$ relates to only one entity in $B$,
-  but an entity in $B$ can relate to many in $A$.
+Each entity in $A$ can be related to many entities in $B$, but each entity in $B$ is related to only one entity in $A$.
 
-- Many-to-Many (M:N):  
-  Entities in both sets can relate to many in the other.
+#### Many-to-One (N:1)
+
+Each entity in $A$ relates to only one entity in $B$, but an entity in $B$ can relate to many in $A$.
+
+#### Many-to-Many (M:N)
+
+Entities in both sets can relate to many in the other.
 
 ## Participation
 
@@ -127,11 +125,7 @@ Each entity in an entity set participates in at least one relationship instance.
 
 ### Partial Participation
 
-An entity may not participate in all relationship instances involving that entity set.
-
-### Optional Participation
-
-An entity may not participate in any relationship instance involving that entity set.
+Aka. optional participation. An entity may not participate in all relationship instances involving that entity set.
 
 ## Reduction to Relation Schema
 
