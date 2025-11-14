@@ -7,6 +7,8 @@ prev: true
 next: true
 ---
 
+## P-T Diagram
+
 ### Saturation Dome
 
 Region on [T-v diagram](#tv-diagram) or [P-v diagram](#pv-diagram) bounded by saturated liquid line (left) and saturated vapour line (right).
@@ -35,7 +37,7 @@ The line that ends at the critical point, beyond which the liquid and gas phases
 
 ### Critical point
 
-A unique set of temperature and pressure at which the distinction between liquid and gas phases disappears. Denoted as ($T_c$, $P_c$).
+A unique set of temperature and pressure at which the distinction between liquid and gas phases disappears. Denoted as ($T_c$, $P_c$). Here $T_c$ is the critical temperature and $P_c$ is the critical pressure.
 
 Above the critical point, the substance exists as a [supercritical fluid](#supercritical-fluid).
 

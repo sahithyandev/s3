@@ -1,0 +1,43 @@
+---
+title: Diesel Cycle
+sidebar:
+  order: 22
+slug: engineering-thermodynamics/diesel-cycle
+prev: true
+next: true
+---
+
+Ideal cycle for compression ignition (CI) reciprocating engines. Models diesel engines. Fuel injected near TDC; heat addition at constant pressure. Named after Rudolph Diesel.
+
+Doesn’t get classic knocking like petrol engines because they don’t premix fuel and air. Higher $r$ possible. Uses less-refined fuel.
+
+Compression ratio is usually between 12 to 24.
+
+For a given compression ratio, OTTO cycle has the high efficiency.
+
+### Processes
+
+1 → 2: isentropic compression
+2 → 3: constant-pressure heat addition
+3 → 4: isentropic expansion
+4 → 1: constant-volume heat rejection
+
+For adiabatic process:
+```math
+PV^{\gamma} = \text{constant}\quad \text{and}\quad TV^{\gamma -1} = \text{constant}
+```
+
+## Cutoff Ratio
+
+Denoted by $r_c$.
+
+```math
+r_c = \frac{v_3}{v_2}
+```
+
+### Thermal Efficiency
+
+```math
+\eta_{diesel} = 1 - \frac{1}{r^{k-1}}
+\cdot \frac{r_c^k - 1}{k(r_c - 1)}
+```

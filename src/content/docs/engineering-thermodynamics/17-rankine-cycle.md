@@ -1,7 +1,7 @@
 ---
 title: Rankine Cycle
 sidebar:
-  order: 16
+  order: 17
 slug: engineering-thermodynamics/rankine-cycle
 prev: true
 next: true
@@ -28,11 +28,11 @@ Rankine power cycle overcomes these issues by allowing the condensation process 
 
 ## Superheat
 
-One kind of solution to increase the efficiency in Rankine cycle. The method of increasing the average temperature where the heat transfer takes place.
+When the steam is further heated than saturated vapour.
 
-Increases dryness fraction. Also helps to produce more work by absorbing more heat. Still the efficiency is less than the Carnot cycle efficiency.
+Increases average temperature of heat transfer, efficiency, dryness fraction. Avoids water droplet erosion.
 
-Causes the steam at the turbine exit to be drier. This is a very important practical requirement because if water droplets are allowed through the turbine, it leads to failure of turbine blades. Aka. water droplet erosion.
+Still the efficiency is less than the Carnot cycle efficiency.
 
 ### Water droplet erosion
 

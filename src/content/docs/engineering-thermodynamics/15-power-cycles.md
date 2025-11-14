@@ -13,6 +13,14 @@ next: true
   thermal power generation such as coal power plants, nuclear power plants, natural gas power plants, geothermal solar thermal and combined heating and power applications (CHP systems).
 - refrigeration amd heat pumps  
   From simple domestic level refrigerator or air conditioner to a large scale industrial refrigeration systems and AC systems. Heat pumps also vary from small domestic scale heat pumps to very large scale industrial heat pumps.
+  
+### Assumptions
+
+These are assumptions regarding ideal cycles.
+- No friction
+- Expansion & compression are quasi-equilibrium processes
+- Heat losses in pipes are negligible
+- Change in kinetic and potential energies are neglected
 
 ### CHP system
 
@@ -31,21 +39,75 @@ These are considered as heat engines because they convert heat into work. They a
 
 The thermodynamic cycles that modeled the operation of these power generation applications.
 
-2 types:
-
-- Vapor power cycle
-- Gas power cycle
-
 Practically very complex. Assumptions are made to simplify the analysis. Carnot cycle is the perfect theoretical cycle, which is the upper limit for operation. Ideal thermodynamic cycle lies in between the practical and the Carnot cycle and it is much closer to the practical operation.
 
-### Vapor power cycle
+2 types based on the working fluid:
+- [Vapor power cycle](/engineering-thermodynamics/vapor-power-cycle)
+- [Gas power cycle](/engineering-thermodynamics/gas-power-cycle)
 
-Aka. steam power cycle. Energy of a vapor is converted to mechanical work output. The working fluid experiences phase transition between liquid and gas. Used in steam power plants. Highly pressurized and high temperature steam is the most common working fluid.
+### Closed Cycle
 
-[Rankine cycle](/engineering-thermodynamics/rankine-cycle) is a vapor power cycle.
+Working fluid returns to initial state.
 
-### Gas power cycle
+### Open Cycle
 
-The working fluid is in the gaseous phase.
+New working fluid each cycle (real engines).
 
-Used in gas turbines, IC engines and jet propulsion.
+## Analysis
+
+### Thermal efficiency
+
+Denoted by $\eta$.
+
+```math
+\eta = \frac{\text{Net work output}}{\text{Heat input}}
+```
+
+### Heat rate
+
+Inverse of thermal efficiency. Technically unitless, but BTU/kWh is used; the amount of heat required to produce 1 kilowatt hour of work output. BTU is short for British Thermal Units.
+
+```math
+1\,\text{kWh} = 3412\,\text{BTU}
+```
+
+Common term among turbine suppliers to compare different steam turbine cycle.
+
+### Specific steam consumption
+
+Flow rate of steam per kilowatt hour of work produced. Determines the sizing of the power plants.
+
+```math
+\begin{equation}
+\nonumber
+\begin{split}
+\text{Specific steam consumption} & = \frac{w_\text{net}}{w_\text{gross}} \\
+\text{Net work} &= w_\text{out} - w_\text{input} \\
+\text{Gross work} &= w_\text{out}
+\end{split}
+\end{equation}
+```
+
+### Efficiency ratio
+
+```math
+\text{Efficiency ratio} = \frac{\text{Actual efficiency}}{\text{Rankine efficiency}}
+```
+
+### Isentrophic efficiency
+
+#### For compressors
+
+```math
+\frac{\text{Isentropic work input}}{\text{Actual work input}}
+```
+
+Actual work input is higher than isentropic work input.
+
+#### For turbine
+
+```math
+\frac{\text{Actual work output}}{\text{Isentropic work output}}
+```
+
+Isentropic work output is bigger.

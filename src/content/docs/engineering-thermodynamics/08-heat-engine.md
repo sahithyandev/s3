@@ -26,6 +26,14 @@ Here:
 - $Q_L$ - heat rejected to cold reservoir
 
 
+### Internal Combustion Heat Engine
+
+Combustion inside cylinder (SI, CI engines).
+
+### External combustion
+
+Heat supplied externally (Brayton closed cycle).
+
 ## Carnot Principle
 
 The efficiency of a reversible heat engine operating between two thermal reservoirs is always greater than the

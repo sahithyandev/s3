@@ -37,14 +37,6 @@ Any relation between pressure, volume and temperature (including the above) is c
 
 :::
 
-```math
-R = \frac{R_u}{M}
-```
-
-Here:
-- $R_u$ - Universal gas constant
-- $M$ - Molar mass of the gas
-
 ## Specific heat capacity
 
 For reversible processes: The amount of heat required to raise the temperature of unit mass of a substance by one degree Celsius or one Kelvin. Measured in $J/kg/K$. $ $
