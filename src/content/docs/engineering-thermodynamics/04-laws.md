@@ -11,30 +11,38 @@ Empirical laws that explain the behavior of thermodynamic systems.
 
 ## 0th Law
 
-**If** 2 systems: A, B are in thermal equilibrium **then**:
-
-- They both have the same _temperature_
-- Any system C in thermal equilibrium with A is also in thermal equilibrium with B
+Defines that _temperature_ is equal for 2 systems in thermal equilibrium. 
 
 **If** 2 systems have the same temperature, **then** they are in thermal equilibrium.
 
+**If** systems $A$ and $B$ are in thermal equilibrium **then** any system $C$ in thermal equilibrium with $A$ is also in thermal equilibrium with $B$.
+
+:::note
+
 [1st](/engineering-thermodynamics/1st-law) and [2nd](/engineering-thermodynamics/2nd-law) laws are explained in detail in the next pages.
+
+:::
 
 ## 3rd Law
 
-As the absolute temperature approaches zero, the entropy of a perfect crystal approaches a constant minimum value. For a perfect crystal, this minimum entropy is zero when the temperature is exactly absolute zero (0 K).
+As the absolute temperature approaches zero, the [entropy](/engineering-thermodynamics/entropy) of a system approaches a constant minimum value.
 
-This law establishes that it is impossible to reach absolute zero in a finite number of steps or processes. As a system approaches absolute zero, it becomes increasingly difficult to remove additional heat.
-
-### Mathematical Form
+Establishes that it is impossible to reach absolute zero in a finite number of steps or processes. As a system approaches absolute zero, it becomes increasingly difficult to remove additional heat.
 
 ```math
 \lim_{T \to 0} S = S_0
 ```
 
-Where:
-- S is the entropy of the system
-- S₀ is the minimum entropy value (typically zero for perfect crystals)
-- T is the absolute temperature
+Here:
+
+- $S$ is the entropy of the system
+- $S_0$ is the minimum entropy value
+- $T$ is the absolute temperature
+
+:::note
+
+$S_0=0$ for perfect crystals (an ideal solid where every atom is arranged in a completely ordered, flawless pattern with no defects).
+
+:::
 
 More of an interest in statistical mechanics; and not much in engineering.

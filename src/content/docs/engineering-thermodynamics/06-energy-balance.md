@@ -7,22 +7,44 @@ prev: true
 next: true
 ---
 
-Based on [the 1st law](/engineering-thermodynamics/laws/1st-law), more specific equations are derived on a case by case basis.
+Based on [the 1st law](/engineering-thermodynamics/1st-law), more specific equations are derived on a case by case basis.
 
 ### Transient state
 
-When a thermodynamic system is changing with time.
+When a thermodynamic system's state and energy transfer changes with time.
 
 ### Steady state
 
-When a thermodynamic system stays constant with time. Net energy change in the system is zero.
+When a thermodynamic system's state constants with time. Net energy change in the system is zero.
 
 ## For closed systems
 
+Net energy transfer to a closed system is equal to the net increase in the system's total energy.
+
 ```math
-\text{Net energy transfer to the system} = \text{Net increase in system's total energy}
-Q - W = \Delta E_{\text{sys}}
+\begin{equation}
+\nonumber
+\begin{split}
+\Delta Q - \Delta W & = \Delta E_{\text{sys}} = \Delta U + \Delta KE + \Delta PE \\
+\Delta U & = m(h_2 - h_1) \\
+\Delta KE & = \frac{1}{2}m \left(C_2^2 - C_1^2\right) \\
+\Delta PE & = mg(z_2 - z_1)
+\end{split}
+\end{equation}
 ```
+
+Here:
+- $\Delta Q$ - net heat transfer to the system
+- $\Delta W$ - net work transfer from the system
+- $\Delta E_{\text{sys}}$ - change in total energy
+- $\Delta U$ - change in internal energy
+- $\Delta KE$ - change in kinetic energy
+- $\Delta PE$ - change in potential energy
+- $h_1, h_2$ - specific enthalpy
+- $m$ - mass of the system
+- $C_1, C_2$ - velocity of the system
+- $g$ - gravitational acceleration
+- $z_1, z_2$ - elevation of the system
 
 ## For open systems
 
@@ -53,10 +75,12 @@ Here:
 - $\theta_{\text{out}}$ - total specific energy of the outlet
 - $\Delta E_{\text{sys}}$ - change in total energy of the system
 
-### Steady flow energy equation (SFEE)
+### Steady Flow Energy Equation (SFEE)
+
+Used when an open system is in steady state.
 
 ```math
-q - w = (h_e - h_i + \frac{1}{2}(C_e^2 - C_i^2) + g(z_e - z_i))
+q - w = h_e - h_i + \frac{1}{2}\Big(C_e^2 - C_i^2\Big) + g(z_e - z_i)
 ```
 
 Here:

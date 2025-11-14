@@ -1,10 +1,10 @@
 ---
-title: Ideal Regenerative Rankine Cycle
+title: Regenerative Rankine Cycle
 sidebar:
-  order: 15
-slug: engineering-thermodynamics/ideal-regenerative-rankine-cycle
+  order: 19
+slug: engineering-thermodynamics/regenerative-rankine-cycle
 prev: true
-next: false
+next: true
 ---
 
 This is a step further closer to the real operation of steam power plants because using regeneration, we are trying to increase performance further and modern steam power plants are generally equipped with regeneration together with reheating. If you look at the T.S. diagram of this rankine cycle, you can see heat transfer in the boiler starts from a very low temperature at state 2. This makes the average temperature of heat transfer to the workin fluid which is the steam takes place at relatively low temperature. Consequently the efficiency is low compared to the Carnot cycle. If we can preheat the feed water before it enters the boiler then the low value of the temperature where the heat transfer happens inside the boiler increases. Perhaps it might be starting from here. Consequently the average temperature of heat transfer increases. and then the efficiency of the cycle increases.

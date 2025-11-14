@@ -8,6 +8,8 @@ prev: false
 next: true
 ---
 
+This page includes a brief revision of some important concepts in thermodynamics.
+
 ## Ideal gases
 
 Theoretical gases. Composed of randomly moving particles. No inter-molecular forces. Molecules interact with each other and their container only through perfectly elastic collisions. Occupies no space. Zero volume. Massless.
@@ -31,7 +33,7 @@ Here:
 
 :::note
 
-Any relation between pressure, volume and temperature is called "equation of state".
+Any relation between pressure, volume and temperature (including the above) is called "equation of state".
 
 :::
 

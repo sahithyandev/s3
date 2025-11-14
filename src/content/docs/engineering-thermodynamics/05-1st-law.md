@@ -7,43 +7,46 @@ prev: true
 next: true
 ---
 
-Energy can neither be created or destroyed. Energy can only converted from one form to another. Aka. Law of Conservation of Energy.
+Aka. Law of Conservation of Energy. States that energy can neither be created or destroyed; can only converted from one form to another.
 
-Originally observed for closed systems undergoing thermodynamic cycles. Originally observed by James Joule. And expressed as:
+Originally observed for closed systems undergoing thermodynamic cycles by James Joule. And expressed as:
 
 > When a system (closed) undergoes a thermodynamic cycle, sum of the net heat supplied to the system from its surrounding and the net work input to the system from its surroundings must equal 0
 
 ```math
-\sum Q + \sum W = 0
+\sum Q_\text{supplied} + \sum W_\text{input} = 0
 ```
 
-### Sign convention
+## Sign convention
 
-Any sign convention must be mentioned clearly in the context of the analysis. And the final answers must not use the sign.
+Any sign convention can be used in the analysis. It must be mentioned clearly in the context. The final answers must not use the sign; and explicitly mention the flow of direction.
 
-For $Q$: $ $
-- Positive - Heat supplied to the system
-- Negative - Heat rejected by the system to its surroundings
+Here is the sign convention used in the lectures:
+For $Q$:
+- Positive - Heat input. Supplied to the system
+- Negative - Heat output. Rejected by the system
 
-For $W$: $ $
-- Positive - Work done by the system
-- Negative - Work done on the system
+For $W$:
+- Positive - Work output. Done by the system
+- Negative - Work input. Done on the system
 
-### Corollary 1
+This convention is used in the equation: $\Delta Q - \Delta W = 0$.
+
+## Corollary 1
 
 There exists a property of a closed system that a change in that property is equal to the sum of the net heat transfer and the work transfer during a state change. And this property is called _the internal energy_.
 
 ```math
-\Delta U = \Delta Q + \Delta W
+\Delta U = \Delta Q - \Delta W
 ```
 
 Can be mathematically proven by contradiction using 1st law.
 
-### Corollary 2
+## Corollary 2
 
-The internal energy of a isolated system remain unchanged.
+The internal energy of an isolated system remain unchanged.
 
-### Corollary 3
+## Corollary 3
 
 Perpetual motion machines of the first kind are impossible.
 

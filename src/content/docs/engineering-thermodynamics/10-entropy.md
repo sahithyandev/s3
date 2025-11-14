@@ -1,7 +1,7 @@
 ---
 title: Entropy
 sidebar:
-  order: 9
+  order: 10
 slug: engineering-thermodynamics/entropy
 prev: true
 next: true
@@ -21,9 +21,23 @@ Proof by method of contradiction when the Clausius inequality is taken as valid.
 
 :::
 
-Absolute value of entropy cannot be found from the above equation.
+### For reversible process
 
-### Clausius Inequality
+```math
+\Delta S = \frac{\delta Q}{T}
+```
+
+Where:
+
+- $\Delta S$ is the change in entropy
+- $\delta Q$ is the heat transfer
+- $T$ is the absolute temperature
+
+### For irreversible process
+
+Entropy change of an irreversible process cannot be found. Entropy always increases.
+
+## Clausius Inequality
 
 Aka. Clausius theorem. For a thermodynamic system exchanging heat with external thermal reservoirs, and undergoing a thermodynamic cycle, the following inequality holds:
 
@@ -35,7 +49,7 @@ If the the cycle is reversible, the inequality becomes an equality:
 
 ```math
 \oint \frac{\delta Q}{T} = \begin{cases}
-\lt 0 & \text{cycle is reversible} \\
+\lt 0 & \text{cycle is irreversible} \\
 = 0 & \text{cycle is reversible} \\
 \gt 0 & \text{cycle is impossible}
 \end{cases}
@@ -46,10 +60,10 @@ If the the cycle is reversible, the inequality becomes an equality:
 ![Proof - Clausius Inequality](./images/clausius-inequality.jpg)
 
 - For the reversible heat engine: $\frac{\delta Q_H}{T_H} = \frac{\delta Q}{T}$
-- $delta W_\text{total} = \delta W_\text{rev} + \delta W_\text{sys}$
+- $\delta W_\text{total} = \delta W_\text{rev} + \delta W_\text{sys}$
 - As Kelvin-Planck statement, it is impossible for $\delta W_\text{total} \gt 0$ as there is only one thermal reservoir.
 
-::
+:::
 
 ## Principle of Increase of Entropy
 

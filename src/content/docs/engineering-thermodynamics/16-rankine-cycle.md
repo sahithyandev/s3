@@ -1,7 +1,7 @@
 ---
 title: Rankine Cycle
 sidebar:
-  order: 12
+  order: 16
 slug: engineering-thermodynamics/rankine-cycle
 prev: true
 next: true

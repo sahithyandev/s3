@@ -1,7 +1,7 @@
 ---
 title: Power Cycles
 sidebar:
-  order: 11
+  order: 15
 slug: engineering-thermodynamics/power-cycles
 prev: true
 next: true

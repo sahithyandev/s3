@@ -1,7 +1,7 @@
 ---
 title: Thermal Analysis
 sidebar:
-  order: 13
+  order: 17
 slug: engineering-thermodynamics/thermal-analysis
 prev: true
 next: true

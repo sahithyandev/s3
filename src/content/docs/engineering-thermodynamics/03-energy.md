@@ -7,7 +7,6 @@ prev: true
 next: true
 ---
 
-
 The capacity to do work or the ability to cause changes.
 
 Total energy is denoted by $E$.
@@ -17,17 +16,30 @@ E = U + \frac{1}{2}mC^2 + mgz
 ```
 
 Here:
+
 - $U$ - internal energy
 - $\frac{1}{2}mv^2$ - kinetic energy of the system.
 - $mgz$ is the potential energy of the system.
 
-## Microscopic energy
+## Microscopic Energy
 
-Refers to the energy possessed by individual particles or molecules within a system. Associated with the motion and interactions of these particles at the atomic and molecular level. Aka. internal energy. Denoted by $U$. $ $
+The energy possessed by individual particles or molecules within a system. Associated with the motion and interactions of these particles at the atomic and molecular level. Denoted by $U$. $ $
 
-## Macroscopic energy
+Examples:
+- Thermal energy from random molecular motion in steam
+- Chemical energy stored in fuel molecules
 
-Refers to the energy associated with the bulk properties of a system. Such as its temperature, pressure, and volume. It is the energy that can be measured and observed at the macroscopic scale.
+### Internal Energy
+
+Sum of all microscopic energies of a system.
+
+## Macroscopic Energy
+
+The energy associated with the bulk properties of a system. Such as its temperature, pressure, and volume. It is the energy that can be measured and observed at the macroscopic scale.
+
+Examples:
+- Kinetic energy of a moving car
+- Potential energy of water behind a dam
 
 ## Heat & Work
 

@@ -1,7 +1,7 @@
 ---
 title: Reheat Rankine Cycle
 sidebar:
-  order: 14
+  order: 18
 slug: engineering-thermodynamics/reheat-rankine-cycle
 prev: true
 next: true
