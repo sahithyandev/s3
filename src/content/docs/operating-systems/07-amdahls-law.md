@@ -1,7 +1,7 @@
 ---
 title: Amdahl's Law
 sidebar:
-  order: 9
+  order: 7
 slug: operating-systems/amdahls-law
 prev: true
 next: true

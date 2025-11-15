@@ -7,15 +7,19 @@ prev: true
 next: true
 ---
 
+Design of an OS depends on a lot of things, and a lot of variations exist. Some important design aspects are discussed below.
+
+Factors affecting the design of OS:
+- [Computer System Architecture](/computer-architecture/introduction#computer-system-architecture)
+- [Computing Environment](#computing-environment)
 
 ### Policy
 
-Defines what needs to be done. 
+Defines what needs to be done.
 
 ### Mechanism
 
 Defines how something is done at the low-level implementation.
-
 
 Examples:
 
@@ -29,31 +33,64 @@ Examples:
   - Mechanism: Device driver interface to queues requests.
   - Policy: Which request to serve first (SCAN, SSTF).-
 
-## Examples
 
-### Minix
+## Computing Environments
 
-Uses a microkernel.
+### Traditional
 
-### Mach
+Standalone computers, networked nowadays.
 
-Uses a microkernel.
+### Mobile
 
-### Windows
+Smartphones/tablets with sensors and wireless networks.
 
-Uses a hybrid kernel. Mostly monolithic for performance. Windows keeps drivers, file systems, networking, and the graphics subsystem in kernel mode for performance.
+### Client-Server
 
-The microkernel idea is reflected in the HAL, the small NT Kernel core, and user-mode subsystems. But the rest (I/O, drivers, GUI) is kept in kernel space, making it a hybrid.
+Servers respond to client requests.
 
-### Android
+### Peer-to-Peer
 
-Developed by Open Handset Alliance (mostly Google). Open Source.
+All nodes act as both client and server.
 
+### Cloud Computing
 
-Based on Linux kernel but modified:
-- Provides process, memory, device-driver management
-- Adds power management
+Computing delivered as services (SaaS, PaaS, IaaS).
+Uses virtualization heavily.
 
-Apps are written in Kotlin (previously Java) and Android API. The class files are compiled to Java bytecode and then translated to `.dex` bytecode, which stands for Dalvik Executable. Android previously used Dalvik Virtual Machine. Dalvik used JIT compilation. For performance and DX reasons, Android moved to Android Runtime (ART). Android Runtime (ART) is an ahead-of-time (AOT) compiler that compiles `.dex` files to `.oat` files.
+### Real-Time Embedded
 
-Native libraries include frameworks for web browser (webkit), database (SQLite), multimedia, smaller libc.
+Perform tasks within strict timing constraints (automotive, medical).
+  
+## Goals
+
+### User Goals
+
+Characteristics of an OS expected by a user.
+
+Examples: easy to use, fast, safe.
+
+### System Goals
+
+Characteristics of an OS expected by its developers.
+
+Examples: easy to design, maintain, reliable.
+
+##  User Interface
+
+A user goal.
+
+### Command-Line Interface
+
+Aka. CLI. Takes text commands. Shell executes commands (built-in or external).
+
+### Graphical User Interface
+
+Aka. GUI. Uses icons, windows, menus.
+
+### Touch Interface
+
+A subtype of GUI. Gesture-based interaction. Also includes voice based interfaces.
+
+## Implementation Languages
+
+A system goal. Usually kernel is implemented using a language that is closer to the hardware. Examples: C and assembly. System programs are built using C, C++ or scripting languages.

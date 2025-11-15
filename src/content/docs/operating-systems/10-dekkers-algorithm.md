@@ -1,7 +1,7 @@
 ---
 title: Dekker's Algorithm
 sidebar:
-  order: 12
+  order: 10
 slug: operating-systems/dekkers-algorithm
 prev: true
 next: true

@@ -1,13 +1,13 @@
 ---
 title: Main Memory
 sidebar:
-  order: 16
+  order: 14
 slug: operating-systems/main-memory
 prev: true
 next: true
 ---
 
-Stores both the operating system and user processes for execution. Efficient memory management ensures protection, fast access, and flexible allocation.
+Stores both the operating system and user processes for execution. Efficient memory management ensures protection, fast access, and flexible allocation. Usually implemented using DRAM.
 
 CPU can directly access registers and main memory. Register accesses are fastest (1 clock cycle). Main memory operations are slower (100+ cycles). Memory operations involve addresses, read/write requests, and data transfer. Cache sits between CPU and memory to reduce access delay.
 

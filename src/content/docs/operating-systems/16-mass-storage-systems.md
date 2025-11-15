@@ -1,13 +1,13 @@
 ---
 title: Mass Storage Systems
 sidebar:
-  order: 18
+  order: 16
 slug: operating-systems/mass-storage-systems
 prev: true
 next: true
 ---
 
-Mass storage = non-volatile secondary storage.
+Mass storage = non-volatile secondary storage. OS manages mass storage devices and provides file systems for data organization. OS manages free space, allocation, partitioning, and scheduling.
 
 Main devices: [HDDs](/computer-architecture/permanent-storage/#hard-disk-drives), [SSDs](/computer-architecture/permanent-storage/#solid-state-drives) ([NVM](/computer-architecture/permanent-storage/#non-volatile-memory)), magnetic tapes.
 

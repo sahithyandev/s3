@@ -8,73 +8,26 @@ prev: false
 next: true
 ---
 
-A program that acts as an intermediary between a user of a computer and the computer hardware. Works as a resource allocator. Provides an interface for application software to work. Manages processes, memory, files, and devices.
+Operating system is a program that acts as an intermediary between the user and hardware. Works as a resource allocator. Provides a user interface. Provides an abstraction for application software to work. Manages processes, memory, files, and devices. Ensures efficiency, security, and convenience.
 
-### System programs
+### System Bus
 
-Ships with an OS, but not part of the kernal.
+Shared communication backbone that connects the CPU, memory, and I/O devices so they can exchange data.
 
-### Dual-mode
+All devices share main memory. Devices use local buffers to store data temporarily.
 
-The operating system runs on either kernal or user mode. Can be switched programmatically. Mode bit provided by the hardware is used to store the mode.
 
-### System call
+## 6. Why Applications Are OS-Specific
 
-Aka. syscall. An interface that allows user-level programs to request services from the operating system kernel. Runs in kernal mode. Provides a controlled entry point into the kernel. Essential for maintaining security and stability of the system by mediating access to hardware resources.
+### 6.1 Reasons
 
-Common categories of system calls include:
+- Different OSes have different system calls.
+- Different binary formats and ABIs.
 
-- Process control (create, terminate, wait, allocate memory)
-- File management (create, open, close, read, write files)
-- Device management (request/release devices, read/write to devices)
-- Information maintenance (get/set time, system data)
-- Communication (create/delete connections, send/receive messages)
-- Protection (set/get permissions)
+### 6.2 Writing Cross-Platform Apps
 
-When a user program performs a system call, it places the system call arguments in predefined registers (or sometimes the user stack), then executes a special instruction (like syscall or int 0x80) to switch to kernel mode. The kernel then copies the arguments to the kernel stack as needed.
-
-As system calls are different between different operating systems, they are not interchangeable. That's why application programs are platform-specific.
-
-### Application Binary Interface
-
-Aka. ABI. Defines the low-level interface between an application program and the operating system or hardware. Specifies details such as data type sizes, memory layout, calling conventions, and system call mechanisms. The ABI ensures that compiled programs can run correctly on a given system, regardless of the compiler used, as long as they target the same ABI.
-
-An ABI includes:
-
-- How functions are called (calling conventions)
-- How arguments are passed (registers or stack)
-- How return values are delivered
-- Binary format of executable files
-- System call numbers and invocation methods
-- Alignment and padding of data structures
-
-A stable ABI allows software compiled at different times, with different tools to work together on the same platform.
-
-:::note[ABI vs ISA]
-
-ISA: Defines the set of machine instructions that a processor can execute, along with the hardware-level details such as registers, instruction formats, and addressing modes. A specification for the CPU itself, describing how software can control the hardware.
-
-ABI: Builds on top of the ISA. Defines how compiled programs interact with the operating system and hardware at the binary level. It includes calling conventions, system call mechanisms, data type sizes, and binary formats. The ABI ensures that binaries produced by different compilers or languages can run on the same system and interact correctly.
-
-:::
-
-## Goals
-
-- Execute user programs and make solving user problems easier
-- Make the computer system convenient to use
-- Use the computer hardware in an efficient manner
-
-### Bootstrap program
-
-Simple code to initialize the system, load the kernel.
-
-### System daemon
-
-A background process that is launched during system startup or after the kernel is loaded. Runs independently of user sessions. Provide essential services required for the operating system to function smoothly.
-
-Examples are processes that handle logging, scheduling tasks, managing network connections, and responding to hardware events.
-
-Names of system daemons are usually suffixed by "d", such as `sshd`, `cron`, or `systemd`.
+- Use JVM, Python, etc.
+- Or compile separately for each OS.
 
 ### Multiprogramming
 
@@ -83,3 +36,49 @@ A subset of total jobs in system is kept in memory. One job selected and run via
 ### Multitasking
 
 Aka. time sharing. A logical extension of Batch systems. the CPU switches jobs very frequently that users can interact with each job while it is running. Response time should be less than a second. Each user has at least one process running. If several jobs ready to run at the same time, they must be scheduled. If processes don’t fit in memory, they must be swapped to and from memory. Virtual memory allows execution of processes not completely in memory.
+
+## Dual Mode
+
+When an OS has 2 modes: user mode and kernal mode. Runs in either one at a time. Mode bit represents the current mode.
+
+Can be switched programmatically. A protection mechanism. Mode bit provided by the hardware is used to store the mode.
+
+### User Mode
+
+Applications run in user mode.
+
+### Kernel Mode
+
+Core of the OS runs in kernal mode. Can execute privileged instructions.
+
+Transition to kernel mode happens via [system calls](/operating-systems/kernal#system-calls).
+
+
+## Examples
+
+### Minix
+
+Uses a microkernel. Initially properietary. Now free and open source.
+
+### Machintosh
+
+Uses a microkernel. Properietary and owned by Apple.
+
+### Windows
+
+Uses a hybrid kernel. Mostly monolithic for performance. Windows keeps drivers, file systems, networking, and the graphics subsystem in kernel mode for performance.
+
+The microkernel idea is reflected in the HAL, the small NT Kernel core, and user-mode subsystems. But the rest (I/O, drivers, GUI) is kept in kernel space, making it a hybrid.
+
+### Android
+
+Developed by Open Handset Alliance (mostly Google). Open Source.
+
+Based on Linux kernel but modified:
+
+- Provides process, memory, device-driver management
+- Adds power management
+
+Apps are written in Kotlin (previously Java) and Android API. The class files are compiled to Java bytecode and then translated to `.dex` bytecode, which stands for Dalvik Executable. Android previously used Dalvik Virtual Machine. Dalvik used JIT compilation. For performance and DX reasons, Android moved to Android Runtime (ART). Android Runtime (ART) is an ahead-of-time (AOT) compiler that compiles `.dex` files to `.oat` files.
+
+Native libraries include frameworks for web browser (webkit), database (SQLite), multimedia, smaller libc.

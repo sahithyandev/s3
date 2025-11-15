@@ -1,17 +1,21 @@
 ---
 title: Process Management
 sidebar:
-  order: 7
+  order: 5
 slug: operating-systems/process-management
 prev: true
 next: true
 ---
 
-Operating system is responsible for creating, managing, scheduling and terminating processes, both user and kernel processes.
+OS is responsible for creating, managing, scheduling and terminating processes, both user and kernel processes.
 
 ### Program
 
 A passive entity stored on disk. Aka. executable file.
+
+### System Program
+
+Programs that provide services to the user and the OS. Shipped with the OS. Not part of the kernal.
 
 ## Process
 

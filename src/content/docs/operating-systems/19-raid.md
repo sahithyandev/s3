@@ -1,7 +1,7 @@
 ---
 title: RAID
 sidebar:
-  order: 21
+  order: 19
 slug: operating-systems/raid
 prev: true
 next: true

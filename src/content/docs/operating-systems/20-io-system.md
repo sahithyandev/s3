@@ -1,17 +1,49 @@
 ---
-title: I/O Systems
+title: I/O System
 sidebar:
-  order: 22
-slug: operating-systems/io-systems
+  order: 20
+slug: operating-systems/io-system
 prev: true
-next: false
+next: true
 ---
 
 A subsystem that manages communication between the system and external devices. OS abstracts hardware details, coordinates access, and ensures controlled sharing of I/O resources among users and applications.
 
-### Device Drivers
+### Device Driver
 
 A small software component that abstracts hardware specifics and provide a uniform device-access interface to the OS. Act as the software interface between the I/O subsystem and hardware devices.
+
+### Device Controller
+
+A hardware component that manages the communication between the CPU and a specific type of I/O device. Translates high-level commands from the OS into low-level signals that the device can understand.
+
+### Device Status Table
+
+Contains entry for each I/O device.
+
+## Synchronous vs. Asynchronous
+
+When the I/O related system call returns.
+
+### Synchronous
+
+I/O syscall returns only when the operation is done. Process has to wait until I/O operation completes.
+
+### Asynchronous
+
+I/O syscall returns immediately. Operation continues in background. Program does not have to wait for the result at the time of the call. Completion is reported later. More efficient than synchronous I/O.
+
+## Blocking vs. Non-Blocking
+
+Whether the thread sleeps or stays runnable during the wait.
+
+### Blocking
+
+Thread is put to sleep until operation completes. No CPU usage while waiting.
+
+### Non-Blocking
+
+The I/O call returns immediately. If the operation cannot proceed (e.g., no data available), the call returns an error/status code instead of putting the thread to sleep.
 
 ## I/O Hardware
 
@@ -68,32 +100,20 @@ Steps:
 2. Host sets command-ready bit to start transfer.
 3. Controller performs operation and clears bits.
 
-### Interrupts
+### Interrupt-Driven
 
-Devices notify the CPU when ready. A device-driven method. Requires CPU attention.
-
-When an interrupt is received, control is transferred to an Interrupt Service Routine (ISR) via the interrupt vector. OS saves the context and executes the ISR. Once the ISR finishes, the context is stored and continued.
-
-Types:
-
-- Maskable: Can be ignored or delayed.
-- Non-maskable: Cannot be ignored.
-
-#### Trap
-
-Aka. Exception. A software-generated interrupt.
+Explained on [its own page](/operating-systems/interrupt-driven-io). 
 
 ### Direct Memory Access
 
-Used by high-speed I/O devices to transfer data directly between I/O device and main memory.
-Bypasses CPU for block transfers → improves efficiency.
+Device controller transfers blocks of data directly between memory and device controller's internal buffer. Only 1 interrupt per block; not per byte. Used by high-speed I/O devices.
+Improves efficiency.
 
 Steps:
 
 1. OS writes a command block (source, destination, count) into memory.
 2. DMA controller takes control of the bus (cycle stealing).
 3. Only one interrupt per block (vs. per byte).
-
 
 ## I/O Latency
 
@@ -110,15 +130,6 @@ Time from interrupt arrival to start of ISR.
 Block Devices: (e.g., Disk) → Read, Write, Seek; typically use DMA.
 Character Devices: (e.g., Keyboard, Mouse) → Get(), Put().
 Network Devices: Managed via sockets.
-
-### I/O Methods
-
-| Type                          | Description                                              |
-| ----------------------------- | -------------------------------------------------------- |
-| Blocking I/O                  | Process waits until operation completes.                 |
-| Non-blocking I/O              | Returns immediately; process checks readiness.           |
-| Asynchronous I/O              | Process continues execution; notified upon completion.   |
-| Vectored I/O (Scatter–Gather) | Single call for multiple I/O buffers to reduce overhead. |
 
 ### STREAMS
 
@@ -177,3 +188,13 @@ Balance CPU, memory, and I/O performance.
 | Kernel I/O Services    | Buffering (speed mismatch), Caching (performance), Spooling (single-device queue). |
 | I/O Hardware Interface | Built using ports, busses, and controllers with device registers.                  |
 | System Call Types      | Blocking, Nonblocking, Asynchronous, and Vectored I/O.                             |
+
+
+- Programmed I/O   
+  The CPU is responsible for checking the status of an I/O device and transferring data. This method is simple but inefficient, as the CPU spends time waiting for the device to be ready.
+- Interrupt-driven I/O   
+  The CPU initiates an I/O operation and continues executing other instructions. When the I/O device is ready, it sends an interrupt signal to the CPU, which temporarily halts its current task to handle the I/O operation. This improves efficiency by allowing the CPU to perform other work instead of waiting.
+- Direct Memory Access (DMA)   
+  A special controller manages data transfer between memory and I/O devices, freeing the CPU from involvement in the actual data transfer.
+
+Operating systems are interrupt-driven. Because this approach allows the CPU to respond quickly to important events (such as I/O completion, hardware failures, or user actions) without constantly checking the status of devices.

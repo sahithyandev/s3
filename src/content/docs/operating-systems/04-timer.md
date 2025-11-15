@@ -1,7 +1,7 @@
 ---
 title: Timer
 sidebar:
-  order: 6
+  order: 4
 slug: operating-systems/timer
 prev: true
 next: true
