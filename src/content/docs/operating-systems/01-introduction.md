@@ -16,19 +16,6 @@ Shared communication backbone that connects the CPU, memory, and I/O devices so 
 
 All devices share main memory. Devices use local buffers to store data temporarily.
 
-
-## 6. Why Applications Are OS-Specific
-
-### 6.1 Reasons
-
-- Different OSes have different system calls.
-- Different binary formats and ABIs.
-
-### 6.2 Writing Cross-Platform Apps
-
-- Use JVM, Python, etc.
-- Or compile separately for each OS.
-
 ### Multiprogramming
 
 A subset of total jobs in system is kept in memory. One job selected and run via job scheduling. When job has to wait (for I/O for example), OS switches to another job.

@@ -1,7 +1,7 @@
 ---
 title: Process Management
 sidebar:
-  order: 5
+  order: 6
 slug: operating-systems/process-management
 prev: true
 next: true

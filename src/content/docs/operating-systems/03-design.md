@@ -10,8 +10,10 @@ next: true
 Design of an OS depends on a lot of things, and a lot of variations exist. Some important design aspects are discussed below.
 
 Factors affecting the design of OS:
-- [Computer System Architecture](/computer-architecture/introduction#computer-system-architecture)
-- [Computing Environment](#computing-environment)
+- [Computer system architecture](/computer-architecture/introduction#computer-system-architecture)
+- [Computing environment](#computing-environment)
+- [Goals](#goals)
+- [Expected services](/services)
 
 ### Policy
 
@@ -32,7 +34,6 @@ Examples:
 - I/O
   - Mechanism: Device driver interface to queues requests.
   - Policy: Which request to serve first (SCAN, SSTF).-
-
 
 ## Computing Environments
 
@@ -74,22 +75,6 @@ Examples: easy to use, fast, safe.
 Characteristics of an OS expected by its developers.
 
 Examples: easy to design, maintain, reliable.
-
-##  User Interface
-
-A user goal.
-
-### Command-Line Interface
-
-Aka. CLI. Takes text commands. Shell executes commands (built-in or external).
-
-### Graphical User Interface
-
-Aka. GUI. Uses icons, windows, menus.
-
-### Touch Interface
-
-A subtype of GUI. Gesture-based interaction. Also includes voice based interfaces.
 
 ## Implementation Languages
 

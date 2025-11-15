@@ -9,10 +9,6 @@ next: true
 
 The one program running at all times on the computer. Core of an OS.
 
-### Bootstrap program
-
-Simple code to initialize the system, load the kernel.
-
 ### System Daemon
 
 A background process that is launched during system startup or after the kernel is loaded. Runs independently of user sessions. Provide essential services required for the operating system to function smoothly.
@@ -135,7 +131,7 @@ Aka. syscall. An interface for user-level programs to request services from the 
 
 When a user program performs a system call, it places the system call arguments in predefined registers (or sometimes the user stack), then executes a special instruction (like `syscall` or `int 0x80`) to switch to kernel mode. The kernel then copies the arguments to the kernel stack as needed.
 
-Programs use APIs (Win32, POSIX, Java API). API internally triggers system calls.
+Usually a number is associated with a syscall.
 
 Types:
 
@@ -152,7 +148,35 @@ Types:
 - Protection  
   Set permissions, access control.
 
-### Application Binary Interface
+Programs use APIs (Win32, POSIX, Java API). API internally triggers system calls.
+
+## Parameter-Passing Mechanisms
+
+Syscalls need parameters in most cases. 3 common methods are used.
+
+### Using Registers
+
+Parameters are loaded into limited number (usually less than 6) of special registers. Kernel reads from those registers.
+
+Fast because of no memory access. Only limited number of arguments can be passed. 
+
+### Using Parameter Table
+
+All parameters are stored in a memory block (struct/array). A pointer to this block is placed in a register. Kernel reads the block after switching to kernel mode.
+
+Allows a hgue number of parameters. Cleaner for complex system calls. Slightly slower due to memory access.
+
+Used when when there are many parameters or they are large compared to available registers.
+
+### Using Stack
+
+Parameters are pushed onto the user stack. Kernel retrieves them using the saved user stack pointer (USP).
+
+Flexible, simple. Slower because stack memory must be accessed.
+
+Used in older systems. Not used nowadays due to security and performance concerns.
+
+## Application Binary Interface
 
 Aka. ABI. Defines how a compiled code must look and interact with an OS and hardware at the binary level. A software-level contract on top of an [ISA](/computer-architecture/instruction-set-architecture/). Specific for an OS and ISA.
 

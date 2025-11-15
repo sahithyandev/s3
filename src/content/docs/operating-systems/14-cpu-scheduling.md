@@ -1,7 +1,7 @@
 ---
 title: CPU Scheduling
 sidebar:
-  order: 13
+  order: 14
 slug: operating-systems/cpu-scheduling
 prev: true
 next: true

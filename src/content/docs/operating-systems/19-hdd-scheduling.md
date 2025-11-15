@@ -1,7 +1,7 @@
 ---
 title: HDD Scheduling
 sidebar:
-  order: 18
+  order: 19
 slug: operating-systems/hdd-scheduling
 prev: true
 next: true

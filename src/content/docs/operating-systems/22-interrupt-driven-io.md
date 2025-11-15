@@ -1,7 +1,10 @@
 ---
 title: Interrupt-Driven I/O
 sidebar:
-  order: 21
+  order: 22
+slug: operating-systems/interrupt-driven-io
+prev: true
+next: true
 ---
 
 Devices notify the CPU when ready. A device-driven method. Requires CPU attention.
@@ -26,7 +29,6 @@ Interrupt caused by an I/O device.
 Aka. Exception. A software-generated interrupt.
 Usually caused by an error or a user request.
 
-
 ## Interrupt Vector
 
 A memory address or a table of addresses that the processor uses to locate the appropriate Interrupt Service Routine (ISR) for a given interrupt. Each type of interrupt has its own unique vector, allowing the system to respond correctly to different sources of interrupts.
@@ -37,4 +39,13 @@ Aka. ISR, interrupt handler. When an interrupt occurs, the processor temporarily
 
 ## Timer
 
-A programmable hardware component that generates interrupts at specific time intervals. Used to measure time. The OS sets the timer to trigger an interrupt after every $n$ clock cycles.
+A programmable hardware component or a software mechanism that generates interrupts at specific time intervals. Used to measure time. The OS sets the timer to trigger an interrupt after every $n$ clock cycles.
+
+Crucial for managing how long a process or program can use the CPU, ensuring that no single process monopolizes system resources.
+
+Timers are used by the operating system to:
+- Enforce time-sharing among processes by preempting running processes after a set time slice.
+- Prevent infinite loops or runaway processes from hogging the CPU.
+- Schedule future events, such as waking up a process after a delay or triggering periodic tasks.
+
+Typically, the timer is programmed by the operating system (using privileged instructions) to count down from a specified value. When the timer reaches zero, it generates an interrupt, allowing the OS to regain control, perform context switches, or take corrective action if a process has exceeded its allotted time.

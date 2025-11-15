@@ -1,7 +1,7 @@
 ---
 title: Mass Storage Systems
 sidebar:
-  order: 16
+  order: 17
 slug: operating-systems/mass-storage-systems
 prev: true
 next: true

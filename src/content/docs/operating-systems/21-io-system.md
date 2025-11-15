@@ -1,7 +1,7 @@
 ---
 title: I/O System
 sidebar:
-  order: 20
+  order: 21
 slug: operating-systems/io-system
 prev: true
 next: true
