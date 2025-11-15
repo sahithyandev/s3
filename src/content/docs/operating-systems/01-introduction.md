@@ -45,17 +45,20 @@ Transition to kernel mode happens via [system calls](/operating-systems/kernal#s
 
 ### Minix
 
-Uses a microkernel. Initially properietary. Now free and open source.
+Initially properietary. Now free and open source.
+Uses a microkernel.
 
-### Machintosh
+### Mach
 
-Uses a microkernel. Properietary and owned by Apple.
+Not to be confused between Macintosh. Uses a microkernel. [Syscalls](/operating-systems/kernel#system-calls) and [IPC](/operating-systems/inter-process-communication) is message-based. Ports are used for communication.
 
 ### Windows
 
 Uses a hybrid kernel. Mostly monolithic for performance. Windows keeps drivers, file systems, networking, and the graphics subsystem in kernel mode for performance.
 
 The microkernel idea is reflected in the HAL, the small NT Kernel core, and user-mode subsystems. But the rest (I/O, drivers, GUI) is kept in kernel space, making it a hybrid.
+
+Local message system using ports. Works within the same machine. Client-server model.
 
 ### Android
 

@@ -1,7 +1,7 @@
 ---
 title: Thread
 sidebar:
-  order: 7
+  order: 8
 slug: operating-systems/thread
 prev: true
 next: true
@@ -30,10 +30,10 @@ Threads within the same process share:
 
 ### Benefits of Multithreading
 
-1. **Responsiveness**: Multithreading can allow an application to remain responsive to user input while performing intensive operations.
-2. **Resource sharing**: Threads share the memory and resources of the process they belong to, making communication more efficient.
-3. **Economy**: Creating and managing threads requires fewer system resources than creating processes.
-4. **Scalability**: Multithreaded applications can take advantage of multiprocessor architectures more effectively.
+- Responsiveness: Multithreading can allow an application to remain responsive to user input while performing intensive operations.
+- Resource sharing: Threads share the memory and resources of the process they belong to, making communication more efficient.
+- Economy: Creating and managing threads requires fewer system resources than creating processes.
+- Scalability: Multithreaded applications can take advantage of multiprocessor architectures more effectively.
 
 ### Thread Models
 

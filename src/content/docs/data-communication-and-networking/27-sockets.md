@@ -1,0 +1,44 @@
+---
+title: Sockets
+sidebar:
+  order: 27
+---
+
+A software endpoint used by applications for network communication.
+IP address + transport layer port number + protocol (TCP or UDP) defines a socket.
+Provides an interface between application and transport layers.
+
+All ports below 1024 are reserved for well-known services by IANA.
+
+## Remote Procedure Call
+
+Aka. RPC. Procedure call over a network:
+
+- Client stub marshals parameters
+- Server stub unmarshals and executes
+- Uses XDR to handle different architectures (endianness)
+
+Failure cases more complex than local calls.
+
+## Types
+
+### Stream Sockets (TCP)
+
+Used for reliable, connection-oriented communication.
+
+Properties:
+
+- Establish a connection (3-way handshake)
+- Ordered delivery
+- No loss (retransmissions)
+- No duplication
+- Error detection
+- Flow control, congestion control
+
+Used by HTTP(S), SSH, SMTP, etc.
+
+### Datagram Sockets (UDP)
+
+Connectionless, faster, but unreliable, unordered. Has no congestion control
+
+Used by DNS, VoIP, video streaming, Online gaming.

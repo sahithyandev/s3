@@ -1,7 +1,7 @@
 ---
 title: Deadlocks
 sidebar:
-  order: 13
+  order: 14
 slug: operating-systems/deadlocks
 prev: true
 next: true

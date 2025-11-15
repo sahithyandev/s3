@@ -1,7 +1,7 @@
 ---
 title: Kitchen Sink
 sidebar:
-  order: 23
+  order: 24
 slug: operating-systems/kitchen-sink
 prev: true
 next: false
@@ -13,11 +13,13 @@ next: false
 
 Multiple networked systems, possibly heterogeneous, working together.
 
-# Synchronization – Chapter 6 Notes
+---
 
-# ## Background
+## Synchronization – Chapter 6 Notes
 
-## ### Introduction
+### Background
+
+##### Introduction
 
 When processes run concurrently, they may access shared data.
 If this access is not controlled, inconsistent results occur.

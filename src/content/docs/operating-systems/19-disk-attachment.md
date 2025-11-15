@@ -1,7 +1,7 @@
 ---
 title: Disk Attachment
 sidebar:
-  order: 18
+  order: 19
 slug: operating-systems/disk-attachment
 prev: true
 next: true
