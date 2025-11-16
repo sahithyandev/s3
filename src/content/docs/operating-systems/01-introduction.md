@@ -24,6 +24,26 @@ A subset of total jobs in system is kept in memory. One job selected and run via
 
 Aka. time sharing. A logical extension of Batch systems. the CPU switches jobs very frequently that users can interact with each job while it is running. Response time should be less than a second. Each user has at least one process running. If several jobs ready to run at the same time, they must be scheduled. If processes don’t fit in memory, they must be swapped to and from memory. Virtual memory allows execution of processes not completely in memory.
 
+## Multicore Programming
+
+Multicore CPUs require programmers to split work across cores.
+
+### Concurrency
+
+Many tasks make progress, even on 1 core.
+
+### Parallelism
+
+Many tasks actually run simultaneously on different cores.
+
+#### Data Parallelism
+
+Split the data across cores.
+
+#### Task Parallelism
+
+Split the operations across cores.
+
 ## Dual Mode
 
 When an OS has 2 modes: user mode and kernal mode. Runs in either one at a time. Mode bit represents the current mode.

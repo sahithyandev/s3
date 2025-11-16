@@ -1,7 +1,7 @@
 ---
 title: Main Memory
 sidebar:
-  order: 16
+  order: 18
 slug: operating-systems/main-memory
 prev: true
 next: true

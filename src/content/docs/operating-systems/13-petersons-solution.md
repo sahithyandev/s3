@@ -1,7 +1,7 @@
 ---
 title: Peterson's Solution
 sidebar:
-  order: 11
+  order: 13
 slug: operating-systems/petersons-solution
 prev: true
 next: true

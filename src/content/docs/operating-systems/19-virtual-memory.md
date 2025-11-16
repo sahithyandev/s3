@@ -1,7 +1,7 @@
 ---
 title: Virtual Memory
 sidebar:
-  order: 17
+  order: 19
 slug: operating-systems/virtual-memory
 prev: true
 next: true

@@ -1,7 +1,7 @@
 ---
 title: Interrupt-Driven I/O
 sidebar:
-  order: 23
+  order: 25
 slug: operating-systems/interrupt-driven-io
 prev: true
 next: true

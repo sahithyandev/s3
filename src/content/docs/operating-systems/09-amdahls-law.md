@@ -7,12 +7,13 @@ prev: true
 next: true
 ---
 
-the overall performance improvement gained by optimizing a single part of a system is limited by the fraction of time that the improved part is actually used.
 
-A formula that shows how much faster a task can be completed when more resources are added to the system.
+The performance rule that tells how much speed-up a program can gain when only part of it can run in parallel.
+
+All programs have a serial portion and a parallel portion. Addition of CPU cores only speeds up the parallel portion. The performance improvement gained is limited by the fraction of time that the improved part is actually used.
 
 ```math
-\text{speedup} = \cfrac{1}{S + \frac{1 - S}{N}}
+\text{Speedup}(N) = \cfrac{1}{S + \frac{1 - S}{N}}
 ```
 
 Here:
@@ -22,4 +23,4 @@ Here:
 
 Serial portion of an application has disproportionate effect on performance gained by adding additional cores.
 
-As $N$ increases, the speedup approaches $\frac{1}{S}$.
+If $S$ is large, speedup is small even with many cores. As $N$ increases, the speedup approaches $\frac{1}{S}$, which is the maximum.

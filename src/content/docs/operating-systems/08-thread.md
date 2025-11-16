@@ -7,11 +7,17 @@ prev: true
 next: true
 ---
 
-A thread is the basic unit of CPU utilization, consisting of a program counter, a stack, and a set of registers. Threads are sometimes called lightweight processes because they have some of the properties of processes but are more efficient to create and manage.
+A thread is the basic unit of CPU utilization, consisting of a program counter, a stack, and a set of registers.
+
+Threads are sometimes called lightweight processes. They have some of the properties of processes but are more efficient to create and manage.
+
+Multiple threads inside the same process allow parallel or concurrent execution of tasks.
+
+Threads are created using `clone()` syscall in Linux.
 
 ### Single vs Multi-Threaded Processes
 
-A traditional process has a single thread of control, while a multi-threaded process has multiple threads of control within the same address space.
+A traditional process has a single thread of control. A multi-threaded process has multiple threads of control within the same address space.
 
 ### Thread Components
 
@@ -30,76 +36,63 @@ Threads within the same process share:
 
 ### Benefits of Multithreading
 
-- Responsiveness: Multithreading can allow an application to remain responsive to user input while performing intensive operations.
-- Resource sharing: Threads share the memory and resources of the process they belong to, making communication more efficient.
-- Economy: Creating and managing threads requires fewer system resources than creating processes.
-- Scalability: Multithreaded applications can take advantage of multiprocessor architectures more effectively.
+- Responsiveness  
+  Allows applications to remain responsive to user input while performing intensive operations.
+- Resource sharing  
+  More efficient than IPC.
+- Economy  
+  Thread management has overhead compared to process management.
+- Scalability  
+  Multithreaded applications can take advantage of multiprocessor architectures more effectively.
 
-### Thread Models
+## Types
 
-#### User-Level Threads (ULT)
+Threads can be implemented in user space or kernel space.
 
-- Managed by user-level thread libraries (POSIX Pthreads, Win32 threads, Java threads)
-- The kernel is not aware of the existence of these threads
-- Fast to create and manage, as no kernel intervention is required
-- However, if one ULT performs a blocking system call, the entire process blocks
+### User thread
 
-#### Kernel-Level Threads (KLT)
+Managed by user-level library; no kernel intervention is required. Kernel doesn't know about these. Fast creation and switching. Entire process blocks if one thread makes a blocking syscall. Mapped to 1 or more kernel thread.
 
-- Supported and managed directly by the operating system
-- Creation and management are more expensive than ULTs
-- If one thread blocks, another thread can still be scheduled
-- Provides true parallelism on multiprocessor systems
+### Kernel thread
 
-#### Hybrid Models
+Managed by OS kernel. True parallelism on multicore. One blocked thread doesn't affect its siblings. More overhead.
 
-- Combines user-level threads with kernel-level threads
-- Multiple user-level threads mapped to a smaller or equal number of kernel threads
-- Examples: Many-to-One, One-to-One, Many-to-Many models
+## Multithreading Models
 
-### Thread Synchronization
+Defines how user threads map to kernel threads.
 
-Since threads share resources, synchronization is critical:
+### Many-to-One
 
-1. Race Conditions: Occur when multiple threads access shared data concurrently, with at least one thread modifying the data.
-2. Critical Section: A code segment where shared resources are accessed.
-3. Mutual Exclusion: Ensuring only one thread executes in the critical section at a time.
+Many user threads map to a single kernel thread. No parallelism. Not used in modern systems.
 
-#### Synchronization Mechanisms
+Example: GNU portable threads.
 
-1. Mutex Locks: Basic synchronization tool ensuring mutual exclusion
-2. Semaphores: More sophisticated synchronization constructs that can also manage resource allocation
-3. Monitors: High-level synchronization constructs that encapsulate both data and operations
-4. Condition Variables: Allow threads to wait for specific conditions to be met
+### One-to-One
 
-### Thread Scheduling
+Each user thread map to a kernel thread. True parallelism. Higher overhead. Number of threads per process may be limited due to overhead.
 
-Scheduling threads introduces new considerations beyond process scheduling:
+Used in Linux and Windows.
 
-1. Contention Scope: How threads compete for CPU time
-   - Process-contention scope (PCS): Threads compete within the process
-   - System-contention scope (SCS): Threads compete system-wide
+### Many-to-Many
 
-2. Allocation Domain: Where threads can be scheduled
-   - Local scheduling: Threads are bound to specific processors
-   - Global scheduling: Threads can be scheduled on any available processor
+Many user threads map to many kernel threads. OS decides number of kernel threads. Flexible. Rarely implemented in real-life systems.
 
-### Thread Implementation Challenges
+### Two-Level Model
 
-1. Thread Local Storage: Providing per-thread data storage
-2. Thread Cancellation: Safely terminating threads
-3. Signal Handling: Determining which thread should handle signals
-4. Thread Pooling: Pre-creating threads to reduce overhead
-5. Thread Priority Inversion: Lower priority threads holding resources needed by higher priority threads
+Similar to many-tomany, but allows binding specific user threads to specific kernel threads.
 
-### Thread Libraries
+## Thread Library
 
-1. POSIX Threads (Pthreads): IEEE standard, widely used in UNIX systems
-2. Win32 Threads: Native Windows threading API
-3. Java Threads: Part of the Java language, with built-in synchronization support
+Provide APIs to create/manage threads.
 
-### Emerging Concepts
+### User-level Library
 
-1. Fibers: User-mode scheduled threads with cooperative multitasking
-2. Green Threads: User-level threads scheduled by a virtual machine
-3. Coroutines: Computer program components that generalize subroutines for non-preemptive multitasking
+Manages user-level threads. All thread operations happen in user space. Fast, but a blocking system call can block all threads.
+
+Examples: pthreads.
+
+### Kernel-level Library
+
+Manages kernel-level threads. OS manages threads directly.
+
+Examples: pthreads, windows threads, java threads.
